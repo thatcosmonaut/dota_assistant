@@ -20,10 +20,11 @@ class Hero < ActiveRecord::Base
   has_many :key_items
   has_many :abilities
 
-  validates :name, :strength, :agility, :intelligence, :strength_increase, :agility_increase, :intelligence_increase, :armor, :movement_speed, :main_attribute, presence: true
+  validates :name, :attack_type, :strength, :agility, :intelligence, :strength_increase, :agility_increase, :intelligence_increase, :armor, :movement_speed, :main_attribute, presence: true
 
   def add_role role_name, value
     if VALID_ROLES.include? role_name
+      role_name = role_name.to_s
       role = Role.find_by_name(role_name)
       heroes_roles << HeroesRole.create(role_id: role.id, hero_id: id, value: value)
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609205030) do
+ActiveRecord::Schema.define(:version => 20130610030415) do
 
   create_table "heroes", :force => true do |t|
     t.integer "strength"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130609205030) do
     t.float   "intelligence_increase"
     t.string  "main_attribute"
     t.string  "name"
+    t.string  "attack_type"
   end
 
   create_table "heroes_roles", :force => true do |t|
