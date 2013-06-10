@@ -28,4 +28,17 @@ class Hero < ActiveRecord::Base
       heroes_roles << HeroesRole.create(role_id: role.id, hero_id: id, value: value)
     end
   end
+
+  def value_of_role role_name
+    if join = join_for_role(role_name)
+      return join.value
+    else
+      return 0
+    end
+  end
+
+  def join_for_role role_name
+    role_name = role_name.to_s
+    heroes_roles.detect { |hr| hr.role.name == role_name } 
+  end
 end
