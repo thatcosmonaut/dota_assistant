@@ -13,7 +13,8 @@ namespace :db do
                                               intelligence_increase: 1.8,
                                               armor: 2.68,
                                               movement_speed: 300,
-                                              main_attribute: :strength)
+                                              main_attribute: :strength,
+                                              viable_solo: 0)
 
       earthshaker.add_role(:initiator, 2)
       earthshaker.add_role(:disabler, 1)
@@ -30,7 +31,8 @@ namespace :db do
                                        intelligence_increase: 1.3,
                                        armor: 1.94,
                                        movement_speed: 295,
-                                       main_attribute: :strength)
+                                       main_attribute: :strength,
+                                       viable_solo: 0)
 
       sven.add_role(:disabler, 2)
       sven.add_role(:initiator, 2)
@@ -47,7 +49,8 @@ namespace :db do
                                        intelligence_increase: 1.6,
                                        armor: 0.26,
                                        movement_speed: 285,
-                                       main_attribute: :strength)
+                                       main_attribute: :strength,
+                                       viable_solo: 1)
 
       tiny.add_role(:disabler, 1)
       tiny.add_role(:nuker, 2)
@@ -64,7 +67,8 @@ namespace :db do
                                          intelligence_increase: 1.5,
                                          armor: 1.96,
                                          movement_speed: 300,
-                                         main_attribute: :strength)
+                                         main_attribute: :strength,
+                                         viable_solo: 2)
 
       kunkka.add_role(:disabler, 2)
       kunkka.add_role(:initiator, 1)
@@ -82,7 +86,8 @@ namespace :db do
                                             intelligence_increase: 1.8,
                                             armor: 2.08,
                                             movement_speed: 315,
-                                            main_attribute: :agility)
+                                            main_attribute: :agility,
+                                            viable_solo: 0)
 
       anti_mage.add_role(:carry, 3)
       anti_mage.add_role(:escape, 2)
@@ -97,7 +102,8 @@ namespace :db do
                                               intelligence_increase: 1.4,
                                               armor: 0.64,
                                               movement_speed: 300,
-                                              main_attribute: :agility)
+                                              main_attribute: :agility,
+                                              viable_solo: 3)
 
       drow_ranger.add_role(:carry, 3)
 
@@ -111,7 +117,8 @@ namespace :db do
                                              intelligence_increase: 1.4,
                                              armor: 3.8,
                                              movement_speed: 305,
-                                             main_attribute: :agility)
+                                             main_attribute: :agility,
+                                             viable_solo: 1)
 
       juggernaut.add_role(:carry, 3)
       juggernaut.add_role(:pusher, 2)
@@ -126,7 +133,8 @@ namespace :db do
                                          intelligence_increase: 1.65,
                                          armor: 1.8,
                                          movement_speed: 300,
-                                         main_attribute: :agility)
+                                         main_attribute: :agility,
+                                         viable_solo: 2)
       
       mirana.add_role(:carry, 2)
       mirana.add_role(:nuker, 2)
@@ -144,7 +152,8 @@ namespace :db do
                                                  intelligence_increase: 2.9,
                                                  armor: 1.24,
                                                  movement_speed: 280,
-                                                 main_attribute: :intelligence)
+                                                 main_attribute: :intelligence, 
+                                                 viable_solo: 0)
 
       crystal_maiden.add_role(:support, 2)
       crystal_maiden.add_role(:lane_support, 3)
@@ -161,7 +170,8 @@ namespace :db do
                                        intelligence_increase: 2.4,
                                        armor: 2.08,
                                        movement_speed: 295,
-                                       main_attribute: :intelligence)
+                                       main_attribute: :intelligence,
+                                       viable_solo: 2)
 
       puck.add_role(:initiator, 2)
       puck.add_role(:nuker, 1)
@@ -178,7 +188,8 @@ namespace :db do
                                                intelligence_increase: 2.6,
                                                armor: 5.08,
                                                movement_speed: 295,
-                                               main_attribute: :intelligence)
+                                               main_attribute: :intelligence,
+                                               viable_solo: 2)
 
       storm_spirit.add_role(:carry, 2)
       storm_spirit.add_role(:initiator, 1)
@@ -195,7 +206,8 @@ namespace :db do
                                              intelligence_increase: 2.6,
                                              armor: 1.38,
                                              movement_speed: 295,
-                                             main_attribute: :intelligence)
+                                             main_attribute: :intelligence,
+                                             viable_solo: 0)
 
       windrunner.add_role(:disabler, 2)
       windrunner.add_role(:nuker, 1)
@@ -213,7 +225,8 @@ namespace :db do
                                       intelligence_increase: 1.6,
                                       armor: 1.8,
                                       movement_speed: 290,
-                                      main_attribute: :strength)
+                                      main_attribute: :strength,
+                                      viable_solo: 0)
       
       axe.add_role(:durable, 2)
       axe.add_role(:initiator, 2)
@@ -230,7 +243,8 @@ namespace :db do
                                         intelligence_increase: 1.5,
                                         armor: 0.96,
                                         movement_speed: 285,
-                                        main_attribute: :strength)
+                                        main_attribute: :strength,
+                                        viable_solo: 3)
 
       pudge.add_role(:durable, 3)
       pudge.add_role(:disabler, 2)
@@ -245,7 +259,8 @@ namespace :db do
                                             intelligence_increase: 1.8,
                                             armor: 2.66,
                                             movement_speed: 300,
-                                            main_attribute: :strength)
+                                            main_attribute: :strength,
+                                            viable_solo: 0)
 
       sand_king.add_role(:initiator, 3)
       sand_king.add_role(:disabler, 2)
@@ -261,7 +276,8 @@ namespace :db do
                                           intelligence_increase: 1.5,
                                           armor: 5.38,
                                           movement_speed: 300,
-                                          main_attribute: :strength)
+                                          main_attribute: :strength,
+                                          viable_solo: 0)
 
       slardar.add_role(:carry, 2)
       slardar.add_role(:durable, 2)
@@ -279,7 +295,8 @@ namespace :db do
                                               intelligence_increase: 1.7,
                                               armor: 3.36,
                                               movement_speed: 305,
-                                              main_attribute: :agility)
+                                              main_attribute: :agility,
+                                              viable_solo: 0)
 
       bloodseeker.add_role(:carry, 3)
       bloodseeker.add_role(:jungler, 2)
@@ -294,7 +311,8 @@ namespace :db do
                                                intelligence_increase: 2,
                                                armor: 1.8,
                                                movement_speed: 305,
-                                               main_attribute: :agility)
+                                               main_attribute: :agility,
+                                               viable_solo: 3)
 
       shadow_fiend.add_role(:carry, 3)
       shadow_fiend.add_role(:nuker, 3)
@@ -309,7 +327,8 @@ namespace :db do
                                         intelligence_increase: 1.8,
                                         armor: 2.08,
                                         movement_speed: 295,
-                                        main_attribute: :agility)
+                                        main_attribute: :agility,
+                                        viable_solo: 0)
 
       razor.add_role(:carry, 2)
       razor.add_role(:durable, 2)
@@ -325,7 +344,8 @@ namespace :db do
                                              intelligence_increase: 1.75,
                                              armor: 3.08,
                                              movement_speed: 290,
-                                             main_attribute: :agility)
+                                             main_attribute: :agility,
+                                             viable_solo: 0)
 
       venomancer.add_role(:support, 3)
       venomancer.add_role(:nuker, 1)
@@ -343,7 +363,8 @@ namespace :db do
                                        intelligence_increase: 2.1,
                                        armor: 4.08,
                                        movement_speed: 315,
-                                       main_attribute: :intelligence)
+                                       main_attribute: :intelligence,
+                                       viable_solo: 3)
 
       bane.add_role(:disabler, 3)
       bane.add_role(:nuker, 2)
@@ -359,7 +380,8 @@ namespace :db do
                                        intelligence_increase: 3.25,
                                        armor: 1.1,
                                        movement_speed: 315,
-                                       main_attribute: :intelligence)
+                                       main_attribute: :intelligence,
+                                       viable_solo: 0)
 
       lich.add_role(:support, 2)
       lich.add_role(:lane_support, 3)
@@ -375,7 +397,8 @@ namespace :db do
                                        intelligence_increase: 3,
                                        armor: 1.1,
                                        movement_speed: 290,
-                                       main_attribute: :intelligence)
+                                       main_attribute: :intelligence,
+                                       viable_solo: 1)
 
       lion.add_role(:disabler, 3)
       lion.add_role(:nuker, 3)
@@ -392,7 +415,8 @@ namespace :db do
                                                intelligence_increase: 2.9,
                                                armor: 0.82,
                                                movement_speed: 305,
-                                               main_attribute: :intelligence)
+                                               main_attribute: :intelligence,
+                                               viable_solo: 2)
 
       witch_doctor.add_role(:support, 3)
       witch_doctor.add_role(:disabler, 2)
@@ -407,7 +431,8 @@ namespace :db do
                                                     intelligence_increase: 26,
                                                     armor: 5.36,
                                                     movement_speed: 315,
-                                                    main_attribute: :intelligence)
+                                                    main_attribute: :intelligence,
+                                                    viable_solo: 3)
 
       outworld_devourer.add_role(:carry, 3)
 
