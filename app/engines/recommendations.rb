@@ -2,12 +2,11 @@ class Recommendations
 
   #given list of heroes
   #returns top three picks for team
-  def self.best_pick list_of_heroes
-    original_list = list_of_heroes 
-    remaining_heroes = Hero.all.select{ |hero| !original_list.include?(hero) }
+  def self.best_pick friendly_heroes, enemy_heroes
+    remaining_heroes = Hero.all.select{ |hero| !friendly_heroes.include?(hero) && !enemy_heroes.include?(hero) }
     scores = []
     remaining_heroes.each do |hero|
-      scores << [hero.name, score(list_of_heroes + [hero])]
+      scores << [hero.name, score(friendly_heroes + [hero], enemy_heroes)]
     end
 
     scores = scores.sort_by { |a, b| b }.reverse
@@ -16,7 +15,7 @@ class Recommendations
 
   #given list of heroes
   #returns score value of team
-  def self.score list_of_heroes
+  def self.score friendly_heroes, enemy_heroes
     role_values = {
       :lane_support => 0,
       :carry => 0,
@@ -33,7 +32,7 @@ class Recommendations
       :support => 0
     }
 
-    list_of_heroes.each do |hero|
+    friendly_heroes.each do |hero|
       hero.roles.each do |role|
         role_values[role.name.to_sym] += hero.value_of_role(role.name)
       end
@@ -47,7 +46,7 @@ class Recommendations
     carry_bonus = 30 if role_values[:carry] > 0
     carry_bonus = carry_bonus - (role_values[:carry] * 5) if role_values[:carry] > 5
 
-    not_all_melee_bonus = not_all_melee(list_of_heroes)
+    not_all_melee_bonus = not_all_melee(friendly_heroes)
 
     disabler_bonus = role_values[:disabler] > 0
     initiator_bonus = role_values[:initiator] > 0
@@ -55,7 +54,7 @@ class Recommendations
     tank_bonus = role_values[:durable] > 0
 
     solo_value = 0
-    list_of_heroes.each do |hero|
+    friendly_heroes.each do |hero|
       solo_value += hero.viable_solo
     end
 

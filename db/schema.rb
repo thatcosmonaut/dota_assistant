@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611033840) do
+ActiveRecord::Schema.define(:version => 20130611204618) do
+
+  create_table "counters", :force => true do |t|
+    t.integer "weak_id"
+    t.integer "strong_id"
+  end
 
   create_table "heroes", :force => true do |t|
     t.integer "strength"

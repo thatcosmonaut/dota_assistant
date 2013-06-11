@@ -6,10 +6,16 @@ class PicksController < ApplicationController
   end
   
   def recommendation
-    @list_of_heroes = []
-    params[:heroes].each do |id|
-      @list_of_heroes << Hero.find(id)
+    @friendlies = []
+    params[:friendlies].each do |id|
+      @friendlies << Hero.find(id)
     end
-    @recommendation = Recommendations.best_pick @list_of_heroes
+
+    @enemies = []
+    params[:enemies].each do |id|
+      @enemies << Hero.find(id)
+    end
+
+    @recommendation = Recommendations.best_pick @friendlies, @enemies
   end
 end

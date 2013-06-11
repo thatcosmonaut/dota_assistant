@@ -1,6 +1,13 @@
 %b On Your Team:
 %br
-- @list_of_heroes.each do |hero|
+- @friendlies.each do |hero|
+  = hero.name
+  %br
+%br
+
+%b On the Enemy Team:
+%br
+- @enemies.each do |hero|
   = hero.name
   %br
 %br
