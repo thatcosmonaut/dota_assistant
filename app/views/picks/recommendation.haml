@@ -1,0 +1,12 @@
+%b On Your Team:
+%br
+- @list_of_heroes.each do |hero|
+  = hero.name
+  %br
+%br
+
+%b Recommended Picks:
+%br 
+- @recommendation.each do |hero_score|
+  = hero_score.first
+  %br

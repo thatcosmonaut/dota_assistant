@@ -7,3 +7,5 @@ ruby '2.0.0'
 gem 'sqlite3'
 
 gem 'factory_girl_rails'
+gem 'haml'
+gem 'jquery-rails'

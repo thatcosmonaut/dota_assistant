@@ -1,0 +1,7 @@
+= form_tag pick_assistant_path, method: :post do |f|
+  - @heroes.each do |hero|
+    = label_tag "hero", hero.name
+    = check_box_tag "heroes[]", hero.id
+    %br
+
+  = submit_tag "Submit picks"

@@ -43,8 +43,9 @@ class Recommendations
     
     support_bonus = (role_values[:support] + role_values[:lane_support]) > 4
 
-    carry_bonus = 20
-    carry_bonus = carry_bonus - (role_values[:carry] * 4) if role_values[:carry] > 5
+    carry_bonus = 0
+    carry_bonus = 30 if role_values[:carry] > 0
+    carry_bonus = carry_bonus - (role_values[:carry] * 5) if role_values[:carry] > 5
 
     not_all_melee_bonus = not_all_melee(list_of_heroes)
 
