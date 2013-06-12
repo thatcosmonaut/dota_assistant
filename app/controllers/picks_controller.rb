@@ -7,12 +7,12 @@ class PicksController < ApplicationController
   
   def recommendation
     @friendlies = []
-    params[:friendlies].each do |id|
+    params[:friendlies].try(:each) do |id|
       @friendlies << Hero.find(id)
     end
 
     @enemies = []
-    params[:enemies].each do |id|
+    params[:enemies].try(:each) do |id|
       @enemies << Hero.find(id)
     end
 
