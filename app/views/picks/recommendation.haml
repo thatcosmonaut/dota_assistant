@@ -1,19 +1,18 @@
-%b On Your Team:
-%br
+%h1 On Your Team:
 - @friendlies.each do |hero|
-  = hero.name
-  %br
-%br
+  .left
+    .hero{class: hero.name.parameterize}
+    = hero.name 
 
-%b On the Enemy Team:
-%br
+%h1 On the Enemy Team:
 - @enemies.each do |hero|
-  = hero.name
-  %br
-%br
+  .left
+    .hero{class: hero.name.parameterize}
+    = hero.name
 
-%b Recommended Picks:
-%br 
+%h1 Recommended Picks:
 - @recommendation.each do |hero_score|
-  = hero_score.first
-  %br
+  .left
+    .hero{class: hero_score.first.name.parameterize}
+    = hero_score.first.name
+    = hero_score.second

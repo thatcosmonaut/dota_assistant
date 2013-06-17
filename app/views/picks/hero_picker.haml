@@ -2,14 +2,20 @@
   %b Friendly Heroes: 
   %br
   - @heroes.each do |hero|
-    = label_tag "hero", hero.name
-    = check_box_tag "friendlies[]", hero.id
-    %br
+    .left
+      = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
+      = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+      = label_tag "hero-#{hero.id}", hero.name
+      
+  .new-line
+
   %b Enemy Heroes:
   %br
   - @heroes.each do |hero|
-    = label_tag "hero", hero.name
-    = check_box_tag "enemies[]", hero.id
-    %br
+    .left
+      = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
+      = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+      = label_tag "enemy-#{hero.id}", hero.name
+  .new-line
 
   = submit_tag "Submit picks"
