@@ -49,7 +49,16 @@ class Hero < ActiveRecord::Base
     heroes_roles.detect { |hr| hr.role.name == role_name } 
   end
 
+  def weak_against?(hero)
+    weak_against.include?(hero)
+  end
+
+  def strong_against?(hero)
+    strong_against.include?(hero)
+  end
+
   def add_weak_against hero
+    return unless !weak_against?(hero)
     counter = Counter.new
     counter.weak_id = id
     counter.strong_id = hero.id
@@ -57,6 +66,7 @@ class Hero < ActiveRecord::Base
   end
 
   def add_strong_against hero
+    return unless !strong_against?(hero)
     counter = Counter.new
     counter.weak_id = hero.id
     counter.strong_id = id

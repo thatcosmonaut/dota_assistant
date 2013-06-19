@@ -1,21 +1,29 @@
 = form_tag pick_assistant_path, method: :post do |f|
   %b Friendly Heroes: 
   %br
+  - i = 0
   - @heroes.each do |hero|
+    - if i == 18 || i == 35 || i == 53 || i == 67 || i == 86
+      .new-line
     .left
       = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
       = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
       = label_tag "hero-#{hero.id}", hero.name
+    - i += 1
       
   .new-line
 
   %b Enemy Heroes:
   %br
+  - i = 0
   - @heroes.each do |hero|
+    - if i == 18 || i == 35 || i == 53 || i == 67 || i == 86
+      .new-line
     .left
       = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
       = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
       = label_tag "enemy-#{hero.id}", hero.name
+    - i += 1
   .new-line
 
   = submit_tag "Submit picks"

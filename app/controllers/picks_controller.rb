@@ -16,6 +16,8 @@ class PicksController < ApplicationController
       @enemies << Hero.find(id)
     end
 
-    @recommendation = Recommendations.best_pick @friendlies, @enemies
+    result = Recommendations.best_pick @friendlies, @enemies
+    @recommendation = result.first
+    @worst = result.last
   end
 end

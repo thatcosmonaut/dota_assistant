@@ -1,7 +1,7 @@
 class Recommendations
-
+  
   #given list of heroes
-  #returns top three picks for team
+  #returns top three picks for team and worst three picks
   def self.best_pick friendly_heroes, enemy_heroes
     remaining_heroes = Hero.all.select{ |hero| !friendly_heroes.include?(hero) && !enemy_heroes.include?(hero) }
     scores = []
@@ -10,8 +10,10 @@ class Recommendations
     end
 
     scores = scores.sort_by { |a, b| b }.reverse
-    scores[0,3]
+    [scores[0,3], scores[remaining_heroes.size-3, remaining_heroes.size]]
   end
+
+  # TO DO: break up into individual methods
 
   #given list of heroes
   #returns score value of team
@@ -65,14 +67,21 @@ class Recommendations
     counter_bonus = 0
     friendly_heroes.each do |hero|
       enemy_heroes.each do |enemy|
-        counter_bonus += 5 if hero.strong_against.include?(enemy)
+        counter_bonus += 3 if hero.strong_against.include?(enemy)
+      end
+    end
+
+    enemy_counter_penalty = 0
+    friendly_heroes.each do |hero|
+      enemy_heroes.each do |enemy|
+        enemy_counter_penalty -= 3 if hero.weak_against.include?(enemy)
       end
     end
 
     score = (roles_filled * 2) + ((support_bonus ? 1 : 0) * 10) \
       + carry_bonus + ((not_all_melee_bonus ? 1 : 0) * 5) \
       + ((disabler_bonus ? 1 : 0) * 5) + ((initiator_bonus ? 1 : 0) * 5) \
-      + ((tank_bonus ? 1 : 0) * 5) + ((mid_bonus ? 1 : 0) * 10 ) + counter_bonus
+      + ((tank_bonus ? 1 : 0) * 5) + ((mid_bonus ? 1 : 0) * 10 ) + counter_bonus + enemy_counter_penalty
   end
 
   def self.not_all_melee list_of_heroes

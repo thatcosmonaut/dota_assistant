@@ -16,3 +16,10 @@
     .hero{class: hero_score.first.name.parameterize}
     = hero_score.first.name
     = hero_score.second
+
+%h1 Worst Picks:
+- @worst.each do |hero_score|
+  .left
+    .hero{class: hero_score.first.name.parameterize}
+    = hero_score.first.name
+    = hero_score.second
