@@ -1,4 +1,8 @@
 namespace :db do
+    
+  desc 'Adds all hero related data to the database'
+  task 'populate' => ['seed:roles', 'seed:heroes']
+
   namespace :seed do
     desc 'Adds heroes to the database'
     task 'heroes' => 'environment' do
