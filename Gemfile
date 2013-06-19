@@ -11,3 +11,7 @@ gem 'factory_girl_rails'
 gem 'haml'
 gem 'jquery-rails'
 gem 'sass-rails'
+
+group :assets do
+  gem 'uglifier'
+end
