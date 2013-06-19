@@ -19,10 +19,14 @@ class Hero < ActiveRecord::Base
   has_many :roles, through: :heroes_roles
   has_many :key_items
   has_many :abilities
-  has_many :weak_counters, foreign_key: :weak_id
-  has_many :strong_counters, foreign_key: :strong_id
+  has_many :counters_as_weak, foreign_key: :weak_id, class_name: Counter
+  has_many :counters_as_strong, foreign_key: :strong_id, class_name: Counter
 
-  validates :name, :viable_solo, :attack_type, :strength, :agility, :intelligence, :strength_increase, :agility_increase, :intelligence_increase, :armor, :movement_speed, :main_attribute, presence: true
+  #counter associations
+  has_many :weak_against, through: :counters_as_weak, source: :strong
+  has_many :strong_against, through: :counters_as_strong, source: :weak
+
+  validates :name, :viable_solo, :attack_type, :main_attribute, presence: true
 
   def add_role role_name, value
     if VALID_ROLES.include? role_name
@@ -45,10 +49,27 @@ class Hero < ActiveRecord::Base
     heroes_roles.detect { |hr| hr.role.name == role_name } 
   end
 
-  def add_weak_counter hero
+  def weak_against?(hero)
+    weak_against.include?(hero)
+  end
+
+  def strong_against?(hero)
+    strong_against.include?(hero)
+  end
+
+  def add_weak_against hero
+    return unless !weak_against?(hero)
     counter = Counter.new
     counter.weak_id = id
     counter.strong_id = hero.id
+    counter.save
+  end
+
+  def add_strong_against hero
+    return unless !strong_against?(hero)
+    counter = Counter.new
+    counter.weak_id = hero.id
+    counter.strong_id = id
     counter.save
   end
 
