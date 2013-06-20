@@ -10,7 +10,7 @@ class Recommendations
     end
 
     scores = scores.sort_by { |a, b| b }.reverse
-    [scores[0,3], scores[remaining_heroes.size-3, remaining_heroes.size]]
+    [scores[0,5], scores[remaining_heroes.size-5, remaining_heroes.size]]
   end
 
   # TO DO: break up into individual methods
