@@ -1,10 +1,32 @@
 = form_tag pick_assistant_path, method: :post do |f|
-  %b Friendly Heroes: 
-  %br
+  .hero_header Friendly Heroes
+  .new-line
   - i = 0
   - @heroes.each do |hero|
-    - if i == 18 || i == 35 || i == 53 || i == 67 || i == 86
+    - if hero.name == "Earthshaker"
       .new-line
+      .hero_group_header Radiant Strength
+
+    - elsif hero.name == "Anti-Mage" 
+      .new-line
+      .hero_group_header Radiant Agility
+
+    - elsif hero.name == "Crystal Maiden"
+      .new-line
+      .hero_group_header Radiant Intelligence
+
+    - elsif hero.name == "Axe"
+      .new-line
+      .hero_group_header Dire Strength
+
+    - elsif hero.name == "Bloodseeker"
+      .new-line
+      .hero_group_header Dire Agility
+
+    - elsif hero.name == "Bane"
+      .new-line
+      .hero_group_header Dire Intelligence
+
     .left
       = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
       = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
@@ -13,12 +35,35 @@
       
   .new-line
 
-  %b Enemy Heroes:
-  %br
+  .hero_header 
+    Enemy Heroes
+  .new-line
   - i = 0
   - @heroes.each do |hero|
-    - if i == 18 || i == 35 || i == 53 || i == 67 || i == 86
+    - if hero.name == "Earthshaker"
       .new-line
+      .hero_group_header Radiant Strength
+
+    - elsif hero.name == "Anti-Mage" 
+      .new-line
+      .hero_group_header Radiant Agility
+
+    - elsif hero.name == "Crystal Maiden"
+      .new-line
+      .hero_group_header Radiant Intelligence
+
+    - elsif hero.name == "Axe"
+      .new-line
+      .hero_group_header Dire Strength
+
+    - elsif hero.name == "Bloodseeker"
+      .new-line
+      .hero_group_header Dire Agility
+
+    - elsif hero.name == "Bane"
+      .new-line
+      .hero_group_header Dire Intelligence
+
     .left
       = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
       = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
@@ -26,4 +71,5 @@
     - i += 1
   .new-line
 
-  = submit_tag "Submit picks"
+  .submit_wrapper
+    = submit_tag "Submit picks", class: "submit"

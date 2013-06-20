@@ -5,23 +5,50 @@ h1
   clear: left
   font-size: 18px
 
+.center
+  width: 800px
+  margin: 0 auto
+
 .left
   float: left
-  margin: 10px
+  margin: 3px
 
   label
     display: block
     text-align: center
     font-weight: 200
+    font-size: 9px
+
+.hero_name
+  display: block
+  text-align: center
+  font-weight: 200
+  font-size: 16px
 
 .new-line
   clear: both
 
 .hero
   background: image-url("heroes_big.jpg")
+  width: 63px
+  height: 35px
+  // width: 127px
+  // height: 71px
+  border: 3px solid #000
+
+.hero_big
+  background: image-url("heroes_big.jpg")
   width: 127px
   height: 71px
   border: 3px solid #000
+
+.hero_header
+  text-align: center
+  font-size: 26px
+  font-weight: 200
+
+.hero_group_header
+  font-size: 14px
 
 label.hero
   opacity: 0.5
@@ -33,6 +60,39 @@ input[type="checkbox"]
     border-color: #33f
     box-shadow: inset 0 0 8px 2px rgba(100,100,240,.8)
     opacity: 1
+
+.submit_wrapper
+  width: 135px
+  margin: auto
+
+.submit
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff
+  box-shadow: inset 0px 1px 0px 0px #ffffff
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0991eb), color-stop(1, #8787f0))
+  background: -moz-linear-gradient(center top, #0991eb 5%, #8787f0 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0991eb', endColorstr='#8787f0')
+  background-color: #0991eb
+  -moz-border-radius: 6px
+  -webkit-border-radius: 6px
+  border-radius: 6px
+  border: 1px solid #ff21ff
+  display: inline-block
+  color: #ffffff
+  font-family: arial
+  font-size: 15px
+  font-weight: bold
+  padding: 6px 21px
+  text-decoration: none
+  text-shadow: 1px 1px 0px #000000
+  &:hover
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #8787f0), color-stop(1, #0991eb))
+    background: -moz-linear-gradient(center top, #8787f0 5%, #0991eb 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8787f0', endColorstr='#0991eb')
+    background-color: #8787f0
+  &:active
+    position: relative
+    top: 1px
 
 
 .ancient-apparition
