@@ -1,94 +1,147 @@
+#need some kind of teamfight metric
 class Recommendations
-  
   #given list of heroes
   #returns top three picks for team and worst three picks
-  def self.best_pick friendly_heroes, enemy_heroes
-    remaining_heroes = Hero.all.select{ |hero| !friendly_heroes.include?(hero) && !enemy_heroes.include?(hero) }
-    scores = []
-    remaining_heroes.each do |hero|
-      scores << [hero, score(friendly_heroes + [hero], enemy_heroes)]
-    end
 
-    scores = scores.sort_by { |a, b| b }.reverse
-    [scores[0,5], scores[remaining_heroes.size-5, remaining_heroes.size]]
-  end
-
-  # TO DO: break up into individual methods
-
-  #given list of heroes
-  #returns score value of team
-  def self.score friendly_heroes, enemy_heroes
-    role_values = {
-      :lane_support => 0,
-      :carry => 0,
-      :disabler => 0,
-      :ganker => 0,
-      :nuker => 0,
-      :initiator => 0,
-      :jungler => 0,
-      :pusher => 0,
-      :roamer => 0,
-      :durable => 0,
-      :escape => 0,
-      :semi_carry => 0,
-      :support => 0
-    }
-
-    friendly_heroes.each do |hero|
-      hero.roles.each do |role|
-        role_values[role.name.to_sym] += hero.value_of_role(role.name)
+  class << self
+    def best_pick friendly_heroes, enemy_heroes
+      remaining_heroes = Hero.all.select{ |hero| !friendly_heroes.include?(hero) && !enemy_heroes.include?(hero) }
+      scores = []
+      remaining_heroes.each do |hero|
+        scores << [hero, score(friendly_heroes + [hero], enemy_heroes)]
       end
+
+      scores = scores.sort_by { |a, b| b }.reverse
+      [scores[0,5], scores[remaining_heroes.size-5, remaining_heroes.size]]
     end
 
-    #this score should track highest value of each role that is filled and add them together
-    #i.e. if you have a hero that is ganker lvl 1 and disabler lvl 3 and a hero that is ganker lvl 3 and disabler lvl 1, you will get 3 + 3
-    roles_filled = role_values.select { |role_name, value| value > 0 }.count
-    
-    support_bonus = (role_values[:support] + role_values[:lane_support]) > 4
-
-    carry_bonus = 0
-    carry_bonus = 30 if role_values[:carry] > 0
-    carry_bonus = carry_bonus - (role_values[:carry] * 5) if role_values[:carry] > 5
-
-    not_all_melee_bonus = not_all_melee(friendly_heroes)
-
-    disabler_bonus = role_values[:disabler] > 0
-    initiator_bonus = role_values[:initiator] > 0
-
-    tank_bonus = role_values[:durable] > 0
-
-    solo_value = 0
-    friendly_heroes.each do |hero|
-      solo_value += hero.viable_solo
+    #given list of heroes
+    #returns score value of team
+    def score friendly_heroes, enemy_heroes
+      role_values = calculate_role_values(friendly_heroes)
+      calculate_score(friendly_heroes, enemy_heroes, role_values)
     end
 
-    mid_bonus = solo_value > 1
+    def calculate_role_values friendly_heroes
+      role_values = {
+        :lane_support => 0,
+        :carry => 0,
+        :disabler => 0,
+        :ganker => 0,
+        :nuker => 0,
+        :initiator => 0,
+        :jungler => 0,
+        :pusher => 0,
+        :roamer => 0,
+        :durable => 0,
+        :escape => 0,
+        :semi_carry => 0,
+        :support => 0
+      }
 
-    counter_bonus = 0
-    friendly_heroes.each do |hero|
-      enemy_heroes.each do |enemy|
-        counter_bonus += 3 if hero.strong_against.include?(enemy)
+      friendly_heroes.each do |hero|
+        hero.roles.each do |role|
+          role_values[role.name.to_sym] += hero.value_of_role(role.name)
+        end
       end
+
+      role_values
     end
 
-    enemy_counter_penalty = 0
-    friendly_heroes.each do |hero|
-      enemy_heroes.each do |enemy|
-        enemy_counter_penalty -= 3 if hero.weak_against.include?(enemy)
+    def calculate_score friendly_heroes, enemy_heroes, role_values
+      roles_filled_score(role_values) + support_bonus(role_values[:support], role_values[:lane_support]) \
+        + carry_bonus(role_values[:carry]) + melee_and_ranged_bonus(friendly_heroes) \
+        + disabler_bonus(role_values[:disabler]) + initiator_bonus(role_values[:initiator]) \
+        + durable_bonus(role_values[:durable]) + mid_bonus(friendly_heroes) + friendly_counter_bonus(friendly_heroes, enemy_heroes) \
+        + enemy_counter_penalty(friendly_heroes, enemy_heroes)
+    end
+
+    def roles_filled_score role_values
+      role_values.select { |role_name, value| value > 0 }.count * 2
+    end
+
+    def melee_and_ranged_bonus friendly_heroes
+      ranged_count = friendly_heroes.map(&:attack_type).count{ |type| type == "ranged" }
+      ranged_count > 1 ? 5 : 0
+    end
+
+    def support_bonus support_value, lane_support_value
+      (support_value + lane_support_value) > 4 ? 10 : 0
+    end
+
+    def carry_bonus carry_value
+      carry_bonus = 0
+      carry_bonus = 30 if carry_value > 0
+      carry_bonus -= (carry_value * 5) if carry_value > 5
+      carry_bonus
+    end
+
+    #should maybe compare disabler values of two teams: having more stun is important
+    def disabler_bonus disabler_value
+      disabler_value > 0 ? 5 : 0
+    end
+
+    def initiator_bonus initiator_value
+      initiator_value > 0 ? 5 : 0
+    end
+
+    def durable_bonus durable_value
+      durable_value > 0 ? 5 : 0
+    end
+
+    def mid_bonus friendly_heroes
+      friendly_heroes.map(&:viable_solo).inject(:+)
+    end
+
+    def friendly_counter_bonus friendly_heroes, enemy_heroes
+      counter_bonus = 0
+      friendly_heroes.each do |hero|
+        enemy_heroes.each do |enemy|
+          counter_bonus += 3 if hero.strong_against?(enemy)
+        end
       end
+      counter_bonus
     end
 
-    score = (roles_filled * 2) + ((support_bonus ? 1 : 0) * 10) \
-      + carry_bonus + ((not_all_melee_bonus ? 1 : 0) * 5) \
-      + ((disabler_bonus ? 1 : 0) * 5) + ((initiator_bonus ? 1 : 0) * 5) \
-      + ((tank_bonus ? 1 : 0) * 5) + ((mid_bonus ? 1 : 0) * 10 ) + counter_bonus + enemy_counter_penalty
-  end
-
-  def self.not_all_melee list_of_heroes
-    not_all_melee = false
-    list_of_heroes.each do |hero|
-      not_all_melee = true if hero.attack_type == "ranged"
+    def enemy_counter_penalty friendly_heroes, enemy_heroes
+      counter_penalty = 0
+      friendly_heroes.each do |hero|
+        enemy_heroes.each do |enemy|
+          counter_penalty -= 3 if hero.weak_against?(enemy)
+        end
+      end
+      counter_penalty
     end
-    not_all_melee
+
+    def role_score hero_list
+      max_values = {
+        :lane_support => 0,
+        :carry => 0,
+        :disabler => 0,
+        :ganker => 0,
+        :nuker => 0,
+        :initiator => 0,
+        :jungler => 0,
+        :pusher => 0,
+        :roamer => 0,
+        :durable => 0,
+        :escape => 0,
+        :semi_carry => 0,
+        :support => 0
+      }
+
+      puts max_values.inspect
+
+      hero_list.each do |hero|
+        puts hero.inspect
+        hero.roles.each do |role|
+          puts role.name.inspect
+          value = hero.value_of_role(role)
+          max_values[role.name] = value if max_values[role.name] < value
+        end
+      end
+
+      max_values.values.inject(&:+)
+    end
   end
 end

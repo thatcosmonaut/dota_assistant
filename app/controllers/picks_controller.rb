@@ -4,7 +4,7 @@ class PicksController < ApplicationController
   def hero_picker
     @heroes = Hero.all
   end
-  
+
   def recommendation
     @friendlies = []
     params[:friendlies].try(:each) do |id|
