@@ -24,3 +24,7 @@ group :test, :development do
   gem 'json_spec'
   gem 'rspec-rails'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
