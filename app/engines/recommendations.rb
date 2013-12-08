@@ -52,8 +52,7 @@ class Recommendations
       roles_filled_score(role_values) + support_bonus(role_values[:support], role_values[:lane_support]) \
         + carry_bonus(role_values[:carry]) + melee_and_ranged_bonus(friendly_heroes) \
         + disabler_bonus(role_values[:disabler]) + initiator_bonus(role_values[:initiator]) \
-        + durable_bonus(role_values[:durable]) + mid_bonus(friendly_heroes) + friendly_counter_bonus(friendly_heroes, enemy_heroes) \
-        + enemy_counter_penalty(friendly_heroes, enemy_heroes)
+        + durable_bonus(role_values[:durable]) + mid_bonus(friendly_heroes) + counter_value(friendly_heroes, enemy_heroes)
     end
 
     def roles_filled_score role_values
@@ -94,55 +93,16 @@ class Recommendations
       (0 < solo_hero_count && solo_hero_count < 5) ? 5 : 0
     end
 
-    def friendly_counter_bonus friendly_heroes, enemy_heroes
+    def counter_value friendly_heroes, enemy_heroes
       counter_bonus = 0
       friendly_heroes.each do |hero|
         enemy_heroes.each do |enemy|
           counter_bonus += 3 if hero.strong_against?(enemy)
+          counter_bonus -= 3 if hero.weak_against?(enemy)
         end
       end
       counter_bonus
     end
 
-    def enemy_counter_penalty friendly_heroes, enemy_heroes
-      counter_penalty = 0
-      friendly_heroes.each do |hero|
-        enemy_heroes.each do |enemy|
-          counter_penalty -= 3 if hero.weak_against?(enemy)
-        end
-      end
-      counter_penalty
-    end
-
-    def role_score hero_list
-      max_values = {
-        :lane_support => 0,
-        :carry => 0,
-        :disabler => 0,
-        :ganker => 0,
-        :nuker => 0,
-        :initiator => 0,
-        :jungler => 0,
-        :pusher => 0,
-        :roamer => 0,
-        :durable => 0,
-        :escape => 0,
-        :semi_carry => 0,
-        :support => 0
-      }
-
-      puts max_values.inspect
-
-      hero_list.each do |hero|
-        puts hero.inspect
-        hero.roles.each do |role|
-          puts role.name.inspect
-          value = hero.value_of_role(role)
-          max_values[role.name] = value if max_values[role.name] < value
-        end
-      end
-
-      max_values.values.inject(&:+)
-    end
   end
 end

@@ -164,12 +164,8 @@ describe "recommendation engine" do
       expect(Recommendations.mid_bonus(friendly_heroes)).to eql(5)
     end
 
-    it 'calculates friendly counter bonus properly' do
-      expect(Recommendations.friendly_counter_bonus(friendly_heroes, enemy_heroes)).to eql(3)
-    end
-
-    it 'calculates enemy counte penalty properly' do
-      expect(Recommendations.enemy_counter_penalty(friendly_heroes, enemy_heroes)).to eql(-6)
+    it 'calculates counter value properly' do
+      expect(Recommendations.counter_value(friendly_heroes, enemy_heroes)).to eql(-3)
     end
 
     it 'calculates total score properly' do
