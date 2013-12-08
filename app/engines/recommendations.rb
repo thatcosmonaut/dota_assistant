@@ -1,18 +1,25 @@
-#need some kind of teamfight metric
 class Recommendations
-  #given list of heroes
-  #returns top three picks for team and worst three picks
-
   class << self
-    def best_pick friendly_heroes, enemy_heroes
-      remaining_heroes = Hero.all.select{ |hero| !friendly_heroes.include?(hero) && !enemy_heroes.include?(hero) }
+    #given list of heroes
+    #returns top five picks for team and worst five picks
+    def pick_recommendations friendly_heroes, enemy_heroes
+      remaining_heroes = remaining_heroes(friendly_heroes, enemy_heroes)
+
       scores = []
-      remaining_heroes.each do |hero|
+      remaining_heroes(friendly_heroes, enemy_heroes).each do |hero|
         scores << [hero, score(friendly_heroes + [hero], enemy_heroes)]
       end
 
-      scores = scores.sort_by { |a, b| b }.reverse
-      [scores[0,5], scores[remaining_heroes.size-5, remaining_heroes.size]]
+      scores = scores.sort_by { |a, b| b }
+      best_picks = scores[remaining_heroes.size-5..remaining_heroes.size-1].reverse
+      worst_picks = scores[0..4].reverse
+
+      [best_picks, worst_picks]
+    end
+
+    def remaining_heroes friendly_heroes, enemy_heroes
+      hero_list = friendly_heroes + enemy_heroes
+      Hero.where.not(name: hero_list.map(&:name))
     end
 
     #given list of heroes

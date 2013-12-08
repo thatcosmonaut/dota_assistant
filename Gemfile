@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.16'
+gem 'rails', '4.0.1'
 
 ruby '2.0.0'
 
@@ -19,7 +19,6 @@ end
 group :test, :development do
   gem 'capybara'
   gem 'coveralls', require: false
-  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'pry', require: false
   gem 'json_spec'
