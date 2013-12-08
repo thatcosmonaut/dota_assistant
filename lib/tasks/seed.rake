@@ -1,5 +1,4 @@
 namespace :db do
-    
   desc 'Adds all hero related data to the database'
   task 'populate' => ['seed:roles', 'seed:heroes']
 
@@ -115,7 +114,7 @@ namespace :db do
                                          attack_type: :ranged,
                                          main_attribute: :strength,
                                          viable_solo: 3)
-      
+
       huskar.add_role(:carry, 2)
       huskar.add_role(:initiator, 2)
       huskar.add_role(:durable, 2)

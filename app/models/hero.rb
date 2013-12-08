@@ -46,7 +46,7 @@ class Hero < ActiveRecord::Base
 
   def join_for_role role_name
     role_name = role_name.to_s
-    heroes_roles.detect { |hr| hr.role.name == role_name } 
+    heroes_roles.detect { |hr| hr.role.name == role_name }
   end
 
   def weak_against?(hero)

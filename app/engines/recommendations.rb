@@ -61,7 +61,7 @@ class Recommendations
     end
 
     def melee_and_ranged_bonus friendly_heroes
-      ranged_count = friendly_heroes.map(&:attack_type).count{ |type| type == "ranged" }
+      ranged_count = friendly_heroes.map(&:attack_type).count{ |type| type == :ranged }
       ranged_count > 1 ? 5 : 0
     end
 
@@ -90,7 +90,8 @@ class Recommendations
     end
 
     def mid_bonus friendly_heroes
-      friendly_heroes.map(&:viable_solo).inject(:+)
+      solo_hero_count = friendly_heroes.count{ |hero| hero.viable_solo > 0 }
+      (0 < solo_hero_count && solo_hero_count < 5) ? 5 : 0
     end
 
     def friendly_counter_bonus friendly_heroes, enemy_heroes
