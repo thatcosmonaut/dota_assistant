@@ -1,16 +1,16 @@
 class Hero < ActiveRecord::Base
   VALID_ROLES = [
-    :lane_support,
     :carry,
     :disabler,
-    :ganker,
-    :nuker,
-    :initiator,
-    :jungler,
-    :pusher,
-    :roamer,
     :durable,
     :escape,
+    :ganker,
+    :initiator,
+    :jungler,
+    :lane_support,
+    :nuker,
+    :pusher,
+    :roamer,
     :semi_carry,
     :support
   ]
@@ -28,12 +28,34 @@ class Hero < ActiveRecord::Base
 
   validates :name, :viable_solo, :attack_type, :main_attribute, presence: true
 
+  scope :carries, -> { joins(:roles).where("roles.name = ?", 'carry').uniq }
+  scope :disablers, -> { joins(:roles).where("roles.name = ?", 'disabler').uniq }
+  scope :supports, -> { joins(:roles).where("roles.name = ? OR roles.name = ?", 'support', 'lane_support').uniq }
+  scope :initiators, -> { joins(:roles).where("roles.name = ?", 'initiator').uniq }
+  scope :pushers, -> { joins(:roles).where("roles.name = ?", 'pusher').uniq }
+  scope :gankers, -> { joins(:roles).where("roles.name = ?", 'ganker').uniq }
+  scope :junglers, -> { joins(:roles).where("roles.name = ?", 'jungler').uniq }
+  scope :durables, -> { joins(:roles).where("roles.name = ?", 'durable').uniq }
+
+  #used in role vector
+  serialize :role_elements
+
   def add_role role_name, value
     if VALID_ROLES.include? role_name
       role_name = role_name.to_s
       role = Role.find_by_name(role_name)
       heroes_roles << HeroesRole.create(role_id: role.id, hero_id: id, value: value)
     end
+  end
+
+  def role_vector
+    Vector.elements(role_elements)
+  end
+
+  def save_role_elements
+    attack_value = attack_type == "ranged" ? 1 : 0
+    self.role_elements = [attack_value] + VALID_ROLES.map{|role_name| value_of_role(role_name)}
+    save
   end
 
   def value_of_role role_name

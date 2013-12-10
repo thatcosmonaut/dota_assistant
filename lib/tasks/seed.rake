@@ -1838,6 +1838,8 @@ namespace :db do
       zeus.add_strong_against(mirana)
       zeus.add_strong_against(spirit_breaker)
       zeus.add_strong_against(earthshaker)
+
+      Hero.all.each {|hero| hero.save_role_elements }
     end
 
 
