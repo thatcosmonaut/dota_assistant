@@ -1,5 +1,5 @@
 class Recommendations
-  TARGET_VECTOR = Vector.elements([3, 4, 3, 3, 1, 2, 3, 2, 2, 3, 2, 1, 1, 3])
+  TARGET_VECTOR = Vector.elements([3, 4, 3, 3, 1, 2, 3, 2, 2, 3, 2, 3])
 
   class << self
     #given list of heroes
@@ -17,8 +17,7 @@ class Recommendations
       best_picks = scores[0..4]
       worst_picks = scores[remaining_heroes.size-5..remaining_heroes.size-1]
 
-      # [best_picks, worst_picks]
-      scores
+      [best_picks, worst_picks]
     end
 
     def remaining_heroes friendly_heroes, enemy_heroes

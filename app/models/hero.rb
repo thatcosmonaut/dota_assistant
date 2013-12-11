@@ -10,8 +10,6 @@ class Hero < ActiveRecord::Base
     :lane_support,
     :nuker,
     :pusher,
-    :roamer, #consider removing
-    :semi_carry, #consider removing
     :support
   ]
 

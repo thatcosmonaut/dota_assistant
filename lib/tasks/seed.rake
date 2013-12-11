@@ -1853,10 +1853,8 @@ namespace :db do
       FactoryGirl.create(:role, name: :initiator)
       FactoryGirl.create(:role, name: :jungler)
       FactoryGirl.create(:role, name: :pusher)
-      FactoryGirl.create(:role, name: :roamer)
       FactoryGirl.create(:role, name: :durable)
       FactoryGirl.create(:role, name: :escape)
-      FactoryGirl.create(:role, name: :semi_carry)
       FactoryGirl.create(:role, name: :support)
     end
   end
