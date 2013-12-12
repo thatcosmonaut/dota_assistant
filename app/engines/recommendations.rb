@@ -1,5 +1,5 @@
-class Recommendations
-  TARGET_VECTOR = Vector.elements([3, 1, 3, 5, 3, 1, 2, 4, 1, 2, 3, 2, 3])
+module Recommendations
+  IDEAL_VECTOR = Vector.elements([3, 1, 3, 5, 3, 1, 2, 4, 1, 2, 3, 2, 3])
 
   class << self
     #lower score is better
@@ -23,24 +23,7 @@ class Recommendations
 
     def calculate_score friendly_heroes
       team_vector = friendly_heroes.map(&:role_vector).inject(:+)
-      (TARGET_VECTOR - team_vector).map {|x| x * x }.inject(:+)
+      (IDEAL_VECTOR - team_vector).map {|x| x * x }.inject(:+)
     end
-
-    def mid_bonus friendly_heroes
-      solo_hero_count = friendly_heroes.count{ |hero| hero.viable_solo > 0 }
-      (0 < solo_hero_count && solo_hero_count < 5) ? 5 : 0
-    end
-
-    def counter_value friendly_heroes, enemy_heroes
-      counter_bonus = 0
-      friendly_heroes.each do |hero|
-        enemy_heroes.each do |enemy|
-          counter_bonus -= 2 if hero.strong_against?(enemy)
-          counter_bonus += 2 if hero.weak_against?(enemy)
-        end
-      end
-      counter_bonus
-    end
-
   end
 end
