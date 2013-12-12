@@ -55,6 +55,8 @@ The algorithm will return:
 
 that fit into your current team composition.
 
+A lower score is better - the higher the score the farther away the hero is from the best fit.
+
 # Contribution
 If you have a suggestion or you find a bug, file an Issue on Github!
 If you want to contribute some code to the project, file a Pull Request and I'll take a look when I can.
