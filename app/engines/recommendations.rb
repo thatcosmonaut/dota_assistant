@@ -13,10 +13,8 @@ class Recommendations
       end
 
       scores = scores.sort_by { |a, b| b }
-      best_picks = scores[0..4]
-      worst_picks = scores[remaining_heroes.size-5..remaining_heroes.size-1]
 
-      [best_picks, worst_picks]
+      [scores.first(5), scores.last(5)]
     end
 
     def remaining_heroes friendly_heroes, enemy_heroes
