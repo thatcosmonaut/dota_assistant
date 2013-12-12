@@ -1,3 +1,0 @@
-dota_assistant
-
-A tool for helping people not make awful picks in DOTA games.

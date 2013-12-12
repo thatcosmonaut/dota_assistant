@@ -1,17 +1,15 @@
 class Hero < ActiveRecord::Base
   VALID_ROLES = [
-    :lane_support,
     :carry,
     :disabler,
-    :ganker,
-    :nuker,
-    :initiator,
-    :jungler,
-    :pusher,
-    :roamer,
     :durable,
     :escape,
-    :semi_carry,
+    :ganker,
+    :initiator,
+    :jungler,
+    :lane_support,
+    :nuker,
+    :pusher,
     :support
   ]
 
@@ -28,12 +26,31 @@ class Hero < ActiveRecord::Base
 
   validates :name, :viable_solo, :attack_type, :main_attribute, presence: true
 
+  default_scope -> { order('heroes.id ASC') }
+
+  scope :with_role, -> (name = nil) { joins(:roles).where(roles: {name: 'carry'}).uniq }
+  scope :with_main_attribute, -> (attribute = nil) { where(main_attribute: attribute) }
+  scope :with_attack_type, -> (attack_type = nil) { where(attack_type: attack_type) }
+
+  #used in role vector
+  serialize :role_elements
+
   def add_role role_name, value
     if VALID_ROLES.include? role_name
       role_name = role_name.to_s
       role = Role.find_by_name(role_name)
       heroes_roles << HeroesRole.create(role_id: role.id, hero_id: id, value: value)
     end
+  end
+
+  def role_vector
+    Vector.elements(role_elements)
+  end
+
+  def save_role_elements
+    attack_value = attack_type == "ranged" ? 1 : 0
+    self.role_elements = [attack_value, viable_solo] + VALID_ROLES.map{|role_name| value_of_role(role_name)}
+    save
   end
 
   def value_of_role role_name
