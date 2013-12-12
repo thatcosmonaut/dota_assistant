@@ -17,7 +17,7 @@ This will populate the database with the necessary information about heroes and 
 
 The current version of the algorithm uses vector math to try and find the hero that will best fit into your current
 lineup to get the team as close as possible to an ideal team composition. Right now the algorithm optimizes for the
-standard 2-1-2 lane distribution but future versions may allow picking for trilanes and other non-standard strategies.
+standard 2-1-2 lane distribution, but future versions may allow picking for trilanes and other non-standard strategies.
 
 The attributes that the algorithm takes into account are:
 Attack type (melee or ranged), the hero's viability in mid-lane, and the different roles that each hero is suited to.
@@ -48,15 +48,11 @@ The algorithm does not take into account hard counters at the moment.
 I am trying to find the best way to efficiently represent counters and properly weight the value of having them.
 
 ## How To Use
-Select the heroes that are currently picked for your team
-Select the heroes that are currently picked on the enemy team
-Hit submit!
+1) Select the heroes that are currently picked for your team  
+2) Select the heroes that are currently picked on the enemy team  
+3) Hit submit!
 
-The algorithm will return:  
-5 best heroes  
-5 worst heroes
-
-that fit into your current team composition.
+The algorithm will return the 5 best and worst heroes fitting into your team composition.
 
 A lower score is better - the higher the score the farther away the hero is from the best fit.
 
