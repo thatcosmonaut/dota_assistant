@@ -36,12 +36,12 @@ NUKE
 PUSH  
 SUPPORT  
 
-The ideal team vector is currently chosen to optimize for:
+The ideal team vector is currently chosen to optimize for:  
 1 viable mid  
 1 strong carry  
 Roughly 2 supports  
 Strong initiation and teamfight  
-Strong disable  
+Strong disable
 
 The algorithm does not take into account hard counters at the moment.
 I am trying to find the best way to efficiently represent counters and properly weight the value of having them.
