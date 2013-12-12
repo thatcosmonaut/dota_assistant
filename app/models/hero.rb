@@ -28,7 +28,7 @@ class Hero < ActiveRecord::Base
 
   default_scope -> { order('heroes.id ASC') }
 
-  scope :with_role, -> (name = nil) { joins(:roles).where(roles: {name: 'carry'}).uniq }
+  scope :with_role, -> (name = nil) { joins(:roles).where(roles: {name: name}).uniq }
   scope :with_main_attribute, -> (attribute = nil) { where(main_attribute: attribute) }
   scope :with_attack_type, -> (attack_type = nil) { where(attack_type: attack_type) }
 
