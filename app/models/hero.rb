@@ -33,7 +33,7 @@ class Hero < ActiveRecord::Base
   scope :with_attack_type, -> (attack_type = nil) { where(attack_type: attack_type) }
 
   #used in role vector
-  serialize :role_elements
+  serialize :role_elements, Array
 
   def add_role role_name, value
     if VALID_ROLES.include? role_name
