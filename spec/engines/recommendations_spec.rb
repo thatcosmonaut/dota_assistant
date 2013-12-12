@@ -81,99 +81,65 @@ describe "recommendation engine" do
     create(:role, name: :initiator)
     create(:role, name: :jungler)
     create(:role, name: :pusher)
-    create(:role, name: :roamer)
     create(:role, name: :durable)
     create(:role, name: :escape)
-    create(:role, name: :semi_carry)
     create(:role, name: :support)
 
     broodmother.add_role(:pusher, 3)
     broodmother.add_role(:carry, 2)
     broodmother.add_role(:escape, 1)
+    broodmother.save_role_elements
 
     batrider.add_role(:initiator, 3)
     batrider.add_role(:disabler, 2)
     batrider.add_role(:nuker, 2)
     batrider.add_role(:escape, 1)
+    batrider.save_role_elements
 
     undying.add_role(:durable, 3)
     undying.add_role(:pusher, 2)
     undying.add_role(:disabler, 1)
     undying.add_role(:initiator, 3)
+    undying.save_role_elements
 
     ancient_apparition.add_role(:support, 3)
     ancient_apparition.add_role(:disabler, 2)
+    ancient_apparition.save_role_elements
 
     faceless_void.add_role(:carry, 3)
     faceless_void.add_role(:initiator, 2)
     faceless_void.add_role(:disabler, 2)
     faceless_void.add_role(:escape, 2)
+    faceless_void.save_role_elements
 
     viper.add_role(:carry, 2)
     viper.add_role(:durable, 2)
     viper.add_role(:ganker, 2)
+    viper.save_role_elements
 
     bane.add_role(:disabler, 3)
     bane.add_role(:nuker, 2)
     bane.add_role(:support, 1)
+    bane.save_role_elements
 
     ursa.add_role(:carry, 3)
     ursa.add_role(:jungler, 3)
     ursa.add_role(:durable, 1)
+    ursa.save_role_elements
 
     juggernaut.add_role(:carry, 3)
     juggernaut.add_role(:pusher, 2)
+    juggernaut.save_role_elements
 
     alchemist.add_role(:durable, 2)
     alchemist.add_role(:carry, 2)
     alchemist.add_role(:disabler, 2)
-
-    alchemist.add_strong_against(broodmother)
-    ursa.add_strong_against(ancient_apparition)
-    batrider.add_strong_against(ursa)
+    alchemist.save_role_elements
   end
 
-  describe 'role-dependent scores' do
-    let(:role_values) { Recommendations.calculate_role_values(friendly_heroes) }
-
-    it 'calculates filled role score properly' do
-      expect(Recommendations.roles_filled_score(role_values)).to eql(16)
-    end
-
-    it 'calculates support bonus properly' do
-      expect(Recommendations.support_bonus(role_values[:support], role_values[:lane_support])).to eql(0)
-    end
-
-    it 'calculates carry bonus properly' do
-      expect(Recommendations.carry_bonus(role_values[:carry])).to eql(30)
-    end
-
-    it 'calculates disabler bonus properly' do
-      expect(Recommendations.disabler_bonus(role_values[:disabler])).to eql(5)
-    end
-
-    it 'calculates initiator bonus properly' do
-      expect(Recommendations.initiator_bonus(role_values[:initiator])).to eql(5)
-    end
-
-    it 'calculates durable bonus properly' do
-      expect(Recommendations.durable_bonus(role_values[:durable])).to eql(5)
-    end
-
-    it 'calculates mid bonus properly' do
-      expect(Recommendations.mid_bonus(friendly_heroes)).to eql(5)
-    end
-
-    it 'calculates counter value properly' do
-      expect(Recommendations.counter_value(friendly_heroes, enemy_heroes)).to eql(-3)
-    end
-
+  describe 'scoring' do
     it 'calculates total score properly' do
-      expect(Recommendations.score(friendly_heroes, enemy_heroes)).to eql(68)
+      expect(Recommendations.calculate_score(friendly_heroes)).to eql(77)
     end
-  end
-
-  it 'calculates melee and ranged bonus properly' do
-    expect(Recommendations.melee_and_ranged_bonus(friendly_heroes)).to eql(5)
   end
 end
