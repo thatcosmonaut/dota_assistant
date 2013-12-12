@@ -1,5 +1,4 @@
 [![Code Climate](https://codeclimate.com/github/ehemsley/dota_assistant.png)](https://codeclimate.com/github/ehemsley/dota_assistant)
-
 # Dota 2 Pick Assistant
 
 A tool to help people choose the optimal hero for their team in Dota 2.
