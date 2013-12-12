@@ -1,6 +1,6 @@
 # Dota 2 Pick Assistant
 
-A tool for helping people not make awful picks in DOTA games.
+A tool to help people choose the optimal hero for their team in Dota 2.
 
 ## Setup
 
@@ -21,7 +21,7 @@ standard 2-1-2 lane distribution but future versions may allow picking for trila
 The attributes that the algorithm takes into account are:
 Attack type (melee or ranged), the hero's viability in mid-lane, and the different roles that each hero is suited to.
 
-A hero vector is constructed as follows:
+A hero vector is constructed as follows:  
 AT  
 MID  
 CARRY  
