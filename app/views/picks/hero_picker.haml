@@ -8,7 +8,7 @@
       .new-line
       .hero_group_header Radiant Strength
 
-    - elsif hero.name == "Anti-Mage" 
+    - elsif hero.name == "Anti-Mage"
       .new-line
       .hero_group_header Radiant Agility
 
@@ -33,10 +33,10 @@
       = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
       = label_tag "hero-#{hero.id}", hero.name
     - i += 1
-      
+
   .new-line
 
-  .hero_header 
+  .hero_header
     Enemy Heroes
   .new-line
   - i = 0
@@ -45,7 +45,7 @@
       .new-line
       .hero_group_header Radiant Strength
 
-    - elsif hero.name == "Anti-Mage" 
+    - elsif hero.name == "Anti-Mage"
       .new-line
       .hero_group_header Radiant Agility
 

@@ -47,6 +47,9 @@ module DotaAssistant
     # like if you have constraints or database-specific column types
     # config.active_record.schema_format = :sql
 
+    # Enforces valid locales
+    I18n.config.enforce_available_locales = true
+
     # Enable the asset pipeline
     config.assets.enabled = true
 

@@ -71,7 +71,7 @@ namespace :db do
                                          armor: 1.96,
                                          movement_speed: 300,
                                          main_attribute: :strength,
-                                         viable_solo: 2)
+                                         viable_solo: 1)
 
       kunkka.add_role(:disabler, 2)
       kunkka.add_role(:initiator, 1)
@@ -100,7 +100,7 @@ namespace :db do
       clockwerk = FactoryGirl.create(:hero, name: "Clockwerk",
                                             attack_type: :melee,
                                             main_attribute: :strength,
-                                            viable_solo: 2)
+                                            viable_solo: 1)
 
       clockwerk.add_role(:initiator, 3)
       clockwerk.add_role(:durable, 1)
@@ -110,10 +110,14 @@ namespace :db do
                                              main_attribute: :strength,
                                              viable_solo: 0)
 
+      omniknight.add_role(:durable, 2)
+      omniknight.add_role(:support, 1)
+      omniknight.add_role(:lane_support, 1)
+
       huskar = FactoryGirl.create(:hero, name: "Huskar",
                                          attack_type: :ranged,
                                          main_attribute: :strength,
-                                         viable_solo: 3)
+                                         viable_solo: 1)
 
       huskar.add_role(:carry, 2)
       huskar.add_role(:initiator, 2)
@@ -227,7 +231,7 @@ namespace :db do
                                               armor: 0.64,
                                               movement_speed: 300,
                                               main_attribute: :agility,
-                                              viable_solo: 3)
+                                              viable_solo: 1)
 
       drow_ranger.add_role(:carry, 3)
 
@@ -258,8 +262,8 @@ namespace :db do
                                          armor: 1.8,
                                          movement_speed: 300,
                                          main_attribute: :agility,
-                                         viable_solo: 2)
-      
+                                         viable_solo: 1)
+
       mirana.add_role(:carry, 2)
       mirana.add_role(:nuker, 2)
       mirana.add_role(:disabler, 2)
@@ -278,7 +282,7 @@ namespace :db do
       phantom_lancer = FactoryGirl.create(:hero, name: "Phantom Lancer",
                                                  attack_type: :melee,
                                                  main_attribute: :agility,
-                                                 viable_solo: 2)
+                                                 viable_solo: 1)
 
       phantom_lancer.add_role(:carry, 3)
       phantom_lancer.add_role(:escape, 2)
@@ -287,7 +291,7 @@ namespace :db do
       vengeful_spirit = FactoryGirl.create(:hero, name: "Vengeful Spirit",
                                                   attack_type: :ranged,
                                                   main_attribute: :agility,
-                                                  viable_solo: 2)
+                                                  viable_solo: 1)
 
       vengeful_spirit.add_role(:support, 3)
       vengeful_spirit.add_role(:disabler, 2)
@@ -304,14 +308,14 @@ namespace :db do
       sniper = FactoryGirl.create(:hero, name: "Sniper",
                                          attack_type: :ranged,
                                          main_attribute: :agility,
-                                         viable_solo: 3)
+                                         viable_solo: 1)
 
       sniper.add_role(:carry, 3)
 
       templar_assassin = FactoryGirl.create(:hero, name: "Templar Assassin",
                                                    attack_type: :ranged,
                                                    main_attribute: :agility,
-                                                   viable_solo: 3)
+                                                   viable_solo: 1)
 
       templar_assassin.add_role(:carry, 2)
       templar_assassin.add_role(:escape, 2)
@@ -320,7 +324,7 @@ namespace :db do
       luna = FactoryGirl.create(:hero, name: "Luna",
                                        attack_type: :ranged,
                                        main_attribute: :agility,
-                                       viable_solo: 3)
+                                       viable_solo: 1)
 
       luna.add_role(:carry, 3)
       luna.add_role(:nuker, 3)
@@ -346,7 +350,7 @@ namespace :db do
       gyrocopter = FactoryGirl.create(:hero, name: "Gyrocopter",
                                              attack_type: :ranged,
                                              main_attribute: :agility,
-                                             viable_solo: 3)
+                                             viable_solo: 1)
 
       gyrocopter.add_role(:disabler, 1)
       gyrocopter.add_role(:initiator, 2)
@@ -355,7 +359,7 @@ namespace :db do
       lone_druid = FactoryGirl.create(:hero, name: "Lone Druid",
                                              attack_type: :ranged,
                                              main_attribute: :agility,
-                                             viable_solo: 3)
+                                             viable_solo: 1)
 
       lone_druid.add_role(:carry, 3)
       lone_druid.add_role(:durable, 3)
@@ -365,7 +369,7 @@ namespace :db do
       naga_siren = FactoryGirl.create(:hero, name: "Naga Siren",
                                              attack_type: :melee,
                                              main_attribute: :agility,
-                                             viable_solo: 2)
+                                             viable_solo: 1)
 
       naga_siren.add_role(:carry, 2)
       naga_siren.add_role(:disabler, 1)
@@ -409,7 +413,7 @@ namespace :db do
                                        armor: 2.08,
                                        movement_speed: 295,
                                        main_attribute: :intelligence,
-                                       viable_solo: 2)
+                                       viable_solo: 1)
 
       puck.add_role(:initiator, 2)
       puck.add_role(:nuker, 1)
@@ -427,7 +431,7 @@ namespace :db do
                                                armor: 5.08,
                                                movement_speed: 295,
                                                main_attribute: :intelligence,
-                                               viable_solo: 2)
+                                               viable_solo: 1)
 
       storm_spirit.add_role(:carry, 2)
       storm_spirit.add_role(:initiator, 1)
@@ -455,7 +459,7 @@ namespace :db do
       zeus = FactoryGirl.create(:hero, name: "Zeus",
                                        attack_type: :ranged,
                                        main_attribute: :intelligence,
-                                       viable_solo: 2)
+                                       viable_solo: 1)
 
       zeus.add_role(:nuker, 3)
       zeus.add_role(:support, 1)
@@ -463,7 +467,11 @@ namespace :db do
       lina = FactoryGirl.create(:hero, name: "Lina",
                                        attack_type: :ranged,
                                        main_attribute: :intelligence,
-                                       viable_solo: 3)
+                                       viable_solo: 1)
+
+      lina.add_role(:nuker, 3)
+      lina.add_role(:disabler, 1)
+      lina.add_role(:support, 1)
 
       shadow_shaman = FactoryGirl.create(:hero, name: "Shadow Shaman",
                                                 attack_type: :ranged,
@@ -498,7 +506,7 @@ namespace :db do
       tinker = FactoryGirl.create(:hero, name: "Tinker",
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 3)
+                                         viable_solo: 1)
 
       tinker.add_role(:nuker, 2)
       tinker.add_role(:pusher, 3)
@@ -543,7 +551,7 @@ namespace :db do
       rubick = FactoryGirl.create(:hero, name: "Rubick",
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 3)
+                                         viable_solo: 1)
 
       rubick.add_role(:disabler, 3)
       rubick.add_role(:pusher, 2)
@@ -561,14 +569,14 @@ namespace :db do
       keeper_of_the_light = FactoryGirl.create(:hero, name: "Keeper of the Light",
                                                       attack_type: :ranged,
                                                       main_attribute: :intelligence,
-                                                      viable_solo: 2)
+                                                      viable_solo: 1)
 
       keeper_of_the_light.add_role(:pusher, 3)
 
       skywrath_mage = FactoryGirl.create(:hero, name: "Skywrath Mage",
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
-                                                viable_solo: 3)
+                                                viable_solo: 1)
 
       skywrath_mage.add_role(:nuker, 3)
       skywrath_mage.add_role(:support, 1)
@@ -586,7 +594,7 @@ namespace :db do
                                       movement_speed: 290,
                                       main_attribute: :strength,
                                       viable_solo: 0)
-      
+
       axe.add_role(:durable, 2)
       axe.add_role(:initiator, 2)
       axe.add_role(:disabler, 1)
@@ -603,7 +611,7 @@ namespace :db do
                                         armor: 0.96,
                                         movement_speed: 285,
                                         main_attribute: :strength,
-                                        viable_solo: 3)
+                                        viable_solo: 1)
 
       pudge.add_role(:durable, 3)
       pudge.add_role(:disabler, 2)
@@ -675,7 +683,7 @@ namespace :db do
       night_stalker = FactoryGirl.create(:hero, name: "Night Stalker",
                                                 attack_type: :melee,
                                                 main_attribute: :strength,
-                                                viable_solo: 3)
+                                                viable_solo: 1)
 
       night_stalker.add_role(:durable, 2)
       night_stalker.add_role(:initiator, 3)
@@ -732,12 +740,21 @@ namespace :db do
       magnus = FactoryGirl.create(:hero, name: "Magnus",
                                          attack_type: :melee,
                                          main_attribute: :strength,
-                                         viable_solo: 3)
+                                         viable_solo: 1)
 
       magnus.add_role(:initiator, 3)
       magnus.add_role(:disabler, 2)
       magnus.add_role(:nuker, 2)
       magnus.add_role(:carry, 1)
+
+      abaddon = FactoryGirl.create(:hero, name: "Abaddon",
+                                          attack_type: :melee,
+                                          main_attribute: :strength,
+                                          viable_solo: 2)
+
+      abaddon.add_role(:durable, 3)
+      abaddon.add_role(:nuker, 1)
+      abaddon.add_role(:support, 2)
 
       #dire agility
       bloodseeker = FactoryGirl.create(:hero, name: "Bloodseeker",
@@ -767,7 +784,7 @@ namespace :db do
                                                armor: 1.8,
                                                movement_speed: 305,
                                                main_attribute: :agility,
-                                               viable_solo: 3)
+                                               viable_solo: 1)
 
       shadow_fiend.add_role(:carry, 3)
       shadow_fiend.add_role(:nuker, 3)
@@ -828,7 +845,7 @@ namespace :db do
       viper = FactoryGirl.create(:hero, name: "Viper",
                                         attack_type: :ranged,
                                         main_attribute: :agility,
-                                        viable_solo: 3)
+                                        viable_solo: 1)
 
       viper.add_role(:carry, 2)
       viper.add_role(:durable, 2)
@@ -854,7 +871,7 @@ namespace :db do
       weaver = FactoryGirl.create(:hero, name: "Weaver",
                                          attack_type: :ranged,
                                          main_attribute: :agility,
-                                         viable_solo: 2)
+                                         viable_solo: 1)
 
       weaver.add_role(:carry, 3)
       weaver.add_role(:escape, 3)
@@ -879,7 +896,7 @@ namespace :db do
       nyx_assassin = FactoryGirl.create(:hero, name: "Nyx Assassin",
                                                attack_type: :melee,
                                                main_attribute: :agility,
-                                               viable_solo: 3)
+                                               viable_solo: 1)
 
       nyx_assassin.add_role(:disabler, 3)
       nyx_assassin.add_role(:nuker, 3)
@@ -895,7 +912,7 @@ namespace :db do
       medusa = FactoryGirl.create(:hero, name: "Medusa",
                                          attack_type: :ranged,
                                          main_attribute: :agility,
-                                         viable_solo: 3)
+                                         viable_solo: 1)
 
       medusa.add_role(:carry, 3)
       medusa.add_role(:disabler, 1)
@@ -913,7 +930,7 @@ namespace :db do
                                        armor: 4.08,
                                        movement_speed: 315,
                                        main_attribute: :intelligence,
-                                       viable_solo: 3)
+                                       viable_solo: 1)
 
       bane.add_role(:disabler, 3)
       bane.add_role(:nuker, 2)
@@ -965,7 +982,7 @@ namespace :db do
                                                armor: 0.82,
                                                movement_speed: 305,
                                                main_attribute: :intelligence,
-                                               viable_solo: 2)
+                                               viable_solo: 1)
 
       witch_doctor.add_role(:support, 3)
       witch_doctor.add_role(:disabler, 2)
@@ -1001,7 +1018,7 @@ namespace :db do
       queen_of_pain = FactoryGirl.create(:hero, name: "Queen of Pain",
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
-                                                viable_solo: 3)
+                                                viable_solo: 1)
 
       queen_of_pain.add_role(:nuker, 2)
       queen_of_pain.add_role(:escape, 2)
@@ -1010,7 +1027,7 @@ namespace :db do
       death_prophet = FactoryGirl.create(:hero, name: "Death Prophet",
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
-                                                viable_solo: 2)
+                                                viable_solo: 1)
 
       death_prophet.add_role(:pusher, 3)
       death_prophet.add_role(:nuker, 2)
@@ -1019,7 +1036,7 @@ namespace :db do
       pugna = FactoryGirl.create(:hero, name: "Pugna",
                                         attack_type: :ranged,
                                         main_attribute: :intelligence,
-                                        viable_solo: 2)
+                                        viable_solo: 1)
 
       pugna.add_role(:nuker, 2)
       pugna.add_role(:pusher, 2)
@@ -1045,7 +1062,7 @@ namespace :db do
       dark_seer = FactoryGirl.create(:hero, name: "Dark Seer",
                                             attack_type: :melee,
                                             main_attribute: :intelligence,
-                                            viable_solo: 2)
+                                            viable_solo: 1)
 
       dark_seer.add_role(:initiator, 3)
       dark_seer.add_role(:nuker, 1)
@@ -1054,7 +1071,7 @@ namespace :db do
       batrider = FactoryGirl.create(:hero, name: "Batrider",
                                            attack_type: :ranged,
                                            main_attribute: :intelligence,
-                                           viable_solo: 3)
+                                           viable_solo: 1)
 
       batrider.add_role(:initiator, 3)
       batrider.add_role(:disabler, 2)
@@ -1072,7 +1089,7 @@ namespace :db do
       invoker = FactoryGirl.create(:hero, name: "Invoker",
                                           attack_type: :ranged,
                                           main_attribute: :intelligence,
-                                          viable_solo: 3)
+                                          viable_solo: 1)
 
       invoker.add_role(:carry, 2)
       invoker.add_role(:nuker, 2)
@@ -1090,14 +1107,14 @@ namespace :db do
                                                     armor: 5.36,
                                                     movement_speed: 315,
                                                     main_attribute: :intelligence,
-                                                    viable_solo: 3)
+                                                    viable_solo: 1)
 
       outworld_devourer.add_role(:carry, 3)
 
       shadow_demon = FactoryGirl.create(:hero, name: "Shadow Demon",
                                                attack_type: :ranged,
                                                main_attribute: :intelligence,
-                                               viable_solo: 3)
+                                               viable_solo: 1)
 
       shadow_demon.add_role(:support, 3)
       shadow_demon.add_role(:disabler, 2)
@@ -1106,14 +1123,14 @@ namespace :db do
       visage = FactoryGirl.create(:hero, name: "Visage",
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 3)
+                                         viable_solo: 1)
 
       visage.add_role(:nuker, 3)
       visage.add_role(:durable, 2)
       visage.add_role(:disabler, 1)
 
       # ********** COUNTERS ************
-      
+
       alchemist.add_weak_against(clinkz)
       alchemist.add_weak_against(beastmaster)
       alchemist.add_weak_against(dark_seer)
@@ -1453,7 +1470,7 @@ namespace :db do
       magnus.add_strong_against(windrunner)
 
       #medusa
-      
+
       meepo.add_weak_against(undying)
       meepo.add_weak_against(lina)
       meepo.add_weak_against(alchemist)

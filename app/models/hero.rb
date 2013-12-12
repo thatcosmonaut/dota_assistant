@@ -26,14 +26,26 @@ class Hero < ActiveRecord::Base
 
   validates :name, :viable_solo, :attack_type, :main_attribute, presence: true
 
+  default_scope order('heroes.id ASC')
+
   scope :carries, -> { joins(:roles).where("roles.name = ?", 'carry').uniq }
   scope :disablers, -> { joins(:roles).where("roles.name = ?", 'disabler').uniq }
-  scope :supports, -> { joins(:roles).where("roles.name = ? OR roles.name = ?", 'support', 'lane_support').uniq }
-  scope :initiators, -> { joins(:roles).where("roles.name = ?", 'initiator').uniq }
-  scope :pushers, -> { joins(:roles).where("roles.name = ?", 'pusher').uniq }
-  scope :gankers, -> { joins(:roles).where("roles.name = ?", 'ganker').uniq }
-  scope :junglers, -> { joins(:roles).where("roles.name = ?", 'jungler').uniq }
   scope :durables, -> { joins(:roles).where("roles.name = ?", 'durable').uniq }
+  scope :escapers, -> { joins(:roles).where("roles.name = ?", 'escape').uniq }
+  scope :gankers, -> { joins(:roles).where("roles.name = ?", 'ganker').uniq }
+  scope :initiators, -> { joins(:roles).where("roles.name = ?", 'initiator').uniq }
+  scope :junglers, -> { joins(:roles).where("roles.name = ?", 'jungler').uniq }
+  scope :lane_supports, -> { joins(:roles).where("roles.name = ?", 'lane_support').uniq }
+  scope :nuker, -> { joins(:roles).where("roles.name = ?", 'nuker') }
+  scope :pushers, -> { joins(:roles).where("roles.name = ?", 'pusher').uniq }
+  scope :supports, -> { joins(:roles).where("roles.name = ", 'support').uniq }
+
+  scope :strength, -> { where(main_attribute: :strength) }
+  scope :agility, -> { where(main_attribute: :agility) }
+  scope :intelligence, -> { where(main_attribute: :intelligence) }
+
+  scope :ranged, -> { where(attack_type: :ranged) }
+  scope :melee, -> { where(attack_type: :melee) }
 
   #used in role vector
   serialize :role_elements
@@ -52,7 +64,7 @@ class Hero < ActiveRecord::Base
 
   def save_role_elements
     attack_value = attack_type == "ranged" ? 1 : 0
-    self.role_elements = [attack_value] + VALID_ROLES.map{|role_name| value_of_role(role_name)}
+    self.role_elements = [attack_value, viable_solo] + VALID_ROLES.map{|role_name| value_of_role(role_name)}
     save
   end
 

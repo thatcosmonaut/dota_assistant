@@ -1,5 +1,5 @@
 class Recommendations
-  TARGET_VECTOR = Vector.elements([3, 4, 3, 3, 1, 2, 3, 2, 2, 3, 2, 3])
+  TARGET_VECTOR = Vector.elements([3, 1, 3, 5, 3, 1, 2, 4, 1, 2, 3, 2, 3])
 
   class << self
     #lower score is better
@@ -37,8 +37,8 @@ class Recommendations
       counter_bonus = 0
       friendly_heroes.each do |hero|
         enemy_heroes.each do |enemy|
-          counter_bonus += 5 if hero.strong_against?(enemy)
-          counter_bonus -= 5 if hero.weak_against?(enemy)
+          counter_bonus -= 2 if hero.strong_against?(enemy)
+          counter_bonus += 2 if hero.weak_against?(enemy)
         end
       end
       counter_bonus
