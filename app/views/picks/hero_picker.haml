@@ -54,9 +54,10 @@
             = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
             = label_tag "hero-#{hero.id}", hero.name
 
-      .arrow-wrapper= link_to(fa_icon("arrow-right 4x", class: "right-arrow"), "#enemy-heroes")
+      .right-arrow-wrapper= link_to(fa_icon("arrow-right 4x", class: "arrow"), "#enemy-heroes")
 
-    #enemy-heroes.panel
+
+    #enemy-heroes.panel.enemy
       .hero_header Select Enemy Heroes
       .new-line
 
@@ -107,6 +108,8 @@
             = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
             = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
             = label_tag "enemy-#{hero.id}", hero.name
+
+      .left-arrow-wrapper= link_to(fa_icon("arrow-left 4x", class: "arrow"), "#friendly-heroes")
 
       .submit_wrapper
         = submit_tag "Submit picks", class: "submit"

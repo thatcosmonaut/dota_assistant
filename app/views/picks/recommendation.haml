@@ -1,6 +1,6 @@
 .headline Results
 
-%h1.hero_header On Your Team
+%h1.recommendation-header On Your Team
 .new-line
 - @friendlies.each do |hero|
   .center
@@ -8,14 +8,14 @@
       .hero_big{class: hero.name.parameterize}
       .hero_name= hero.name
 
-%h1.hero_header On the Enemy Team
+%h1.recommendation-header On the Enemy Team
 - @enemies.each do |hero|
   .center
     .left
       .hero_big{class: hero.name.parameterize}
       .hero_name= hero.name
 
-%h1.hero_header Recommended Picks
+%h1.recommendation-header Recommended Picks
 .new-line
 - @recommendation.each do |hero_score|
   .center
@@ -24,7 +24,7 @@
       .hero_name= hero_score.first.name
       .hero_name= hero_score.second
 
-%h1.hero_header Worst Picks
+%h1.recommendation-header Worst Picks
 - @worst.each do |hero_score|
   .center
     .left
