@@ -8,6 +8,7 @@ namespace :db do
       #radiant strength
       earthshaker = FactoryGirl.create(:hero, name: "Earthshaker",
                                               attack_type: :melee,
+                                              team: :radiant,
                                               strength: 22,
                                               agility: 12,
                                               intelligence: 16,
@@ -26,6 +27,7 @@ namespace :db do
 
       sven = FactoryGirl.create(:hero, name: "Sven",
                                        attack_type: :melee,
+                                       team: :radiant,
                                        strength: 23,
                                        agility: 21,
                                        intelligence: 14,
@@ -44,6 +46,7 @@ namespace :db do
 
       tiny = FactoryGirl.create(:hero, name: "Tiny",
                                        attack_type: :melee,
+                                       team: :radiant,
                                        strength: 24,
                                        agility: 9,
                                        intelligence: 14,
@@ -62,6 +65,7 @@ namespace :db do
 
       kunkka = FactoryGirl.create(:hero, name: "Kunkka",
                                          attack_type: :melee,
+                                         team: :radiant,
                                          strength: 24,
                                          agility: 14,
                                          intelligence: 18,
@@ -79,6 +83,7 @@ namespace :db do
       kunkka.add_role(:durable, 1)
 
       beastmaster = FactoryGirl.create(:hero, name: "Beastmaster",
+                                              team: :radiant,
                                               attack_type: :melee,
                                               main_attribute: :strength,
                                               viable_solo: 1)
@@ -88,6 +93,7 @@ namespace :db do
       beastmaster.add_role(:durable, 2)
 
       dragon_knight = FactoryGirl.create(:hero, name: "Dragon Knight",
+                                                team: :radiant,
                                                 attack_type: :melee,
                                                 main_attribute: :strength,
                                                 viable_solo: 0)
@@ -98,6 +104,7 @@ namespace :db do
       dragon_knight.add_role(:pusher, 1)
 
       clockwerk = FactoryGirl.create(:hero, name: "Clockwerk",
+                                            team: :radiant,
                                             attack_type: :melee,
                                             main_attribute: :strength,
                                             viable_solo: 1)
@@ -106,6 +113,7 @@ namespace :db do
       clockwerk.add_role(:durable, 1)
 
       omniknight = FactoryGirl.create(:hero, name: "Omniknight",
+                                             team: :radiant,
                                              attack_type: :melee,
                                              main_attribute: :strength,
                                              viable_solo: 0)
@@ -115,6 +123,7 @@ namespace :db do
       omniknight.add_role(:lane_support, 1)
 
       huskar = FactoryGirl.create(:hero, name: "Huskar",
+                                         team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :strength,
                                          viable_solo: 1)
@@ -124,6 +133,7 @@ namespace :db do
       huskar.add_role(:durable, 2)
 
       alchemist = FactoryGirl.create(:hero, name: "Alchemist",
+                                            team: :radiant,
                                             attack_type: :melee,
                                             main_attribute: :strength,
                                             viable_solo: 0)
@@ -133,6 +143,7 @@ namespace :db do
       alchemist.add_role(:disabler, 2)
 
       brewmaster = FactoryGirl.create(:hero, name: "Brewmaster",
+                                             team: :radiant,
                                              attack_type: :melee,
                                              main_attribute: :strength,
                                              viable_solo: 1)
@@ -143,6 +154,7 @@ namespace :db do
       brewmaster.add_role(:pusher, 1)
 
       treant_protector = FactoryGirl.create(:hero, name: "Treant Protector",
+                                                   team: :radiant,
                                                    attack_type: :melee,
                                                    main_attribute: :strength,
                                                    viable_solo: 0)
@@ -153,6 +165,7 @@ namespace :db do
       treant_protector.add_role(:disabler, 1)
 
       io = FactoryGirl.create(:hero, name: "Io",
+                                     team: :radiant,
                                      attack_type: :ranged,
                                      main_attribute: :strength,
                                      viable_solo: 0)
@@ -161,6 +174,7 @@ namespace :db do
       io.add_role(:nuker, 2)
 
       centaur_warrunner = FactoryGirl.create(:hero, name: "Centaur Warrunner",
+                                                    team: :radiant,
                                                     attack_type: :melee,
                                                     main_attribute: :strength,
                                                     viable_solo: 0)
@@ -170,6 +184,7 @@ namespace :db do
       centaur_warrunner.add_role(:initiator, 2)
 
       timbersaw = FactoryGirl.create(:hero, name: "Timbersaw",
+                                            team: :radiant,
                                             attack_type: :melee,
                                             main_attribute: :strength,
                                             viable_solo: 1)
@@ -179,6 +194,7 @@ namespace :db do
       timbersaw.add_role(:durable, 2)
 
       bristleback = FactoryGirl.create(:hero, name: "Bristleback",
+                                              team: :radiant,
                                               attack_type: :melee,
                                               main_attribute: :strength,
                                               viable_solo: 1)
@@ -188,6 +204,7 @@ namespace :db do
       bristleback.add_role(:disabler, 1)
 
       tusk = FactoryGirl.create(:hero, name: "Tusk",
+                                       team: :radiant,
                                        attack_type: :melee,
                                        main_attribute: :strength,
                                        viable_solo: 1)
@@ -196,6 +213,7 @@ namespace :db do
       tusk.add_role(:durable, 2)
 
       elder_titan = FactoryGirl.create(:hero, name: "Elder Titan",
+                                              team: :radiant,
                                               attack_type: :melee,
                                               main_attribute: :strength,
                                               viable_solo: 0)
@@ -205,6 +223,7 @@ namespace :db do
 
       #radiant agility
       anti_mage = FactoryGirl.create(:hero, name: "Anti-Mage",
+                                            team: :radiant,
                                             attack_type: :melee,
                                             strength: 20,
                                             agility: 22,
@@ -221,6 +240,7 @@ namespace :db do
       anti_mage.add_role(:escape, 2)
 
       drow_ranger = FactoryGirl.create(:hero, name: "Drow Ranger",
+                                              team: :radiant,
                                               attack_type: :ranged,
                                               strength: 17,
                                               agility: 26,
@@ -236,6 +256,7 @@ namespace :db do
       drow_ranger.add_role(:carry, 3)
 
       juggernaut = FactoryGirl.create(:hero, name: "Juggernaut",
+                                             team: :radiant,
                                              attack_type: :melee,
                                              strength: 20,
                                              agility: 20,
@@ -252,6 +273,7 @@ namespace :db do
       juggernaut.add_role(:pusher, 2)
 
       mirana = FactoryGirl.create(:hero, name: "Mirana",
+                                         team: :radiant,
                                          attack_type: :ranged,
                                          strength: 17,
                                          agility: 20,
@@ -270,6 +292,7 @@ namespace :db do
       mirana.add_role(:escape, 1)
 
       morphling = FactoryGirl.create(:hero, name: "Morphling",
+                                            team: :radiant,
                                             attack_type: :ranged,
                                             main_attribute: :agility,
                                             viable_solo: 0)
@@ -280,6 +303,7 @@ namespace :db do
       morphling.add_role(:nuker, 1)
 
       phantom_lancer = FactoryGirl.create(:hero, name: "Phantom Lancer",
+                                                 team: :radiant,
                                                  attack_type: :melee,
                                                  main_attribute: :agility,
                                                  viable_solo: 1)
@@ -289,6 +313,7 @@ namespace :db do
       phantom_lancer.add_role(:pusher, 2)
 
       vengeful_spirit = FactoryGirl.create(:hero, name: "Vengeful Spirit",
+                                                  team: :radiant,
                                                   attack_type: :ranged,
                                                   main_attribute: :agility,
                                                   viable_solo: 1)
@@ -298,6 +323,7 @@ namespace :db do
       vengeful_spirit.add_role(:initiator, 2)
 
       riki = FactoryGirl.create(:hero, name: "Riki",
+                                       team: :radiant,
                                        attack_type: :melee,
                                        main_attribute: :agility,
                                        viable_solo: 1)
@@ -306,6 +332,7 @@ namespace :db do
       riki.add_role(:escape, 3)
 
       sniper = FactoryGirl.create(:hero, name: "Sniper",
+                                         team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :agility,
                                          viable_solo: 1)
@@ -313,6 +340,7 @@ namespace :db do
       sniper.add_role(:carry, 3)
 
       templar_assassin = FactoryGirl.create(:hero, name: "Templar Assassin",
+                                                   team: :radiant,
                                                    attack_type: :ranged,
                                                    main_attribute: :agility,
                                                    viable_solo: 1)
@@ -322,6 +350,7 @@ namespace :db do
       templar_assassin.add_role(:ganker, 2)
 
       luna = FactoryGirl.create(:hero, name: "Luna",
+                                       team: :radiant,
                                        attack_type: :ranged,
                                        main_attribute: :agility,
                                        viable_solo: 1)
@@ -330,6 +359,7 @@ namespace :db do
       luna.add_role(:nuker, 3)
 
       bounty_hunter = FactoryGirl.create(:hero, name: "Bounty Hunter",
+                                                team: :radiant,
                                                 attack_type: :melee,
                                                 main_attribute: :agility,
                                                 viable_solo: 1)
@@ -339,6 +369,7 @@ namespace :db do
       bounty_hunter.add_role(:nuker, 2)
 
       ursa = FactoryGirl.create(:hero, name: "Ursa",
+                                       team: :radiant,
                                        attack_type: :melee,
                                        main_attribute: :agility,
                                        viable_solo: 0)
@@ -348,6 +379,7 @@ namespace :db do
       ursa.add_role(:durable, 1)
 
       gyrocopter = FactoryGirl.create(:hero, name: "Gyrocopter",
+                                             team: :radiant,
                                              attack_type: :ranged,
                                              main_attribute: :agility,
                                              viable_solo: 1)
@@ -357,6 +389,7 @@ namespace :db do
       gyrocopter.add_role(:nuker, 3)
 
       lone_druid = FactoryGirl.create(:hero, name: "Lone Druid",
+                                             team: :radiant,
                                              attack_type: :ranged,
                                              main_attribute: :agility,
                                              viable_solo: 1)
@@ -367,6 +400,7 @@ namespace :db do
       lone_druid.add_role(:jungler, 3)
 
       naga_siren = FactoryGirl.create(:hero, name: "Naga Siren",
+                                             team: :radiant,
                                              attack_type: :melee,
                                              main_attribute: :agility,
                                              viable_solo: 1)
@@ -377,6 +411,7 @@ namespace :db do
       naga_siren.add_role(:escape, 1)
 
       troll_warlord = FactoryGirl.create(:hero, name: "Troll Warlord",
+                                                team: :radiant,
                                                 attack_type: :ranged,
                                                 main_attribute: :agility,
                                                 viable_solo: 1)
@@ -385,6 +420,7 @@ namespace :db do
 
       #radiant intelligence
       crystal_maiden = FactoryGirl.create(:hero, name: "Crystal Maiden",
+                                                 team: :radiant,
                                                  attack_type: :ranged,
                                                  strength: 16,
                                                  agility: 16,
@@ -394,7 +430,7 @@ namespace :db do
                                                  intelligence_increase: 2.9,
                                                  armor: 1.24,
                                                  movement_speed: 280,
-                                                 main_attribute: :intelligence, 
+                                                 main_attribute: :intelligence,
                                                  viable_solo: 0)
 
       crystal_maiden.add_role(:support, 2)
@@ -403,6 +439,7 @@ namespace :db do
       crystal_maiden.add_role(:disabler, 2)
 
       puck = FactoryGirl.create(:hero, name: "Puck",
+                                       team: :radiant,
                                        attack_type: :ranged,
                                        strength: 15,
                                        agility: 22,
@@ -421,6 +458,7 @@ namespace :db do
       puck.add_role(:escape, 2)
 
       storm_spirit = FactoryGirl.create(:hero, name: "Storm Spirit",
+                                               team: :radiant,
                                                attack_type: :ranged,
                                                strength: 19,
                                                agility: 22,
@@ -439,6 +477,7 @@ namespace :db do
       storm_spirit.add_role(:disabler, 1)
 
       windrunner = FactoryGirl.create(:hero, name: "Windrunner",
+                                             team: :radiant,
                                              attack_type: :ranged,
                                              strength: 15,
                                              agility: 17,
@@ -457,6 +496,7 @@ namespace :db do
       windrunner.add_role(:escape, 2)
 
       zeus = FactoryGirl.create(:hero, name: "Zeus",
+                                       team: :radiant,
                                        attack_type: :ranged,
                                        main_attribute: :intelligence,
                                        viable_solo: 1)
@@ -465,6 +505,7 @@ namespace :db do
       zeus.add_role(:support, 1)
 
       lina = FactoryGirl.create(:hero, name: "Lina",
+                                       team: :radiant,
                                        attack_type: :ranged,
                                        main_attribute: :intelligence,
                                        viable_solo: 1)
@@ -474,6 +515,7 @@ namespace :db do
       lina.add_role(:support, 1)
 
       shadow_shaman = FactoryGirl.create(:hero, name: "Shadow Shaman",
+                                                team: :radiant,
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
                                                 viable_solo: 1)
@@ -484,6 +526,7 @@ namespace :db do
       shadow_shaman.add_role(:support, 2)
 
       enchantress = FactoryGirl.create(:hero, name: "Enchantress",
+                                              team: :radiant,
                                               attack_type: :ranged,
                                               main_attribute: :intelligence,
                                               viable_solo: 0)
@@ -494,6 +537,7 @@ namespace :db do
       enchantress.add_role(:jungler, 3)
 
       natures_prophet = FactoryGirl.create(:hero, name: "Nature's Prophet",
+                                                  team: :radiant,
                                                   attack_type: :ranged,
                                                   main_attribute: :intelligence,
                                                   viable_solo: 0)
@@ -504,6 +548,7 @@ namespace :db do
       natures_prophet.add_role(:escape, 2)
 
       tinker = FactoryGirl.create(:hero, name: "Tinker",
+                                         team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
                                          viable_solo: 1)
@@ -512,6 +557,7 @@ namespace :db do
       tinker.add_role(:pusher, 3)
 
       jakiro = FactoryGirl.create(:hero, name: "Jakiro",
+                                         team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
                                          viable_solo: 0)
@@ -522,6 +568,7 @@ namespace :db do
       jakiro.add_role(:disabler, 2)
 
       chen = FactoryGirl.create(:hero, name: "Chen",
+                                       team: :radiant,
                                        attack_type: :ranged,
                                        main_attribute: :intelligence,
                                        viable_solo: 0)
@@ -531,6 +578,7 @@ namespace :db do
       chen.add_role(:pusher, 1)
 
       silencer = FactoryGirl.create(:hero, name: "Silencer",
+                                           team: :radiant,
                                            attack_type: :ranged,
                                            main_attribute: :intelligence,
                                            viable_solo: 1)
@@ -540,6 +588,7 @@ namespace :db do
       silencer.add_role(:initiator, 3)
 
       ogre_magi = FactoryGirl.create(:hero, name: "Ogre Magi",
+                                            team: :radiant,
                                             attack_type: :melee,
                                             main_attribute: :intelligence,
                                             viable_solo: 0)
@@ -549,6 +598,7 @@ namespace :db do
       ogre_magi.add_role(:durable, 2)
 
       rubick = FactoryGirl.create(:hero, name: "Rubick",
+                                         team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
                                          viable_solo: 1)
@@ -557,6 +607,7 @@ namespace :db do
       rubick.add_role(:pusher, 2)
 
       disruptor = FactoryGirl.create(:hero, name: "Disruptor",
+                                            team: :radiant,
                                             attack_type: :ranged,
                                             main_attribute: :intelligence,
                                             viable_solo: 0)
@@ -567,6 +618,7 @@ namespace :db do
       disruptor.add_role(:disabler, 2)
 
       keeper_of_the_light = FactoryGirl.create(:hero, name: "Keeper of the Light",
+                                                      team: :radiant,
                                                       attack_type: :ranged,
                                                       main_attribute: :intelligence,
                                                       viable_solo: 1)
@@ -574,6 +626,7 @@ namespace :db do
       keeper_of_the_light.add_role(:pusher, 3)
 
       skywrath_mage = FactoryGirl.create(:hero, name: "Skywrath Mage",
+                                                team: :radiant,
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
                                                 viable_solo: 1)
@@ -583,6 +636,7 @@ namespace :db do
 
       #dire strength
       axe = FactoryGirl.create(:hero, name: "Axe",
+                                      team: :dire,
                                       attack_type: :melee,
                                       strength: 25,
                                       agility: 20,
@@ -601,6 +655,7 @@ namespace :db do
       axe.add_role(:jungler, 2)
 
       pudge = FactoryGirl.create(:hero, name: "Pudge",
+                                        team: :dire,
                                         attack_type: :melee,
                                         strength: 25,
                                         agility: 14,
@@ -617,6 +672,7 @@ namespace :db do
       pudge.add_role(:disabler, 2)
 
       sand_king = FactoryGirl.create(:hero, name: "Sand King",
+                                            team: :dire,
                                             attack_type: :melee,
                                             strength: 18,
                                             agility: 19,
@@ -634,6 +690,7 @@ namespace :db do
       sand_king.add_role(:nuker, 2)
 
       slardar = FactoryGirl.create(:hero, name: "Slardar",
+                                          team: :dire,
                                           attack_type: :melee,
                                           strength: 21,
                                           agility: 17,
@@ -652,6 +709,7 @@ namespace :db do
       slardar.add_role(:initiator, 2)
 
       tidehunter = FactoryGirl.create(:hero, name: "Tidehunter",
+                                             team: :dire,
                                              attack_type: :melee,
                                              main_attribute: :strength,
                                              viable_solo: 0)
@@ -662,6 +720,7 @@ namespace :db do
       tidehunter.add_role(:support, 1)
 
       skeleton_king = FactoryGirl.create(:hero, name: "Skeleton King",
+                                                team: :dire,
                                                 attack_type: :melee,
                                                 main_attribute: :strength,
                                                 viable_solo: 0)
@@ -671,6 +730,7 @@ namespace :db do
       skeleton_king.add_role(:disabler, 1)
 
       lifestealer = FactoryGirl.create(:hero, name: "Lifestealer",
+                                              team: :dire,
                                               attack_type: :melee,
                                               main_attribute: :strength,
                                               viable_solo: 0)
@@ -681,6 +741,7 @@ namespace :db do
       lifestealer.add_role(:escape, 1)
 
       night_stalker = FactoryGirl.create(:hero, name: "Night Stalker",
+                                                team: :dire,
                                                 attack_type: :melee,
                                                 main_attribute: :strength,
                                                 viable_solo: 1)
@@ -689,6 +750,7 @@ namespace :db do
       night_stalker.add_role(:initiator, 3)
 
       doom = FactoryGirl.create(:hero, name: "Doom",
+                                       team: :dire,
                                        attack_type: :melee,
                                        main_attribute: :strength,
                                        viable_solo: 0)
@@ -698,6 +760,7 @@ namespace :db do
       doom.add_role(:nuker, 2)
 
       spirit_breaker = FactoryGirl.create(:hero, name: "Spirit Breaker",
+                                                 team: :dire,
                                                  attack_type: :melee,
                                                  main_attribute: :strength,
                                                  viable_solo: 0)
@@ -708,6 +771,7 @@ namespace :db do
       spirit_breaker.add_role(:disabler, 2)
 
       lycanthrope = FactoryGirl.create(:hero, name: "Lycanthrope",
+                                              team: :dire,
                                               attack_type: :melee,
                                               main_attribute: :strength,
                                               viable_solo: 0)
@@ -718,6 +782,7 @@ namespace :db do
       lycanthrope.add_role(:durable, 2)
 
       chaos_knight = FactoryGirl.create(:hero, name: "Chaos Knight",
+                                               team: :dire,
                                                attack_type: :melee,
                                                main_attribute: :strength,
                                                viable_solo: 0)
@@ -728,6 +793,7 @@ namespace :db do
       chaos_knight.add_role(:pusher, 1)
 
       undying = FactoryGirl.create(:hero, name: "Undying",
+                                          team: :dire,
                                           attack_type: :melee,
                                           main_attribute: :strength,
                                           viable_solo: 1)
@@ -738,6 +804,7 @@ namespace :db do
       undying.add_role(:initiator, 3)
 
       magnus = FactoryGirl.create(:hero, name: "Magnus",
+                                         team: :dire,
                                          attack_type: :melee,
                                          main_attribute: :strength,
                                          viable_solo: 1)
@@ -748,6 +815,7 @@ namespace :db do
       magnus.add_role(:carry, 1)
 
       abaddon = FactoryGirl.create(:hero, name: "Abaddon",
+                                          team: :dire,
                                           attack_type: :melee,
                                           main_attribute: :strength,
                                           viable_solo: 2)
@@ -758,6 +826,7 @@ namespace :db do
 
       #dire agility
       bloodseeker = FactoryGirl.create(:hero, name: "Bloodseeker",
+                                              team: :dire,
                                               attack_type: :melee,
                                               strength: 23,
                                               agility: 24,
@@ -774,6 +843,7 @@ namespace :db do
       bloodseeker.add_role(:jungler, 2)
 
       shadow_fiend = FactoryGirl.create(:hero, name: "Shadow Fiend",
+                                               team: :dire,
                                                attack_type: :ranged,
                                                strength: 15,
                                                agility: 20,
@@ -790,6 +860,7 @@ namespace :db do
       shadow_fiend.add_role(:nuker, 3)
 
       razor = FactoryGirl.create(:hero, name: "Razor",
+                                        team: :dire,
                                         attack_type: :ranged,
                                         strength: 21,
                                         agility: 22,
@@ -807,6 +878,7 @@ namespace :db do
       razor.add_role(:nuker, 2)
 
       venomancer = FactoryGirl.create(:hero, name: "Venomancer",
+                                             team: :dire,
                                              attack_type: :ranged,
                                              strength: 18,
                                              agility: 22,
@@ -825,6 +897,7 @@ namespace :db do
       venomancer.add_role(:pusher, 2)
 
       faceless_void = FactoryGirl.create(:hero, name: "Faceless Void",
+                                                team: :dire,
                                                 attack_type: :melee,
                                                 main_attribute: :agility,
                                                 viable_solo: 0)
@@ -835,6 +908,7 @@ namespace :db do
       faceless_void.add_role(:escape, 2)
 
       phantom_assassin = FactoryGirl.create(:hero, name: "Phantom Assassin",
+                                                   team: :dire,
                                                    attack_type: :melee,
                                                    main_attribute: :agility,
                                                    viable_solo: 0)
@@ -843,6 +917,7 @@ namespace :db do
       phantom_assassin.add_role(:escape, 2)
 
       viper = FactoryGirl.create(:hero, name: "Viper",
+                                        team: :dire,
                                         attack_type: :ranged,
                                         main_attribute: :agility,
                                         viable_solo: 1)
@@ -852,6 +927,7 @@ namespace :db do
       viper.add_role(:ganker, 2)
 
       clinkz = FactoryGirl.create(:hero, name: "Clinkz",
+                                         team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :agility,
                                          viable_solo: 0)
@@ -860,6 +936,7 @@ namespace :db do
       clinkz.add_role(:escape, 3)
 
       broodmother = FactoryGirl.create(:hero, name: "Broodmother",
+                                              team: :dire,
                                               attack_type: :melee,
                                               main_attribute: :agility,
                                               viable_solo: 1)
@@ -869,6 +946,7 @@ namespace :db do
       broodmother.add_role(:escape, 1)
 
       weaver = FactoryGirl.create(:hero, name: "Weaver",
+                                         team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :agility,
                                          viable_solo: 1)
@@ -877,6 +955,7 @@ namespace :db do
       weaver.add_role(:escape, 3)
 
       spectre = FactoryGirl.create(:hero, name: "Spectre",
+                                          team: :dire,
                                           attack_type: :melee,
                                           main_attribute: :agility,
                                           viable_solo: 0)
@@ -885,6 +964,7 @@ namespace :db do
       spectre.add_role(:durable, 2)
 
       meepo = FactoryGirl.create(:hero, name: "Meepo",
+                                        team: :dire,
                                         attack_type: :melee,
                                         main_attribute: :agility,
                                         viable_solo: 0)
@@ -894,6 +974,7 @@ namespace :db do
       meepo.add_role(:pusher, 2)
 
       nyx_assassin = FactoryGirl.create(:hero, name: "Nyx Assassin",
+                                               team: :dire,
                                                attack_type: :melee,
                                                main_attribute: :agility,
                                                viable_solo: 1)
@@ -902,6 +983,7 @@ namespace :db do
       nyx_assassin.add_role(:nuker, 3)
 
       slark = FactoryGirl.create(:hero, name: "Slark",
+                                        team: :dire,
                                         attack_type: :melee,
                                         main_attribute: :agility,
                                         viable_solo: 1)
@@ -910,6 +992,7 @@ namespace :db do
       slark.add_role(:ganker, 2)
 
       medusa = FactoryGirl.create(:hero, name: "Medusa",
+                                         team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :agility,
                                          viable_solo: 1)
@@ -920,6 +1003,7 @@ namespace :db do
 
       #dire intelligence
       bane = FactoryGirl.create(:hero, name: "Bane",
+                                       team: :dire,
                                        attack_type: :ranged,
                                        strength: 22,
                                        agility: 22,
@@ -937,6 +1021,7 @@ namespace :db do
       bane.add_role(:support, 1)
 
       lich = FactoryGirl.create(:hero, name: "Lich",
+                                       team: :dire,
                                        attack_type: :ranged,
                                        strength: 18,
                                        agility: 15,
@@ -954,6 +1039,7 @@ namespace :db do
       lich.add_role(:nuker, 1)
 
       lion = FactoryGirl.create(:hero, name: "Lion",
+                                       team: :dire,
                                        attack_type: :ranged,
                                        strength: 16,
                                        agility: 15,
@@ -972,6 +1058,7 @@ namespace :db do
       lion.add_role(:support, 1)
 
       witch_doctor = FactoryGirl.create(:hero, name: "Witch Doctor",
+                                               team: :dire,
                                                attack_type: :ranged,
                                                strength: 16,
                                                agility: 13,
@@ -988,6 +1075,7 @@ namespace :db do
       witch_doctor.add_role(:disabler, 2)
 
       enigma = FactoryGirl.create(:hero, name: "Enigma",
+                                         team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
                                          viable_solo: 0)
@@ -998,6 +1086,7 @@ namespace :db do
       enigma.add_role(:pusher, 2)
 
       necrolyte = FactoryGirl.create(:hero, name: "Necrolyte",
+                                            team: :dire,
                                             attack_type: :ranged,
                                             main_attribute: :intelligence,
                                             viable_solo: 1)
@@ -1007,6 +1096,7 @@ namespace :db do
       necrolyte.add_role(:carry, 2)
 
       warlock = FactoryGirl.create(:hero, name: "Warlock",
+                                          team: :dire,
                                           attack_type: :ranged,
                                           main_attribute: :intelligence,
                                           viable_solo: 0)
@@ -1016,6 +1106,7 @@ namespace :db do
       warlock.add_role(:disabler, 1)
 
       queen_of_pain = FactoryGirl.create(:hero, name: "Queen of Pain",
+                                                team: :dire,
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
                                                 viable_solo: 1)
@@ -1025,6 +1116,7 @@ namespace :db do
       queen_of_pain.add_role(:carry, 2)
 
       death_prophet = FactoryGirl.create(:hero, name: "Death Prophet",
+                                                team: :dire,
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
                                                 viable_solo: 1)
@@ -1034,6 +1126,7 @@ namespace :db do
       death_prophet.add_role(:durable, 2)
 
       pugna = FactoryGirl.create(:hero, name: "Pugna",
+                                        team: :dire,
                                         attack_type: :ranged,
                                         main_attribute: :intelligence,
                                         viable_solo: 1)
@@ -1043,6 +1136,7 @@ namespace :db do
       pugna.add_role(:support, 2)
 
       dazzle = FactoryGirl.create(:hero, name: "Dazzle",
+                                         team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
                                          viable_solo: 0)
@@ -1050,6 +1144,7 @@ namespace :db do
       dazzle.add_role(:lane_support, 3)
 
       leshrac = FactoryGirl.create(:hero, name: "Leshrac",
+                                          team: :dire,
                                           attack_type: :ranged,
                                           main_attribute: :intelligence,
                                           viable_solo: 0)
@@ -1060,6 +1155,7 @@ namespace :db do
       leshrac.add_role(:support, 1)
 
       dark_seer = FactoryGirl.create(:hero, name: "Dark Seer",
+                                            team: :dire,
                                             attack_type: :melee,
                                             main_attribute: :intelligence,
                                             viable_solo: 1)
@@ -1069,6 +1165,7 @@ namespace :db do
       dark_seer.add_role(:escape, 1)
 
       batrider = FactoryGirl.create(:hero, name: "Batrider",
+                                           team: :dire,
                                            attack_type: :ranged,
                                            main_attribute: :intelligence,
                                            viable_solo: 1)
@@ -1079,6 +1176,7 @@ namespace :db do
       batrider.add_role(:escape, 1)
 
       ancient_apparition = FactoryGirl.create(:hero, name: "Ancient Apparition",
+                                                     team: :dire,
                                                      attack_type: :ranged,
                                                      main_attribute: :intelligence,
                                                      viable_solo: 0)
@@ -1087,6 +1185,7 @@ namespace :db do
       ancient_apparition.add_role(:disabler, 2)
 
       invoker = FactoryGirl.create(:hero, name: "Invoker",
+                                          team: :dire,
                                           attack_type: :ranged,
                                           main_attribute: :intelligence,
                                           viable_solo: 1)
@@ -1097,6 +1196,7 @@ namespace :db do
       invoker.add_role(:escape, 2)
 
       outworld_devourer = FactoryGirl.create(:hero, name: "Outworld Devourer",
+                                                    team: :dire,
                                                     attack_type: :ranged,
                                                     strength: 19,
                                                     agility: 24,
@@ -1112,6 +1212,7 @@ namespace :db do
       outworld_devourer.add_role(:carry, 3)
 
       shadow_demon = FactoryGirl.create(:hero, name: "Shadow Demon",
+                                               team: :dire,
                                                attack_type: :ranged,
                                                main_attribute: :intelligence,
                                                viable_solo: 1)
@@ -1121,6 +1222,7 @@ namespace :db do
       shadow_demon.add_role(:nuker, 1)
 
       visage = FactoryGirl.create(:hero, name: "Visage",
+                                         team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
                                          viable_solo: 1)

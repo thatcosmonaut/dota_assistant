@@ -32,6 +32,9 @@ class Hero < ActiveRecord::Base
   scope :with_main_attribute, -> (attribute = nil) { where(main_attribute: attribute) }
   scope :with_attack_type, -> (attack_type = nil) { where(attack_type: attack_type) }
 
+  scope :radiant, -> { where(team: :radiant) }
+  scope :dire, -> { where(team: :dire) }
+
   #used in role vector
   serialize :role_elements, Array
 

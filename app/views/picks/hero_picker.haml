@@ -1,76 +1,115 @@
-.headline Dota 2 Pick Assistant
-= form_tag pick_assistant_path, method: :post do |f|
-  .hero_header Friendly Heroes
-  .new-line
-  - i = 0
-  - @heroes.each do |hero|
-    - if hero.name == "Earthshaker"
+.picker
+  = form_tag pick_assistant_path, method: :post do |f|
+    #friendly-heroes.panel.friendly
+      .headline Dota 2 Pick Assistant
+      .hero_header Select Friendly Heroes
       .new-line
-      .hero_group_header Radiant Strength
 
-    - elsif hero.name == "Anti-Mage"
+      .hero-group
+        .hero_group_header Radiant Strength
+        - Hero.radiant.with_main_attribute(:strength).each do |hero|
+          .left
+            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", hero.name
+
+      .hero-group
+        .hero_group_header Radiant Agility
+        - Hero.radiant.with_main_attribute(:agility).each do |hero|
+          .left
+            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", hero.name
+
+      .hero-group
+        .hero_group_header Radiant Intelligence
+        - Hero.radiant.with_main_attribute(:intelligence).each do |hero|
+          .left
+            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", hero.name
+
+
+      .hero-group
+        .hero_group_header Dire Strength
+        - Hero.dire.with_main_attribute(:strength).each do |hero|
+          .left
+            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", hero.name
+
+      .hero-group
+        .hero_group_header Dire Agility
+        - Hero.dire.with_main_attribute(:agility).each do |hero|
+          .left
+            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", hero.name
+
+      .hero-group
+        .hero_group_header Dire Intelligence
+        - Hero.dire.with_main_attribute(:intelligence).each do |hero|
+          .left
+            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", hero.name
+
+      .right-arrow-wrapper= link_to(fa_icon("arrow-right 4x", class: "arrow"), "#enemy-heroes")
+
+
+    #enemy-heroes.panel.enemy
+      .hero_header Select Enemy Heroes
       .new-line
-      .hero_group_header Radiant Agility
 
-    - elsif hero.name == "Crystal Maiden"
-      .new-line
-      .hero_group_header Radiant Intelligence
+      .hero-group
+        .hero_group_header Radiant Strength
+        - Hero.radiant.with_main_attribute(:strength).each do |hero|
+          .left
+            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", hero.name
 
-    - elsif hero.name == "Axe"
-      .new-line
-      .hero_group_header Dire Strength
+      .hero-group
+        .hero_group_header Radiant Agility
+        - Hero.radiant.with_main_attribute(:agility).each do |hero|
+          .left
+            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", hero.name
 
-    - elsif hero.name == "Bloodseeker"
-      .new-line
-      .hero_group_header Dire Agility
+      .hero-group
+        .hero_group_header Radiant Intelligence
+        - Hero.radiant.with_main_attribute(:intelligence).each do |hero|
+          .left
+            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", hero.name
 
-    - elsif hero.name == "Bane"
-      .new-line
-      .hero_group_header Dire Intelligence
+      .hero-group
+        .hero_group_header Dire Strength
+        - Hero.dire.with_main_attribute(:strength).each do |hero|
+          .left
+            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", hero.name
 
-    .left
-      = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-      = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
-      = label_tag "hero-#{hero.id}", hero.name
-    - i += 1
+      .hero-group
+        .hero_group_header Dire Agility
+        - Hero.dire.with_main_attribute(:agility).each do |hero|
+          .left
+            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", hero.name
 
-  .new-line
+      .hero-group
+        .hero_group_header Dire Intelligence
+        - Hero.dire.with_main_attribute(:intelligence).each do |hero|
+          .left
+            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", hero.name
 
-  .hero_header
-    Enemy Heroes
-  .new-line
-  - i = 0
-  - @heroes.each do |hero|
-    - if hero.name == "Earthshaker"
-      .new-line
-      .hero_group_header Radiant Strength
+      .left-arrow-wrapper= link_to(fa_icon("arrow-left 4x", class: "arrow"), "#friendly-heroes")
 
-    - elsif hero.name == "Anti-Mage"
-      .new-line
-      .hero_group_header Radiant Agility
-
-    - elsif hero.name == "Crystal Maiden"
-      .new-line
-      .hero_group_header Radiant Intelligence
-
-    - elsif hero.name == "Axe"
-      .new-line
-      .hero_group_header Dire Strength
-
-    - elsif hero.name == "Bloodseeker"
-      .new-line
-      .hero_group_header Dire Agility
-
-    - elsif hero.name == "Bane"
-      .new-line
-      .hero_group_header Dire Intelligence
-
-    .left
-      = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-      = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
-      = label_tag "enemy-#{hero.id}", hero.name
-    - i += 1
-  .new-line
-
-  .submit_wrapper
-    = submit_tag "Submit picks", class: "submit"
+      .submit_wrapper
+        = submit_tag "Submit picks", class: "submit"
