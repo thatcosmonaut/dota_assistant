@@ -151,6 +151,35 @@ input[type="checkbox"]
     position: relative
     top: 1px
 
+.spinner
+  float: left
+  margin-right: 10px
+
+#light_box
+  position: fixed
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  z-index: 999
+  background: rgba(0, 0, 0, 0.5)
+  display: none
+
+#calculating-modal
+  position: absolute
+  $height: 100px
+  $width: 150px
+  $border-size: 8px
+  width: $width - (2 * $border-size)
+  left: 50%
+  top: 50%
+  margin: $height/-2 $width/-2
+  background: white
+  border: $border-size solid #fcfcfc
+  -webkit-box-shadow:  0px 0px 10px 3px rgba(0, 0, 0, 0.7)
+  box-shadow:  0px 0px 10px 3px rgba(0, 0, 0, 0.7)
+  border-radius: 4px
+  color: black
 
 .ancient-apparition
   background-position: 0 -71px
