@@ -14,3 +14,6 @@ $(document).ready ->
     selector = hero_label.replace('hero', 'enemy') if hero_label.indexOf("hero") != -1
     target = $("label[for='" + selector + "']")
     target.css(opacity: .1)
+
+  $(".submit").bind "click", (event) ->
+    $("#light_box").show()
