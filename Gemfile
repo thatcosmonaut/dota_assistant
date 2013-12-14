@@ -11,6 +11,8 @@ gem 'factory_girl_rails'
 gem 'haml'
 gem 'jquery-rails'
 gem 'sass-rails'
+gem 'font-awesome-rails'
+gem 'coffee-rails'
 
 group :assets do
   gem 'uglifier'

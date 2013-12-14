@@ -10,9 +10,7 @@ module Recommendations
         remaining_heroes.each do |hero|
           score_builder << [hero, calculate_score(friendly_heroes + [hero])]
         end
-      end
-
-      scores = scores.sort_by { |a, b| b }
+      end.sort_by { |a, b| b }
 
       [scores.first(5), scores.last(5)]
     end
