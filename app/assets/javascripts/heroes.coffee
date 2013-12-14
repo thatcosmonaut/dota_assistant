@@ -3,6 +3,9 @@ $(document).ready ->
     event.preventDefault()
     target = $($(this).parent().attr("href"))
     $("html, body").stop().animate(scrollLeft: target.offset().left, scrollTop: target.offset().top, 1200)
+    $("#filter").val('')
+    $(".hero-box").each ->
+      $(this).css(opacity: 1)
 
   $(".icon-arrow-left").bind "click", (event) ->
     event.preventDefault()
