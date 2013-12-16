@@ -3,13 +3,13 @@
     = fa_icon "spinner spin", class: "spinner"
     Calculating...
 
-= render 'shared/live_search'
 
 .picker
   = form_tag pick_assistant_path, method: :post do |f|
     #friendly-heroes.panel.friendly
       .headline Dota 2 Pick Assistant
-      .hero_header Select Friendly Heroes
+      = render 'shared/live_search'
+      .friendly-header Select Friendly Heroes
       .new-line
 
       .hero-group
