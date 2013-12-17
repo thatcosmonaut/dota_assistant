@@ -6,15 +6,8 @@ class PicksController < ApplicationController
   end
 
   def recommendation
-    @friendlies = []
-    params[:friendlies].try(:each) do |id|
-      @friendlies << Hero.find(id)
-    end
-
-    @enemies = []
-    params[:enemies].try(:each) do |id|
-      @enemies << Hero.find(id)
-    end
+    @friendlies = params[:friendlies].try(:map) { |id| Hero.find(id) } || []
+    @enemies = params[:enemies].try(:map) { |id| Hero.find(id) } || []
 
     result = Recommendations.pick_recommendations @friendlies, @enemies
     @recommendation = result.first
