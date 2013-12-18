@@ -506,7 +506,7 @@ namespace :db do
       storm_spirit.add_role(:escape, 3)
       storm_spirit.add_role(:disabler, 1)
 
-      windrunner = FactoryGirl.create(:hero, name: "Windrunner",
+      windranger = FactoryGirl.create(:hero, name: "Windranger",
                                              team: :radiant,
                                              attack_type: :ranged,
                                              strength: 15,
@@ -520,10 +520,10 @@ namespace :db do
                                              main_attribute: :intelligence,
                                              viable_solo: 0)
 
-      windrunner.add_role(:disabler, 2)
-      windrunner.add_role(:nuker, 1)
-      windrunner.add_role(:support, 2)
-      windrunner.add_role(:escape, 2)
+      windranger.add_role(:disabler, 2)
+      windranger.add_role(:nuker, 1)
+      windranger.add_role(:support, 2)
+      windranger.add_role(:escape, 2)
 
       zeus = FactoryGirl.create(:hero, name: "Zeus",
                                        team: :radiant,
@@ -1115,15 +1115,15 @@ namespace :db do
       enigma.add_role(:jungler, 2)
       enigma.add_role(:pusher, 2)
 
-      necrolyte = FactoryGirl.create(:hero, name: "Necrolyte",
+      necrophos = FactoryGirl.create(:hero, name: "Necrophos",
                                             team: :dire,
                                             attack_type: :ranged,
                                             main_attribute: :intelligence,
                                             viable_solo: 1)
 
-      necrolyte.add_role(:support, 2)
-      necrolyte.add_role(:durable, 2)
-      necrolyte.add_role(:carry, 2)
+      necrophos.add_role(:support, 2)
+      necrophos.add_role(:durable, 2)
+      necrophos.add_role(:carry, 2)
 
       warlock = FactoryGirl.create(:hero, name: "Warlock",
                                           team: :dire,
@@ -1289,11 +1289,11 @@ namespace :db do
 
       axe.add_weak_against(visage)
       axe.add_weak_against(lifestealer)
-      axe.add_weak_against(necrolyte)
+      axe.add_weak_against(necrophos)
       axe.add_strong_against(earthshaker)
       axe.add_strong_against(broodmother)
 
-      bane.add_weak_against(necrolyte)
+      bane.add_weak_against(necrophos)
       bane.add_weak_against(enchantress)
       bane.add_weak_against(lina)
       bane.add_weak_against(invoker)
@@ -1352,7 +1352,7 @@ namespace :db do
       centaur_warrunner.add_strong_against(puck)
       centaur_warrunner.add_strong_against(spectre)
 
-      chaos_knight.add_weak_against(necrolyte)
+      chaos_knight.add_weak_against(necrophos)
       chaos_knight.add_weak_against(lifestealer)
       chaos_knight.add_weak_against(lone_druid)
       chaos_knight.add_strong_against(silencer)
@@ -1366,7 +1366,7 @@ namespace :db do
       chen.add_weak_against(spirit_breaker)
       chen.add_strong_against(shadow_fiend)
       chen.add_strong_against(gyrocopter)
-      chen.add_strong_against(windrunner)
+      chen.add_strong_against(windranger)
 
       clinkz.add_weak_against(queen_of_pain)
       clinkz.add_weak_against(invoker)
@@ -1396,7 +1396,7 @@ namespace :db do
 
       dark_seer.add_weak_against(lifestealer)
       dark_seer.add_weak_against(doom)
-      dark_seer.add_weak_against(necrolyte)
+      dark_seer.add_weak_against(necrophos)
       dark_seer.add_strong_against(anti_mage)
       dark_seer.add_strong_against(skeleton_king)
       dark_seer.add_strong_against(dragon_knight)
@@ -1487,9 +1487,8 @@ namespace :db do
       gyrocopter.add_strong_against(templar_assassin)
       gyrocopter.add_strong_against(undying)
 
-      necrolyte.add_weak_against(necrolyte)
-      necrolyte.add_weak_against(undying)
-      necrolyte.add_weak_against(windrunner)
+      necrophos.add_weak_against(undying)
+      necrophos.add_weak_against(windranger)
 
       invoker.add_weak_against(outworld_devourer)
       invoker.add_weak_against(batrider)
@@ -1522,7 +1521,7 @@ namespace :db do
       keeper_of_the_light.add_strong_against(earthshaker)
 
       kunkka.add_weak_against(undying)
-      kunkka.add_weak_against(windrunner)
+      kunkka.add_weak_against(windranger)
       kunkka.add_weak_against(luna)
       kunkka.add_strong_against(tinker)
       kunkka.add_strong_against(venomancer)
@@ -1599,7 +1598,7 @@ namespace :db do
       magnus.add_weak_against(drow_ranger)
       magnus.add_strong_against(weaver)
       magnus.add_strong_against(zeus)
-      magnus.add_strong_against(windrunner)
+      magnus.add_strong_against(windranger)
 
       #medusa
 
@@ -1639,14 +1638,14 @@ namespace :db do
       natures_prophet.add_strong_against(pudge)
       natures_prophet.add_strong_against(shadow_fiend)
 
-      necrolyte.add_weak_against(outworld_devourer)
-      necrolyte.add_weak_against(visage)
-      necrolyte.add_weak_against(pugna)
-      necrolyte.add_strong_against(huskar)
-      necrolyte.add_strong_against(chaos_knight)
-      necrolyte.add_strong_against(bane)
-      necrolyte.add_strong_against(dark_seer)
-      necrolyte.add_strong_against(axe)
+      necrophos.add_weak_against(outworld_devourer)
+      necrophos.add_weak_against(visage)
+      necrophos.add_weak_against(pugna)
+      necrophos.add_strong_against(huskar)
+      necrophos.add_strong_against(chaos_knight)
+      necrophos.add_strong_against(bane)
+      necrophos.add_strong_against(dark_seer)
+      necrophos.add_strong_against(axe)
 
       night_stalker.add_weak_against(batrider)
 
@@ -1670,7 +1669,7 @@ namespace :db do
       outworld_devourer.add_strong_against(phantom_assassin)
       outworld_devourer.add_strong_against(timbersaw)
       outworld_devourer.add_strong_against(invoker)
-      outworld_devourer.add_strong_against(necrolyte)
+      outworld_devourer.add_strong_against(necrophos)
       outworld_devourer.add_strong_against(rubick)
       outworld_devourer.add_strong_against(shadow_demon)
       outworld_devourer.add_strong_against(omniknight)
@@ -1709,7 +1708,7 @@ namespace :db do
       pudge.add_weak_against(clockwerk)
       pudge.add_strong_against(sniper)
       pudge.add_strong_against(enchantress)
-      pudge.add_strong_against(windrunner)
+      pudge.add_strong_against(windranger)
 
       pugna.add_weak_against(centaur_warrunner)
       pugna.add_weak_against(juggernaut)
@@ -1717,7 +1716,7 @@ namespace :db do
       pugna.add_strong_against(ogre_magi)
       pugna.add_strong_against(leshrac)
       pugna.add_strong_against(lich)
-      pugna.add_strong_against(necrolyte)
+      pugna.add_strong_against(necrophos)
       pugna.add_strong_against(visage)
       pugna.add_strong_against(lifestealer)
       pugna.add_strong_against(lina)
@@ -1732,7 +1731,7 @@ namespace :db do
       queen_of_pain.add_strong_against(clinkz)
       queen_of_pain.add_strong_against(tiny)
       queen_of_pain.add_strong_against(night_stalker)
-      queen_of_pain.add_strong_against(windrunner)
+      queen_of_pain.add_strong_against(windranger)
       queen_of_pain.add_strong_against(witch_doctor)
 
       razor.add_weak_against(dazzle)
@@ -1937,7 +1936,7 @@ namespace :db do
       venomancer.add_strong_against(centaur_warrunner)
       venomancer.add_strong_against(ancient_apparition)
       venomancer.add_strong_against(zeus)
-      venomancer.add_strong_against(windrunner)
+      venomancer.add_strong_against(windranger)
 
       viper.add_weak_against(weaver)
       viper.add_weak_against(spectre)
@@ -1952,7 +1951,7 @@ namespace :db do
       visage.add_weak_against(pugna)
       visage.add_weak_against(mirana)
       visage.add_weak_against(axe)
-      visage.add_weak_against(necrolyte)
+      visage.add_weak_against(necrophos)
       visage.add_weak_against(luna)
 
       warlock.add_weak_against(sniper)
@@ -1966,13 +1965,13 @@ namespace :db do
       weaver.add_strong_against(tidehunter)
       weaver.add_strong_against(lina)
 
-      windrunner.add_weak_against(venomancer)
-      windrunner.add_weak_against(queen_of_pain)
-      windrunner.add_weak_against(magnus)
-      windrunner.add_weak_against(pudge)
-      windrunner.add_weak_against(chen)
-      windrunner.add_strong_against(huskar)
-      windrunner.add_strong_against(kunkka)
+      windranger.add_weak_against(venomancer)
+      windranger.add_weak_against(queen_of_pain)
+      windranger.add_weak_against(magnus)
+      windranger.add_weak_against(pudge)
+      windranger.add_weak_against(chen)
+      windranger.add_strong_against(huskar)
+      windranger.add_strong_against(kunkka)
 
       witch_doctor.add_weak_against(slark)
       witch_doctor.add_weak_against(queen_of_pain)
