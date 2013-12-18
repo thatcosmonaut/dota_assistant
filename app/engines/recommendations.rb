@@ -16,7 +16,7 @@ module Recommendations
     end
 
     def remaining_heroes friendly_heroes, enemy_heroes
-      Hero.where.not(name: (friendly_heroes + enemy_heroes).map(&:name))
+      Hero.where.not(id: (friendly_heroes.map(&:id) + enemy_heroes.map(&:id)))
     end
 
     def calculate_score friendly_heroes
