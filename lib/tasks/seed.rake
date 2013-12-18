@@ -221,6 +221,25 @@ namespace :db do
       elder_titan.add_role(:initiator, 3)
       elder_titan.add_role(:durable, 2)
 
+      earth_spirit = FactoryGirl.create(:hero, name: "Earth Spirit",
+                                               team: :radiant,
+                                               attack_type: :melee,
+                                               main_attribute: :strength,
+                                               viable_solo: 1)
+
+      earth_spirit.add_role(:initiator, 3)
+      earth_spirit.add_role(:disabler, 2)
+      earth_spirit.add_role(:durable, 1)
+
+      legion_commander = FactoryGirl.create(:hero, name: "Legion Commander",
+                                                   team: :radiant,
+                                                   attack_type: :melee,
+                                                   main_attribute: :strength,
+                                                   viable_solo: 0)
+
+      legion_commander.add_role(:carry, 3)
+      legion_commander.add_role(:durable, 2)
+
       #radiant agility
       anti_mage = FactoryGirl.create(:hero, name: "Anti-Mage",
                                             team: :radiant,
@@ -417,6 +436,17 @@ namespace :db do
                                                 viable_solo: 1)
 
       troll_warlord.add_role(:carry, 3)
+
+      ember_spirit = FactoryGirl.create(:hero, name: "Ember Spirit",
+                                               team: :radiant,
+                                               attack_type: :melee,
+                                               main_attribute: :agility,
+                                               viable_solo: 1)
+
+      ember_spirit.add_role(:carry, 2)
+      ember_spirit.add_role(:nuker, 2)
+      ember_spirit.add_role(:disabler, 2)
+      ember_spirit.add_role(:durable, 1)
 
       #radiant intelligence
       crystal_maiden = FactoryGirl.create(:hero, name: "Crystal Maiden",
