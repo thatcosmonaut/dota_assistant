@@ -17,7 +17,7 @@
         - Hero.radiant.with_main_attribute(:strength).each do |hero|
           .hero-box
             = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "hero-#{hero.id}", hero.name
 
       .hero-group
@@ -25,7 +25,7 @@
         - Hero.radiant.with_main_attribute(:agility).each do |hero|
           .hero-box
             = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "hero-#{hero.id}", hero.name
 
       .hero-group
@@ -33,7 +33,7 @@
         - Hero.radiant.with_main_attribute(:intelligence).each do |hero|
           .hero-box
             = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "hero-#{hero.id}", hero.name
 
 
@@ -42,7 +42,7 @@
         - Hero.dire.with_main_attribute(:strength).each do |hero|
           .hero-box
             = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "hero-#{hero.id}", hero.name
 
       .hero-group
@@ -50,7 +50,7 @@
         - Hero.dire.with_main_attribute(:agility).each do |hero|
           .hero-box
             = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "hero-#{hero.id}", hero.name
 
       .hero-group
@@ -58,7 +58,7 @@
         - Hero.dire.with_main_attribute(:intelligence).each do |hero|
           .hero-box
             = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "hero-#{hero.id}", hero.name
 
       .right-arrow-wrapper= link_to(fa_icon("arrow-right 4x", class: "arrow"), "#enemy-heroes")
@@ -73,7 +73,7 @@
         - Hero.radiant.with_main_attribute(:strength).each do |hero|
           .hero-box
             = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "enemy-#{hero.id}", hero.name
 
       .hero-group
@@ -81,7 +81,7 @@
         - Hero.radiant.with_main_attribute(:agility).each do |hero|
           .hero-box
             = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "enemy-#{hero.id}", hero.name
 
       .hero-group
@@ -89,7 +89,7 @@
         - Hero.radiant.with_main_attribute(:intelligence).each do |hero|
           .hero-box
             = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "enemy-#{hero.id}", hero.name
 
       .hero-group
@@ -97,7 +97,7 @@
         - Hero.dire.with_main_attribute(:strength).each do |hero|
           .hero-box
             = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "enemy-#{hero.id}", hero.name
 
       .hero-group
@@ -105,7 +105,7 @@
         - Hero.dire.with_main_attribute(:agility).each do |hero|
           .hero-box
             = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "enemy-#{hero.id}", hero.name
 
       .hero-group
@@ -113,7 +113,7 @@
         - Hero.dire.with_main_attribute(:intelligence).each do |hero|
           .hero-box
             = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize]
+            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
             = label_tag "enemy-#{hero.id}", hero.name
 
       .left-arrow-wrapper= link_to(fa_icon("arrow-left 4x", class: "arrow"), "#friendly-heroes")
