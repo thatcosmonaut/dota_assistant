@@ -16,15 +16,16 @@ This will populate the database with the necessary information about heroes and 
 ## How It Works
 
 The current version of the algorithm uses vector math to try and find the hero that will best fit into your current
-lineup to get the team as close as possible to an ideal team composition. Right now the algorithm optimizes for the
-standard 2-1-2 lane distribution, but future versions may allow picking for trilanes and other non-standard strategies.
+lineup to get the team as close as possible to an ideal team composition. Right now the algorithm allows you to choose
+between a 2-1-2, jungling, or trilane composition. I am still working out the kinks of jungling and trilane picking
+so bear with me if that doesn't work quite as nicely as 2-1-2 picking just yet.
 
 The attributes that the algorithm takes into account are:
-Attack type (melee or ranged), the hero's viability in mid-lane, and the different roles that each hero is suited to.
+Attack type (melee or ranged), the hero's viability in a solo lane, and the different roles that each hero is suited to.
 
 A hero vector is constructed as follows:  
 AT  
-MID  
+SOLO  
 CARRY  
 DISABLE  
 DURABLE  
@@ -37,20 +38,14 @@ NUKE
 PUSH  
 SUPPORT  
 
-The ideal team vector is currently chosen to optimize for:  
-1 viable mid  
-1 strong carry  
-Roughly 2 supports  
-Strong initiation and teamfight  
-Strong disable
-
 The algorithm does not take into account hard counters at the moment.
 I am trying to find the best way to efficiently represent counters and properly weight the value of having them.
 
 ## How To Use
-1) Select the heroes that are currently picked for your team  
-2) Select the heroes that are currently picked on the enemy team  
-3) Hit submit!
+1) Select the style of team composition that you want to build  
+2) Select the heroes that are currently picked for your team  
+3) Select the heroes that are currently picked on the enemy team  
+4) Hit submit!
 
 The algorithm will return the 5 best and worst heroes fitting into your team composition.
 
