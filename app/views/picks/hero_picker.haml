@@ -7,8 +7,19 @@
 .picker
   = form_tag pick_assistant_path, method: :post do |f|
     #friendly-heroes.panel.friendly
-      .headline Dota 2 Pick Assistant
+      .strategy-selector
+        = radio_button_tag "composition", 'ideal_balanced_vector', checked: true
+        = label_tag 'composition_ideal_balanced_vector', '2-1-2'
+
+        = radio_button_tag 'composition', 'ideal_jungling_vector'
+        = label_tag 'composition_ideal_jungling_vector', 'Jungling'
+
+        = radio_button_tag 'composition', 'ideal_trilane_vector'
+        = label_tag 'composition_ideal_trilane_vector', 'Trilane'
+
       = render 'shared/live_search'
+
+      .headline Dota 2 Pick Assistant
       .friendly-header Select Friendly Heroes
       .new-line
 
