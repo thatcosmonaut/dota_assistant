@@ -18,7 +18,8 @@ namespace :db do
                                               armor: 2.68,
                                               movement_speed: 300,
                                               main_attribute: :strength,
-                                              viable_solo: 0)
+                                              viable_mid: 0,
+                                              viable_offlane: 0)
 
       earthshaker.add_role(:initiator, 2)
       earthshaker.add_role(:disabler, 1)
@@ -37,7 +38,8 @@ namespace :db do
                                        armor: 1.94,
                                        movement_speed: 295,
                                        main_attribute: :strength,
-                                       viable_solo: 0)
+                                       viable_mid: 0,
+                                       viable_offlane: 0)
 
       sven.add_role(:disabler, 2)
       sven.add_role(:initiator, 2)
@@ -56,7 +58,8 @@ namespace :db do
                                        armor: 0.26,
                                        movement_speed: 285,
                                        main_attribute: :strength,
-                                       viable_solo: 1)
+                                       viable_mid: 2,
+                                       viable_offlane: 0)
 
       tiny.add_role(:disabler, 1)
       tiny.add_role(:nuker, 2)
@@ -75,7 +78,8 @@ namespace :db do
                                          armor: 1.96,
                                          movement_speed: 300,
                                          main_attribute: :strength,
-                                         viable_solo: 1)
+                                         viable_mid: 2,
+                                         viable_offlane: 0)
 
       kunkka.add_role(:disabler, 2)
       kunkka.add_role(:initiator, 1)
@@ -86,7 +90,8 @@ namespace :db do
                                               team: :radiant,
                                               attack_type: :melee,
                                               main_attribute: :strength,
-                                              viable_solo: 1)
+                                              viable_mid: 2,
+                                              viable_offlane: 0)
 
       beastmaster.add_role(:initiator, 2)
       beastmaster.add_role(:disabler, 2)
@@ -96,7 +101,8 @@ namespace :db do
                                                 team: :radiant,
                                                 attack_type: :melee,
                                                 main_attribute: :strength,
-                                                viable_solo: 0)
+                                                viable_mid: 2,
+                                                viable_offlane: 0)
 
       dragon_knight.add_role(:carry, 2)
       dragon_knight.add_role(:durable, 3)
@@ -107,7 +113,8 @@ namespace :db do
                                             team: :radiant,
                                             attack_type: :melee,
                                             main_attribute: :strength,
-                                            viable_solo: 1)
+                                            viable_mid: 3,
+                                            viable_offlane: 0)
 
       clockwerk.add_role(:initiator, 3)
       clockwerk.add_role(:durable, 1)
@@ -116,7 +123,8 @@ namespace :db do
                                              team: :radiant,
                                              attack_type: :melee,
                                              main_attribute: :strength,
-                                             viable_solo: 0)
+                                             viable_mid: 0,
+                                             viable_offlane: 0)
 
       omniknight.add_role(:durable, 2)
       omniknight.add_role(:support, 1)
@@ -126,7 +134,8 @@ namespace :db do
                                          team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :strength,
-                                         viable_solo: 1)
+                                         viable_mid: 1,
+                                         viable_offlane: 0)
 
       huskar.add_role(:carry, 2)
       huskar.add_role(:initiator, 2)
@@ -136,7 +145,8 @@ namespace :db do
                                             team: :radiant,
                                             attack_type: :melee,
                                             main_attribute: :strength,
-                                            viable_solo: 0)
+                                            viable_mid: 0,
+                                            viable_offlane: 0)
 
       alchemist.add_role(:durable, 2)
       alchemist.add_role(:carry, 2)
@@ -146,7 +156,8 @@ namespace :db do
                                              team: :radiant,
                                              attack_type: :melee,
                                              main_attribute: :strength,
-                                             viable_solo: 1)
+                                             viable_mid: 1,
+                                             viable_offlane: 0)
 
       brewmaster.add_role(:carry, 2)
       brewmaster.add_role(:durable, 3)
@@ -157,7 +168,8 @@ namespace :db do
                                                    team: :radiant,
                                                    attack_type: :melee,
                                                    main_attribute: :strength,
-                                                   viable_solo: 0)
+                                                   viable_mid: 0,
+                                                   viable_offlane: 0)
 
       treant_protector.add_role(:durable, 2)
       treant_protector.add_role(:initiator, 2)
@@ -168,7 +180,8 @@ namespace :db do
                                      team: :radiant,
                                      attack_type: :ranged,
                                      main_attribute: :strength,
-                                     viable_solo: 0)
+                                     viable_mid: 0,
+                                     viable_offlane: 0)
 
       io.add_role(:lane_support, 3)
       io.add_role(:nuker, 2)
@@ -177,7 +190,8 @@ namespace :db do
                                                     team: :radiant,
                                                     attack_type: :melee,
                                                     main_attribute: :strength,
-                                                    viable_solo: 0)
+                                                    viable_mid: 0,
+                                                    viable_offlane: 0)
 
       centaur_warrunner.add_role(:durable, 3)
       centaur_warrunner.add_role(:disabler, 2)
@@ -187,7 +201,8 @@ namespace :db do
                                             team: :radiant,
                                             attack_type: :melee,
                                             main_attribute: :strength,
-                                            viable_solo: 1)
+                                            viable_mid: 0,
+                                            viable_offlane: 3)
 
       timbersaw.add_role(:ganker, 2)
       timbersaw.add_role(:initiator, 2)
@@ -197,7 +212,8 @@ namespace :db do
                                               team: :radiant,
                                               attack_type: :melee,
                                               main_attribute: :strength,
-                                              viable_solo: 1)
+                                              viable_mid: 1,
+                                              viable_offlane: 2)
 
       bristleback.add_role(:durable, 3)
       bristleback.add_role(:initiator, 1)
@@ -207,7 +223,8 @@ namespace :db do
                                        team: :radiant,
                                        attack_type: :melee,
                                        main_attribute: :strength,
-                                       viable_solo: 1)
+                                       viable_mid: 1,
+                                       viable_offlane: 0)
 
       tusk.add_role(:initiator, 3)
       tusk.add_role(:durable, 2)
@@ -216,7 +233,8 @@ namespace :db do
                                               team: :radiant,
                                               attack_type: :melee,
                                               main_attribute: :strength,
-                                              viable_solo: 0)
+                                              viable_mid: 0,
+                                              viable_offlane: 0)
 
       elder_titan.add_role(:initiator, 3)
       elder_titan.add_role(:durable, 2)
@@ -225,7 +243,8 @@ namespace :db do
                                                team: :radiant,
                                                attack_type: :melee,
                                                main_attribute: :strength,
-                                               viable_solo: 1)
+                                               viable_mid: 2,
+                                               viable_offlane: 0)
 
       earth_spirit.add_role(:initiator, 3)
       earth_spirit.add_role(:disabler, 2)
@@ -235,7 +254,8 @@ namespace :db do
                                                    team: :radiant,
                                                    attack_type: :melee,
                                                    main_attribute: :strength,
-                                                   viable_solo: 0)
+                                                   viable_mid: 0,
+                                                   viable_offlane: 0)
 
       legion_commander.add_role(:carry, 3)
       legion_commander.add_role(:durable, 2)
@@ -253,7 +273,8 @@ namespace :db do
                                             armor: 2.08,
                                             movement_speed: 315,
                                             main_attribute: :agility,
-                                            viable_solo: 0)
+                                            viable_mid: 0,
+                                            viable_offlane: 1)
 
       anti_mage.add_role(:carry, 3)
       anti_mage.add_role(:escape, 2)
@@ -270,7 +291,8 @@ namespace :db do
                                               armor: 0.64,
                                               movement_speed: 300,
                                               main_attribute: :agility,
-                                              viable_solo: 1)
+                                              viable_mid: 3,
+                                              viable_offlane: 0)
 
       drow_ranger.add_role(:carry, 3)
 
@@ -286,7 +308,8 @@ namespace :db do
                                              armor: 3.8,
                                              movement_speed: 305,
                                              main_attribute: :agility,
-                                             viable_solo: 1)
+                                             viable_mid: 1,
+                                             viable_offlane: 0)
 
       juggernaut.add_role(:carry, 3)
       juggernaut.add_role(:pusher, 2)
@@ -303,7 +326,8 @@ namespace :db do
                                          armor: 1.8,
                                          movement_speed: 300,
                                          main_attribute: :agility,
-                                         viable_solo: 1)
+                                         viable_mid: 2,
+                                         viable_offlane: 2)
 
       mirana.add_role(:carry, 2)
       mirana.add_role(:nuker, 2)
@@ -314,7 +338,8 @@ namespace :db do
                                             team: :radiant,
                                             attack_type: :ranged,
                                             main_attribute: :agility,
-                                            viable_solo: 0)
+                                            viable_mid: 0,
+                                            viable_offlane: 1)
 
       morphling.add_role(:carry, 3)
       morphling.add_role(:escape, 2)
@@ -325,7 +350,8 @@ namespace :db do
                                                  team: :radiant,
                                                  attack_type: :melee,
                                                  main_attribute: :agility,
-                                                 viable_solo: 1)
+                                                 viable_mid: 1,
+                                                 viable_offlane: 1)
 
       phantom_lancer.add_role(:carry, 3)
       phantom_lancer.add_role(:escape, 2)
@@ -335,7 +361,8 @@ namespace :db do
                                                   team: :radiant,
                                                   attack_type: :ranged,
                                                   main_attribute: :agility,
-                                                  viable_solo: 1)
+                                                  viable_mid: 2,
+                                                  viable_offlane: 0)
 
       vengeful_spirit.add_role(:support, 3)
       vengeful_spirit.add_role(:disabler, 2)
@@ -345,7 +372,8 @@ namespace :db do
                                        team: :radiant,
                                        attack_type: :melee,
                                        main_attribute: :agility,
-                                       viable_solo: 1)
+                                       viable_mid: 1,
+                                       viable_offlane: 0)
 
       riki.add_role(:carry, 3)
       riki.add_role(:escape, 3)
@@ -354,7 +382,8 @@ namespace :db do
                                          team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :agility,
-                                         viable_solo: 1)
+                                         viable_mid: 0,
+                                         viable_offlane: 0)
 
       sniper.add_role(:carry, 3)
 
@@ -362,7 +391,8 @@ namespace :db do
                                                    team: :radiant,
                                                    attack_type: :ranged,
                                                    main_attribute: :agility,
-                                                   viable_solo: 1)
+                                                   viable_mid: 3,
+                                                   viable_offlane: 0)
 
       templar_assassin.add_role(:carry, 2)
       templar_assassin.add_role(:escape, 2)
@@ -372,7 +402,8 @@ namespace :db do
                                        team: :radiant,
                                        attack_type: :ranged,
                                        main_attribute: :agility,
-                                       viable_solo: 1)
+                                       viable_mid: 2,
+                                       viable_offlane: 1)
 
       luna.add_role(:carry, 3)
       luna.add_role(:nuker, 3)
@@ -381,7 +412,8 @@ namespace :db do
                                                 team: :radiant,
                                                 attack_type: :melee,
                                                 main_attribute: :agility,
-                                                viable_solo: 1)
+                                                viable_mid: 1,
+                                                viable_offlane: 1)
 
       bounty_hunter.add_role(:carry, 2)
       bounty_hunter.add_role(:escape, 2)
@@ -391,7 +423,8 @@ namespace :db do
                                        team: :radiant,
                                        attack_type: :melee,
                                        main_attribute: :agility,
-                                       viable_solo: 0)
+                                       viable_mid: 0,
+                                       viable_offlane: 0)
 
       ursa.add_role(:carry, 3)
       ursa.add_role(:jungler, 3)
@@ -401,7 +434,8 @@ namespace :db do
                                              team: :radiant,
                                              attack_type: :ranged,
                                              main_attribute: :agility,
-                                             viable_solo: 1)
+                                             viable_mid: 3,
+                                             viable_offlane: 0)
 
       gyrocopter.add_role(:disabler, 1)
       gyrocopter.add_role(:initiator, 2)
@@ -411,7 +445,8 @@ namespace :db do
                                              team: :radiant,
                                              attack_type: :ranged,
                                              main_attribute: :agility,
-                                             viable_solo: 1)
+                                             viable_mid: 1,
+                                             viable_offlane: 3)
 
       lone_druid.add_role(:carry, 3)
       lone_druid.add_role(:durable, 3)
@@ -422,7 +457,8 @@ namespace :db do
                                              team: :radiant,
                                              attack_type: :melee,
                                              main_attribute: :agility,
-                                             viable_solo: 1)
+                                             viable_mid: 3,
+                                             viable_offlane: 0)
 
       naga_siren.add_role(:carry, 2)
       naga_siren.add_role(:disabler, 1)
@@ -433,7 +469,8 @@ namespace :db do
                                                 team: :radiant,
                                                 attack_type: :ranged,
                                                 main_attribute: :agility,
-                                                viable_solo: 1)
+                                                viable_mid: 2,
+                                                viable_offlane: 0)
 
       troll_warlord.add_role(:carry, 3)
 
@@ -441,7 +478,8 @@ namespace :db do
                                                team: :radiant,
                                                attack_type: :melee,
                                                main_attribute: :agility,
-                                               viable_solo: 1)
+                                               viable_mid: 1,
+                                               viable_offlane: 0)
 
       ember_spirit.add_role(:carry, 2)
       ember_spirit.add_role(:nuker, 2)
@@ -461,7 +499,8 @@ namespace :db do
                                                  armor: 1.24,
                                                  movement_speed: 280,
                                                  main_attribute: :intelligence,
-                                                 viable_solo: 0)
+                                                 viable_mid: 0,
+                                                 viable_offlane: 0)
 
       crystal_maiden.add_role(:support, 2)
       crystal_maiden.add_role(:lane_support, 3)
@@ -480,7 +519,8 @@ namespace :db do
                                        armor: 2.08,
                                        movement_speed: 295,
                                        main_attribute: :intelligence,
-                                       viable_solo: 1)
+                                       viable_mid: 3,
+                                       viable_offlane: 0)
 
       puck.add_role(:initiator, 2)
       puck.add_role(:nuker, 1)
@@ -499,7 +539,8 @@ namespace :db do
                                                armor: 5.08,
                                                movement_speed: 295,
                                                main_attribute: :intelligence,
-                                               viable_solo: 1)
+                                               viable_mid: 3,
+                                               viable_offlane: 0)
 
       storm_spirit.add_role(:carry, 2)
       storm_spirit.add_role(:initiator, 1)
@@ -518,7 +559,8 @@ namespace :db do
                                              armor: 1.38,
                                              movement_speed: 295,
                                              main_attribute: :intelligence,
-                                             viable_solo: 0)
+                                             viable_mid: 0,
+                                             viable_offlane: 0)
 
       windranger.add_role(:disabler, 2)
       windranger.add_role(:nuker, 1)
@@ -529,7 +571,8 @@ namespace :db do
                                        team: :radiant,
                                        attack_type: :ranged,
                                        main_attribute: :intelligence,
-                                       viable_solo: 1)
+                                       viable_mid: 3,
+                                       viable_offlane: 0)
 
       zeus.add_role(:nuker, 3)
       zeus.add_role(:support, 1)
@@ -538,7 +581,8 @@ namespace :db do
                                        team: :radiant,
                                        attack_type: :ranged,
                                        main_attribute: :intelligence,
-                                       viable_solo: 1)
+                                       viable_mid: 2,
+                                       viable_offlane: 1)
 
       lina.add_role(:nuker, 3)
       lina.add_role(:disabler, 1)
@@ -548,7 +592,8 @@ namespace :db do
                                                 team: :radiant,
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
-                                                viable_solo: 1)
+                                                viable_mid: 1,
+                                                viable_offlane: 0)
 
       shadow_shaman.add_role(:pusher, 2)
       shadow_shaman.add_role(:disabler, 3)
@@ -559,7 +604,8 @@ namespace :db do
                                               team: :radiant,
                                               attack_type: :ranged,
                                               main_attribute: :intelligence,
-                                              viable_solo: 0)
+                                              viable_mid: 0,
+                                              viable_offlane: 2)
 
       enchantress.add_role(:support, 1)
       enchantress.add_role(:pusher, 1)
@@ -570,7 +616,8 @@ namespace :db do
                                                   team: :radiant,
                                                   attack_type: :ranged,
                                                   main_attribute: :intelligence,
-                                                  viable_solo: 0)
+                                                  viable_mid: 0,
+                                                  viable_offlane: 1)
 
       natures_prophet.add_role(:jungler, 2)
       natures_prophet.add_role(:pusher, 3)
@@ -581,7 +628,8 @@ namespace :db do
                                          team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 1)
+                                         viable_mid: 1,
+                                         viable_offlane: 1)
 
       tinker.add_role(:nuker, 2)
       tinker.add_role(:pusher, 3)
@@ -590,7 +638,8 @@ namespace :db do
                                          team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 0)
+                                         viable_mid: 0,
+                                         viable_offlane: 0)
 
       jakiro.add_role(:nuker, 1)
       jakiro.add_role(:pusher, 1)
@@ -601,7 +650,8 @@ namespace :db do
                                        team: :radiant,
                                        attack_type: :ranged,
                                        main_attribute: :intelligence,
-                                       viable_solo: 0)
+                                       viable_mid: 0,
+                                       viable_offlane: 0)
 
       chen.add_role(:support, 3)
       chen.add_role(:jungler, 3)
@@ -611,7 +661,8 @@ namespace :db do
                                            team: :radiant,
                                            attack_type: :ranged,
                                            main_attribute: :intelligence,
-                                           viable_solo: 1)
+                                           viable_mid: 1,
+                                           viable_offlane: 2)
 
       silencer.add_role(:support, 1)
       silencer.add_role(:carry, 2)
@@ -621,7 +672,8 @@ namespace :db do
                                             team: :radiant,
                                             attack_type: :melee,
                                             main_attribute: :intelligence,
-                                            viable_solo: 0)
+                                            viable_mid: 0,
+                                            viable_offlane: 0)
 
       ogre_magi.add_role(:nuker, 3)
       ogre_magi.add_role(:disabler, 1)
@@ -631,7 +683,8 @@ namespace :db do
                                          team: :radiant,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 1)
+                                         viable_mid: 1,
+                                         viable_offlane: 0)
 
       rubick.add_role(:disabler, 3)
       rubick.add_role(:pusher, 2)
@@ -640,7 +693,8 @@ namespace :db do
                                             team: :radiant,
                                             attack_type: :ranged,
                                             main_attribute: :intelligence,
-                                            viable_solo: 0)
+                                            viable_mid: 0,
+                                            viable_offlane: 0)
 
       disruptor.add_role(:nuker, 1)
       disruptor.add_role(:support, 3)
@@ -651,7 +705,8 @@ namespace :db do
                                                       team: :radiant,
                                                       attack_type: :ranged,
                                                       main_attribute: :intelligence,
-                                                      viable_solo: 1)
+                                                      viable_mid: 0,
+                                                      viable_offlane: 2)
 
       keeper_of_the_light.add_role(:pusher, 3)
 
@@ -659,7 +714,8 @@ namespace :db do
                                                 team: :radiant,
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
-                                                viable_solo: 1)
+                                                viable_mid: 3,
+                                                viable_offlane: 0)
 
       skywrath_mage.add_role(:nuker, 3)
       skywrath_mage.add_role(:support, 1)
@@ -677,7 +733,8 @@ namespace :db do
                                       armor: 1.8,
                                       movement_speed: 290,
                                       main_attribute: :strength,
-                                      viable_solo: 0)
+                                      viable_mid: 0,
+                                      viable_offlane: 1)
 
       axe.add_role(:durable, 2)
       axe.add_role(:initiator, 2)
@@ -696,7 +753,8 @@ namespace :db do
                                         armor: 0.96,
                                         movement_speed: 285,
                                         main_attribute: :strength,
-                                        viable_solo: 1)
+                                        viable_mid: 3,
+                                        viable_offlane: 0)
 
       pudge.add_role(:durable, 3)
       pudge.add_role(:disabler, 2)
@@ -713,7 +771,8 @@ namespace :db do
                                             armor: 2.66,
                                             movement_speed: 300,
                                             main_attribute: :strength,
-                                            viable_solo: 0)
+                                            viable_mid: 0,
+                                            viable_offlane: 0)
 
       sand_king.add_role(:initiator, 3)
       sand_king.add_role(:disabler, 2)
@@ -731,7 +790,8 @@ namespace :db do
                                           armor: 5.38,
                                           movement_speed: 300,
                                           main_attribute: :strength,
-                                          viable_solo: 0)
+                                          viable_mid: 0,
+                                          viable_offlane: 0)
 
       slardar.add_role(:carry, 2)
       slardar.add_role(:durable, 2)
@@ -742,7 +802,8 @@ namespace :db do
                                              team: :dire,
                                              attack_type: :melee,
                                              main_attribute: :strength,
-                                             viable_solo: 0)
+                                             viable_mid: 0,
+                                             viable_offlane: 0)
 
       tidehunter.add_role(:initiator, 3)
       tidehunter.add_role(:durable, 3)
@@ -753,7 +814,8 @@ namespace :db do
                                                 team: :dire,
                                                 attack_type: :melee,
                                                 main_attribute: :strength,
-                                                viable_solo: 0)
+                                                viable_mid: 0,
+                                                viable_offlane: 0)
 
       skeleton_king.add_role(:carry, 3)
       skeleton_king.add_role(:durable, 3)
@@ -763,7 +825,8 @@ namespace :db do
                                               team: :dire,
                                               attack_type: :melee,
                                               main_attribute: :strength,
-                                              viable_solo: 0)
+                                              viable_mid: 0,
+                                              viable_offlane: 0)
 
       lifestealer.add_role(:carry, 3)
       lifestealer.add_role(:durable, 2)
@@ -774,7 +837,8 @@ namespace :db do
                                                 team: :dire,
                                                 attack_type: :melee,
                                                 main_attribute: :strength,
-                                                viable_solo: 1)
+                                                viable_mid: 3,
+                                                viable_offlane: 0)
 
       night_stalker.add_role(:durable, 2)
       night_stalker.add_role(:initiator, 3)
@@ -783,7 +847,8 @@ namespace :db do
                                        team: :dire,
                                        attack_type: :melee,
                                        main_attribute: :strength,
-                                       viable_solo: 0)
+                                       viable_mid: 0,
+                                       viable_offlane: 0)
 
       doom.add_role(:durable, 3)
       doom.add_role(:carry, 3)
@@ -793,7 +858,8 @@ namespace :db do
                                                  team: :dire,
                                                  attack_type: :melee,
                                                  main_attribute: :strength,
-                                                 viable_solo: 0)
+                                                 viable_mid: 0,
+                                                 viable_offlane: 0)
 
       spirit_breaker.add_role(:durable, 2)
       spirit_breaker.add_role(:carry, 2)
@@ -804,7 +870,8 @@ namespace :db do
                                               team: :dire,
                                               attack_type: :melee,
                                               main_attribute: :strength,
-                                              viable_solo: 0)
+                                              viable_mid: 0,
+                                              viable_offlane: 0)
 
       lycanthrope.add_role(:carry, 3)
       lycanthrope.add_role(:jungler, 2)
@@ -815,7 +882,8 @@ namespace :db do
                                                team: :dire,
                                                attack_type: :melee,
                                                main_attribute: :strength,
-                                               viable_solo: 0)
+                                               viable_mid: 0,
+                                               viable_offlane: 0)
 
       chaos_knight.add_role(:carry, 3)
       chaos_knight.add_role(:disabler, 2)
@@ -826,7 +894,8 @@ namespace :db do
                                           team: :dire,
                                           attack_type: :melee,
                                           main_attribute: :strength,
-                                          viable_solo: 1)
+                                          viable_mid: 1,
+                                          viable_offlane: 0)
 
       undying.add_role(:durable, 3)
       undying.add_role(:pusher, 2)
@@ -837,7 +906,8 @@ namespace :db do
                                          team: :dire,
                                          attack_type: :melee,
                                          main_attribute: :strength,
-                                         viable_solo: 1)
+                                         viable_mid: 3,
+                                         viable_offlane: 0)
 
       magnus.add_role(:initiator, 3)
       magnus.add_role(:disabler, 2)
@@ -848,7 +918,8 @@ namespace :db do
                                           team: :dire,
                                           attack_type: :melee,
                                           main_attribute: :strength,
-                                          viable_solo: 2)
+                                          viable_mid: 1,
+                                          viable_offlane: 0)
 
       abaddon.add_role(:durable, 3)
       abaddon.add_role(:nuker, 1)
@@ -867,7 +938,8 @@ namespace :db do
                                               armor: 3.36,
                                               movement_speed: 305,
                                               main_attribute: :agility,
-                                              viable_solo: 0)
+                                              viable_mid: 1,
+                                              viable_offlane: 0)
 
       bloodseeker.add_role(:carry, 3)
       bloodseeker.add_role(:jungler, 2)
@@ -884,7 +956,8 @@ namespace :db do
                                                armor: 1.8,
                                                movement_speed: 305,
                                                main_attribute: :agility,
-                                               viable_solo: 1)
+                                               viable_mid: 3,
+                                               viable_offlane: 0)
 
       shadow_fiend.add_role(:carry, 3)
       shadow_fiend.add_role(:nuker, 3)
@@ -901,7 +974,8 @@ namespace :db do
                                         armor: 2.08,
                                         movement_speed: 295,
                                         main_attribute: :agility,
-                                        viable_solo: 0)
+                                        viable_mid: 2,
+                                        viable_offlane: 0)
 
       razor.add_role(:carry, 2)
       razor.add_role(:durable, 2)
@@ -919,7 +993,8 @@ namespace :db do
                                              armor: 3.08,
                                              movement_speed: 290,
                                              main_attribute: :agility,
-                                             viable_solo: 0)
+                                             viable_mid: 0,
+                                             viable_offlane: 0)
 
       venomancer.add_role(:support, 3)
       venomancer.add_role(:nuker, 1)
@@ -930,7 +1005,8 @@ namespace :db do
                                                 team: :dire,
                                                 attack_type: :melee,
                                                 main_attribute: :agility,
-                                                viable_solo: 0)
+                                                viable_mid: 0,
+                                                viable_offlane: 0)
 
       faceless_void.add_role(:carry, 3)
       faceless_void.add_role(:initiator, 2)
@@ -941,7 +1017,8 @@ namespace :db do
                                                    team: :dire,
                                                    attack_type: :melee,
                                                    main_attribute: :agility,
-                                                   viable_solo: 0)
+                                                   viable_mid: 1,
+                                                   viable_offlane: 1)
 
       phantom_assassin.add_role(:carry, 3)
       phantom_assassin.add_role(:escape, 2)
@@ -950,7 +1027,8 @@ namespace :db do
                                         team: :dire,
                                         attack_type: :ranged,
                                         main_attribute: :agility,
-                                        viable_solo: 1)
+                                        viable_mid: 3,
+                                        viable_offlane: 0)
 
       viper.add_role(:carry, 2)
       viper.add_role(:durable, 2)
@@ -960,7 +1038,8 @@ namespace :db do
                                          team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :agility,
-                                         viable_solo: 0)
+                                         viable_mid: 0,
+                                         viable_offlane: 2)
 
       clinkz.add_role(:carry, 3)
       clinkz.add_role(:escape, 3)
@@ -969,7 +1048,8 @@ namespace :db do
                                               team: :dire,
                                               attack_type: :melee,
                                               main_attribute: :agility,
-                                              viable_solo: 1)
+                                              viable_mid: 1,
+                                              viable_offlane: 2)
 
       broodmother.add_role(:pusher, 3)
       broodmother.add_role(:carry, 2)
@@ -979,7 +1059,8 @@ namespace :db do
                                          team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :agility,
-                                         viable_solo: 1)
+                                         viable_mid: 1,
+                                         viable_offlane: 3)
 
       weaver.add_role(:carry, 3)
       weaver.add_role(:escape, 3)
@@ -988,7 +1069,8 @@ namespace :db do
                                           team: :dire,
                                           attack_type: :melee,
                                           main_attribute: :agility,
-                                          viable_solo: 0)
+                                          viable_mid: 0,
+                                          viable_offlane: 0)
 
       spectre.add_role(:carry, 3)
       spectre.add_role(:durable, 2)
@@ -997,7 +1079,8 @@ namespace :db do
                                         team: :dire,
                                         attack_type: :melee,
                                         main_attribute: :agility,
-                                        viable_solo: 0)
+                                        viable_mid: 0,
+                                        viable_offlane: 0)
 
       meepo.add_role(:carry, 3)
       meepo.add_role(:disabler, 2)
@@ -1007,7 +1090,8 @@ namespace :db do
                                                team: :dire,
                                                attack_type: :melee,
                                                main_attribute: :agility,
-                                               viable_solo: 1)
+                                               viable_mid: 3,
+                                               viable_offlane: 0)
 
       nyx_assassin.add_role(:disabler, 3)
       nyx_assassin.add_role(:nuker, 3)
@@ -1016,7 +1100,8 @@ namespace :db do
                                         team: :dire,
                                         attack_type: :melee,
                                         main_attribute: :agility,
-                                        viable_solo: 1)
+                                        viable_mid: 2,
+                                        viable_offlane: 0)
 
       slark.add_role(:escape, 3)
       slark.add_role(:ganker, 2)
@@ -1025,7 +1110,8 @@ namespace :db do
                                          team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :agility,
-                                         viable_solo: 1)
+                                         viable_mid: 3,
+                                         viable_offlane: 1)
 
       medusa.add_role(:carry, 3)
       medusa.add_role(:disabler, 1)
@@ -1044,7 +1130,8 @@ namespace :db do
                                        armor: 4.08,
                                        movement_speed: 315,
                                        main_attribute: :intelligence,
-                                       viable_solo: 1)
+                                       viable_mid: 2,
+                                       viable_offlane: 0)
 
       bane.add_role(:disabler, 3)
       bane.add_role(:nuker, 2)
@@ -1062,7 +1149,8 @@ namespace :db do
                                        armor: 1.1,
                                        movement_speed: 315,
                                        main_attribute: :intelligence,
-                                       viable_solo: 0)
+                                       viable_mid: 0,
+                                       viable_offlane: 0)
 
       lich.add_role(:support, 2)
       lich.add_role(:lane_support, 3)
@@ -1080,7 +1168,8 @@ namespace :db do
                                        armor: 1.1,
                                        movement_speed: 290,
                                        main_attribute: :intelligence,
-                                       viable_solo: 1)
+                                       viable_mid: 1,
+                                       viable_offlane: 0)
 
       lion.add_role(:disabler, 3)
       lion.add_role(:nuker, 3)
@@ -1099,7 +1188,8 @@ namespace :db do
                                                armor: 0.82,
                                                movement_speed: 305,
                                                main_attribute: :intelligence,
-                                               viable_solo: 1)
+                                               viable_mid: 1,
+                                               viable_offlane: 0)
 
       witch_doctor.add_role(:support, 3)
       witch_doctor.add_role(:disabler, 2)
@@ -1108,7 +1198,8 @@ namespace :db do
                                          team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 0)
+                                         viable_mid: 0,
+                                         viable_offlane: 0)
 
       enigma.add_role(:disabler, 2)
       enigma.add_role(:initiator, 2)
@@ -1119,7 +1210,8 @@ namespace :db do
                                             team: :dire,
                                             attack_type: :ranged,
                                             main_attribute: :intelligence,
-                                            viable_solo: 1)
+                                            viable_mid: 2,
+                                            viable_offlane: 0)
 
       necrophos.add_role(:support, 2)
       necrophos.add_role(:durable, 2)
@@ -1129,7 +1221,8 @@ namespace :db do
                                           team: :dire,
                                           attack_type: :ranged,
                                           main_attribute: :intelligence,
-                                          viable_solo: 0)
+                                          viable_mid: 0,
+                                          viable_offlane: 0)
 
       warlock.add_role(:initiator, 3)
       warlock.add_role(:lane_support, 3)
@@ -1139,7 +1232,8 @@ namespace :db do
                                                 team: :dire,
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
-                                                viable_solo: 1)
+                                                viable_mid: 3,
+                                                viable_offlane: 0)
 
       queen_of_pain.add_role(:nuker, 2)
       queen_of_pain.add_role(:escape, 2)
@@ -1149,7 +1243,8 @@ namespace :db do
                                                 team: :dire,
                                                 attack_type: :ranged,
                                                 main_attribute: :intelligence,
-                                                viable_solo: 1)
+                                                viable_mid: 2,
+                                                viable_offlane: 0)
 
       death_prophet.add_role(:pusher, 3)
       death_prophet.add_role(:nuker, 2)
@@ -1159,7 +1254,8 @@ namespace :db do
                                         team: :dire,
                                         attack_type: :ranged,
                                         main_attribute: :intelligence,
-                                        viable_solo: 1)
+                                        viable_mid: 1,
+                                        viable_offlane: 1)
 
       pugna.add_role(:nuker, 2)
       pugna.add_role(:pusher, 2)
@@ -1169,7 +1265,8 @@ namespace :db do
                                          team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 0)
+                                         viable_mid: 0,
+                                         viable_offlane: 0)
 
       dazzle.add_role(:lane_support, 3)
 
@@ -1177,7 +1274,8 @@ namespace :db do
                                           team: :dire,
                                           attack_type: :ranged,
                                           main_attribute: :intelligence,
-                                          viable_solo: 0)
+                                          viable_mid: 0,
+                                          viable_offlane: 1)
 
       leshrac.add_role(:nuker, 3)
       leshrac.add_role(:pusher, 3)
@@ -1188,7 +1286,8 @@ namespace :db do
                                             team: :dire,
                                             attack_type: :melee,
                                             main_attribute: :intelligence,
-                                            viable_solo: 1)
+                                            viable_mid: 1,
+                                            viable_offlane: 3)
 
       dark_seer.add_role(:initiator, 3)
       dark_seer.add_role(:nuker, 1)
@@ -1198,7 +1297,8 @@ namespace :db do
                                            team: :dire,
                                            attack_type: :ranged,
                                            main_attribute: :intelligence,
-                                           viable_solo: 1)
+                                           viable_mid: 3,
+                                           viable_offlane: 2)
 
       batrider.add_role(:initiator, 3)
       batrider.add_role(:disabler, 2)
@@ -1209,7 +1309,8 @@ namespace :db do
                                                      team: :dire,
                                                      attack_type: :ranged,
                                                      main_attribute: :intelligence,
-                                                     viable_solo: 0)
+                                                     viable_mid: 0,
+                                                     viable_offlane: 0)
 
       ancient_apparition.add_role(:support, 3)
       ancient_apparition.add_role(:disabler, 2)
@@ -1218,7 +1319,8 @@ namespace :db do
                                           team: :dire,
                                           attack_type: :ranged,
                                           main_attribute: :intelligence,
-                                          viable_solo: 1)
+                                          viable_mid: 3,
+                                          viable_offlane: 1)
 
       invoker.add_role(:carry, 2)
       invoker.add_role(:nuker, 2)
@@ -1237,7 +1339,8 @@ namespace :db do
                                                     armor: 5.36,
                                                     movement_speed: 315,
                                                     main_attribute: :intelligence,
-                                                    viable_solo: 1)
+                                                    viable_mid: 3,
+                                                    viable_offlane: 0)
 
       outworld_devourer.add_role(:carry, 3)
 
@@ -1245,7 +1348,8 @@ namespace :db do
                                                team: :dire,
                                                attack_type: :ranged,
                                                main_attribute: :intelligence,
-                                               viable_solo: 1)
+                                               viable_mid: 1,
+                                               viable_offlane: 0)
 
       shadow_demon.add_role(:support, 3)
       shadow_demon.add_role(:disabler, 2)
@@ -1255,7 +1359,8 @@ namespace :db do
                                          team: :dire,
                                          attack_type: :ranged,
                                          main_attribute: :intelligence,
-                                         viable_solo: 1)
+                                         viable_mid: 1,
+                                         viable_offlane: 1)
 
       visage.add_role(:nuker, 3)
       visage.add_role(:durable, 2)

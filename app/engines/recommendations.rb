@@ -1,7 +1,7 @@
 module Recommendations
-  IDEAL_BALANCED_VECTOR = Vector.elements([3, 1, 3, 5, 3, 1, 2, 4, 0, 2, 3, 2, 3])
-  IDEAL_JUNGLING_VECTOR = Vector.elements([3, 2, 3, 4, 3, 1, 1, 3, 3, 3, 2, 2, 2])
-  IDEAL_TRILANE_VECTOR = Vector.elements([3, 2, 3, 5, 3, 1, 3, 3, 0, 3, 3, 1, 2])
+  IDEAL_BALANCED_VECTOR = Vector.elements([3, 3, 3, 5, 3, 1, 2, 4, 0, 2, 3, 2, 3]) #does not include offlane
+  IDEAL_JUNGLING_VECTOR = Vector.elements([3, 3, 3, 3, 4, 3, 1, 1, 3, 3, 3, 2, 2, 2])
+  IDEAL_TRILANE_VECTOR = Vector.elements([3, 3, 3, 3, 5, 3, 1, 3, 3, 0, 3, 3, 1, 2])
 
   class << self
     #lower score is better
@@ -21,8 +21,9 @@ module Recommendations
       Hero.where.not(id: (friendly_heroes.map(&:id) + enemy_heroes.map(&:id)))
     end
 
+    #want to eliminate branching here somehow
     def calculate_score friendly_heroes, ideal_composition_vector
-      team_vector = friendly_heroes.map(&:role_vector).inject(:+)
+      team_vector = friendly_heroes.map(&"role_vector_for_#{ideal_composition_vector.underscore}".to_sym).inject(:+)
       (const_get(ideal_composition_vector) - team_vector).map {|x| x * x }.inject(:+)
     end
   end
