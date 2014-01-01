@@ -21,7 +21,6 @@ module Recommendations
       Hero.where.not(id: (friendly_heroes.map(&:id) + enemy_heroes.map(&:id)))
     end
 
-    #want to eliminate branching here somehow
     def calculate_score friendly_heroes, ideal_composition_vector
       team_vector = friendly_heroes.map(&"role_vector_for_#{ideal_composition_vector.underscore}".to_sym).inject(:+)
       (const_get(ideal_composition_vector) - team_vector).map {|x| x * x }.inject(:+)
