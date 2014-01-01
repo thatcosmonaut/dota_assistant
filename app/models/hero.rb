@@ -60,8 +60,7 @@ class Hero < ActiveRecord::Base
 
   def save_role_elements
     attack_value = attack_type == "ranged" ? 1 : 0
-    roles = VALID_ROLES.map{|role_name| value_of_role(role_name) }
-    self.role_elements = [attack_value, viable_mid, viable_offlane] + roles
+    self.role_elements = [attack_value, viable_mid, viable_offlane] + VALID_ROLES.map{|role_name| value_of_role(role_name) }
     save
   end
 
