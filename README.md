@@ -26,6 +26,7 @@ Attack type (melee or ranged), the hero's viability in a solo lane, and the diff
 A hero vector is constructed as follows:  
 AT  
 SOLO  
+OFFLANE (if applicable to composition)  
 CARRY  
 DISABLE  
 DURABLE  

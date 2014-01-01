@@ -24,7 +24,7 @@ class Hero < ActiveRecord::Base
   has_many :weak_against, through: :counters_as_weak, source: :strong
   has_many :strong_against, through: :counters_as_strong, source: :weak
 
-  validates :name, :viable_solo, :attack_type, :main_attribute, presence: true
+  validates :name, :viable_mid, :viable_offlane, :attack_type, :main_attribute, presence: true
 
   default_scope -> { order('heroes.id ASC') }
 
@@ -46,13 +46,22 @@ class Hero < ActiveRecord::Base
     end
   end
 
-  def role_vector
+  def role_vector_for_ideal_balanced_vector
+    Vector.elements(role_elements[0..1] + role_elements[3..role_elements.length])
+  end
+
+  def role_vector_for_ideal_jungling_vector
+    Vector.elements(role_elements)
+  end
+
+  def role_vector_for_ideal_trilane_vector
     Vector.elements(role_elements)
   end
 
   def save_role_elements
     attack_value = attack_type == "ranged" ? 1 : 0
-    self.role_elements = [attack_value, viable_solo] + VALID_ROLES.map{|role_name| value_of_role(role_name)}
+    roles = VALID_ROLES.map{|role_name| value_of_role(role_name) }
+    self.role_elements = [attack_value, viable_mid, viable_offlane] + roles
     save
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131214183835) do
+ActiveRecord::Schema.define(version: 20140101022604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20131214183835) do
     t.string  "main_attribute"
     t.string  "name"
     t.string  "attack_type"
-    t.integer "viable_solo"
+    t.integer "viable_mid"
     t.text    "role_elements"
     t.string  "team"
+    t.integer "viable_offlane"
   end
 
   create_table "heroes_roles", force: true do |t|
