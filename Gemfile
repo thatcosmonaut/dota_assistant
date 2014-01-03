@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.0.2'
 
-ruby '2.0.0'
+ruby '2.1.0'
 
 #using postgres
 gem 'pg'
@@ -10,6 +10,7 @@ gem 'pg'
 gem 'factory_girl_rails'
 gem 'haml'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'coffee-rails'
