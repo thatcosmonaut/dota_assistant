@@ -4,7 +4,7 @@
     Calculating...
 
 .picker
-  = form_tag pick_assistant_path, method: :post do |f|
+  = form_tag pick_assistant_path, method: :post, remote: true do |f|
     .headline Dota 2 Pick Wizard
     .new-line
 
@@ -21,27 +21,35 @@
         = radio_button_tag 'composition', 'ideal_trilane_vector'
         = label_tag 'composition_ideal_trilane_vector', 'Trilane'
 
-      = text_field_tag :text, "", class: 'text-input', id: 'autocomplete'
+      = text_field_tag :text, "", class: 'text-input', id: 'friendly-autocomplete'
 
       .new-line
 
-      .hero-box.friendly#friendly-0
-      .hero-box.friendly#friendly-1
-      .hero-box.friendly#friendly-2
-      .hero-box.friendly#friendly-3
+      .hero-box.friendly
+        .name
+        = hidden_field_tag "friendlies[]"
+      .hero-box.friendly
+        .name
+        = hidden_field_tag "friendlies[]"
+      .hero-box.friendly
+        .name
+        = hidden_field_tag "friendlies[]"
+      .hero-box.friendly
+        .name
+        = hidden_field_tag "friendlies[]"
 
     .enemy-team
       .headline Enemy Team
 
-      = text_field_tag :text, "", class: 'text-input', id: 'autocomplete'
+      = text_field_tag :text, "", class: 'text-input', id: 'enemy-autocomplete'
 
       .new-line
 
-      .hero-box.enemy#enemy-0
-      .hero-box.enemy#enemy-1
-      .hero-box.enemy#enemy-2
-      .hero-box.enemy#enemy-3
-      .hero-box.enemy#enemy-4
+      .hero-box.enemy
+      .hero-box.enemy
+      .hero-box.enemy
+      .hero-box.enemy
+      .hero-box.enemy
 
       -# .hero-group
       -#   .hero_group_header Radiant Strength
@@ -50,3 +58,8 @@
       -#       = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
       -#       = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
       -#       = label_tag "hero-#{hero.id}", hero.name
+
+:javascript
+  $(document).ready(function() {
+    new HeroAutoComplete($("#friendly-autocomplete"), #{@hero_autocomplete_array.to_json}, "friendly");
+  })

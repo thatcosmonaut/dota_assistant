@@ -9,10 +9,16 @@ class PicksController < ApplicationController
 
   def hero_picker
     @heroes = Hero.all
+
+    @hero_autocomplete_array = [].tap do |list|
+      Hero.scoped.each do |hero|
+        list << { label: hero.name, value: hero.id }
+      end
+    end
   end
 
   def recommendation
-    @friendlies = params[:friendlies].try(:map) { |id| Hero.find(id) } || []
+    @friendlies = params[:friendlies].reject!{ |elt| elt == ""}.try(:map) { |id| Hero.find(id) } || []
     @enemies = params[:enemies].try(:map) { |id| Hero.find(id) } || []
 
     result = Recommendations.pick_recommendations @friendlies, @enemies, params[:composition].upcase

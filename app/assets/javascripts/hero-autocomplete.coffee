@@ -1,23 +1,26 @@
-friendly_filled_count = 0
-enemy_filled_count = 0
+class @HeroAutoComplete
 
-$(document).ready ->
-  $("#friendly-autocomplete").autocomplete({
-    source: [ "Abaddon", "Anti-mage" ],
-    select: (event, ui) ->
-      $('#friendly-' + hero_filled_count).text(ui.item.value)
-      $('#friendly-' + hero_filled_count).data("filled", true)
-      friendly_filled_count += 1
-  })
+  constructor: (@container, remaining_heroes, box_prefix) ->
+    @addAutoComplete(@container, remaining_heroes, box_prefix)
+    @removeOnClick("." + box_prefix)
 
-  $(".friendly").click ->
-    if $(this).data("filled")
-      $(this).text("")
-      $(this).data("filled", false)
-      friendly_filled_count -= 1
+  addAutoComplete: (div, data, box_prefix) ->
+    $(div).autocomplete({
+      source: data,
+      select: (event, ui) ->
+        for box in $("." + box_prefix + ".hero-box")
+          unless $(box).data("filled")
+            $(box).children(".name").text(ui.item.label)
+            $(box).children("input").val(ui.item.value)
+            $(box).data("filled", true)
+            break
 
-  $(".enemy").click ->
-    if $(this).data("filled")
-      $(this).text("")
-      $(this).data("filled", false)
-      enemy_filleD_count -= 1
+        this.form.submit()
+    })
+
+  removeOnClick: (div) ->
+    $(div).click ->
+      if $(div).data("filled")
+        $(this).children(".name").text("")
+        $(this).children("input").val("")
+        $(this).data("filled", false)
