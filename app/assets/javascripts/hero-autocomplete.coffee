@@ -7,7 +7,7 @@ class @HeroAutoComplete
   addAutoComplete: (div, data, box_prefix) ->
     $(div).autocomplete({
       source: data,
-      select: (event, ui) ->
+      select: ((event, ui) ->
         for box in $("." + box_prefix + ".hero-box")
           unless $(box).data("filled")
             $(box).children(".name").text(ui.item.label)
@@ -16,6 +16,9 @@ class @HeroAutoComplete
             break
 
         this.form.submit()
+        false),
+      focus: (event, ui) ->
+        false
     })
 
   removeOnClick: (div) ->

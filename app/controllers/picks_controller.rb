@@ -19,7 +19,7 @@ class PicksController < ApplicationController
 
   def recommendation
     @friendlies = params[:friendlies].reject!{ |elt| elt == ""}.try(:map) { |id| Hero.find(id) } || []
-    @enemies = params[:enemies].try(:map) { |id| Hero.find(id) } || []
+    @enemies = params[:enemies].reject!{ |elt| elt == ""}.try(:map) { |id| Hero.find(id) } || []
 
     result = Recommendations.pick_recommendations @friendlies, @enemies, params[:composition].upcase
     @recommendation = result.first

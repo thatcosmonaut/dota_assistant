@@ -46,10 +46,20 @@
       .new-line
 
       .hero-box.enemy
+        .name
+        = hidden_field_tag "enemies[]"
       .hero-box.enemy
+        .name
+        = hidden_field_tag "enemies[]"
       .hero-box.enemy
+        .name
+        = hidden_field_tag "enemies[]"
       .hero-box.enemy
+        .name
+        = hidden_field_tag "enemies[]"
       .hero-box.enemy
+        .name
+        = hidden_field_tag "enemies[]"
 
       -# .hero-group
       -#   .hero_group_header Radiant Strength
@@ -62,4 +72,5 @@
 :javascript
   $(document).ready(function() {
     new HeroAutoComplete($("#friendly-autocomplete"), #{@hero_autocomplete_array.to_json}, "friendly");
+    new HeroAutoComplete($("#enemy-autocomplete"), #{@hero_autocomplete_array.to_json}, "enemy");
   })
