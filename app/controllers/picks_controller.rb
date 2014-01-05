@@ -5,7 +5,7 @@ class PicksController < ApplicationController
     'ideal_trilane_vector' => 'Trilane'
   }
 
-  respond_to :html
+  respond_to :html, :js
 
   def hero_picker
     @heroes = Hero.all
@@ -18,13 +18,17 @@ class PicksController < ApplicationController
   end
 
   def recommendation
-    @friendlies = params[:friendlies].reject!{ |elt| elt == ""}.try(:map) { |id| Hero.find(id) } || []
-    @enemies = params[:enemies].reject!{ |elt| elt == ""}.try(:map) { |id| Hero.find(id) } || []
+    @friendlies = params[:friendlies].reject{ |elt| elt == ""}.try(:map) { |id| Hero.find(id) } || []
+    @enemies = params[:enemies].reject{ |elt| elt == ""}.try(:map) { |id| Hero.find(id) } || []
 
     result = Recommendations.pick_recommendations @friendlies, @enemies, params[:composition].upcase
     @recommendation = result.first
     @worst = result.last
 
     @composition = COMPOSITION[params[:composition]]
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 end

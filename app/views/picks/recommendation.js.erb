@@ -1,0 +1,7 @@
+<% @recommendation.each_with_index do |recommendation, i| %>
+  $($('.hero-box.recommendation')[<%= i %>]).text('<%= j recommendation.first.name %>')
+<% end %>
+
+<% @worst.each_with_index do |recommendation, i| %>
+  $($('.hero-box.avoid')[<%= i %>]).text('<%= j recommendation.first.name %>')
+<% end %>

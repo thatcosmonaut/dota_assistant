@@ -15,7 +15,7 @@ class @HeroAutoComplete
             $(box).data("filled", true)
             break
 
-        this.form.submit()
+        $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
         false),
       focus: (event, ui) ->
         false
@@ -27,3 +27,4 @@ class @HeroAutoComplete
         $(this).children(".name").text("")
         $(this).children("input").val("")
         $(this).data("filled", false)
+        $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})

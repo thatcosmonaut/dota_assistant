@@ -4,7 +4,7 @@
     Calculating...
 
 .picker
-  = form_tag pick_assistant_path, method: :post, remote: true do |f|
+  = form_tag pick_assistant_path, method: :post, id: "hero-form", remote: true do |f|
     .headline Dota 2 Pick Wizard
     .new-line
 
@@ -38,6 +38,27 @@
         .name
         = hidden_field_tag "friendlies[]"
 
+      .recommendations
+        .headline Recommendations
+
+        .new-line
+
+        .hero-box.recommendation
+        .hero-box.recommendation
+        .hero-box.recommendation
+        .hero-box.recommendation
+        .hero-box.recommendation
+
+        .headline Avoid
+
+        .new-line
+
+        .hero-box.avoid
+        .hero-box.avoid
+        .hero-box.avoid
+        .hero-box.avoid
+        .hero-box.avoid
+
     .enemy-team
       .headline Enemy Team
 
@@ -60,6 +81,7 @@
       .hero-box.enemy
         .name
         = hidden_field_tag "enemies[]"
+
 
       -# .hero-group
       -#   .hero_group_header Radiant Strength
