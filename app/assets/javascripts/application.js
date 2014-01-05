@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require jquery.ui.autocomplete
 //= require jquery.form
+//= require_tree .
