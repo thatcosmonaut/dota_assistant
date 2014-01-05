@@ -12,9 +12,11 @@ class @HeroAutoComplete
           unless $(box).data("filled")
             $(box).children(".name").text(ui.item.label)
             $(box).children("input").val(ui.item.value)
+            $(box).prepend('<label class="hero_big ' + ui.item.label.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
             $(box).data("filled", true)
             break
 
+        $(this).val('')
         $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
         false),
       focus: (event, ui) ->
@@ -26,5 +28,6 @@ class @HeroAutoComplete
       if $(div).data("filled")
         $(this).children(".name").text("")
         $(this).children("input").val("")
+        $(this).children("label").remove()
         $(this).data("filled", false)
         $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
