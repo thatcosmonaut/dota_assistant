@@ -18,7 +18,7 @@ module Recommendations
     end
 
     def remaining_heroes friendly_heroes, enemy_heroes, banned_heroes
-      Hero.where.not(id: (friendly_heroes.map(&:id) + enemy_heroes.map(&:id) + banned_heroes.map(&:id)))
+      Hero.where.not(id: (friendly_heroes + enemy_heroes + banned_heroes).map(&:id))
     end
 
     def calculate_score friendly_heroes, ideal_composition_vector
