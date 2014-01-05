@@ -82,17 +82,31 @@
         .name
         = hidden_field_tag "enemies[]"
 
+    .bans
+      .headline Bans
 
-      -# .hero-group
-      -#   .hero_group_header Radiant Strength
-      -#   - Hero.radiant.with_main_attribute(:strength).each do |hero|
-      -#     .hero-box
-      -#       = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-      -#       = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-      -#       = label_tag "hero-#{hero.id}", hero.name
+      = text_field_tag :text, "", class: 'text-input', id: 'ban-autocomplete'
+
+      .new-line
+
+      .hero-box.banned
+        .name
+        = hidden_field_tag "bans[]"
+      .hero-box.banned
+        .name
+        = hidden_field_tag "bans[]"
+      .hero-box.banned
+        .name
+        = hidden_field_tag "bans[]"
+      .hero-box.banned
+        .name
+        = hidden_field_tag "bans[]"
+      .hero-box.banned
+        .name
 
 :javascript
   $(document).ready(function() {
     new HeroAutoComplete($("#friendly-autocomplete"), #{@hero_autocomplete_array.to_json}, "friendly");
     new HeroAutoComplete($("#enemy-autocomplete"), #{@hero_autocomplete_array.to_json}, "enemy");
+    new HeroAutoComplete($("#ban-autocomplete"), #{@hero_autocomplete_array.to_json}, "banned");
   })
