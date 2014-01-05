@@ -1,6 +1,8 @@
 <% @recommendation.each_with_index do |recommendation, i| %>
-  $($('.hero-box.recommendation')[<%= i %>]).text('<%= j recommendation.first.name %>');
+  $($('.hero-box.recommendation')[<%= i %>]).empty()
+  $($('.hero-box.recommendation')[<%= i %>]).prepend('<div class="name"><%= j recommendation.first.name %></div>');
   $($('.hero-box.recommendation')[<%= i %>]).prepend('<label class="hero_big <%= j recommendation.first.name.parameterize %>"></label>');
+  $($('.hero-box.recommendation')[<%= i %>]).data("hero-id", <%= recommendation.first.id %>);
 <% end %>
 
 <% @worst.each_with_index do |recommendation, i| %>
