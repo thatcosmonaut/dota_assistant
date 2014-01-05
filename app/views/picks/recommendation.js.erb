@@ -6,6 +6,7 @@
 <% end %>
 
 <% @worst.each_with_index do |recommendation, i| %>
-  $($('.hero-box.avoid')[<%= i %>]).text('<%= j recommendation.first.name %>');
+  $($('.hero-box.avoid')[<%= i %>]).empty()
+  $($('.hero-box.avoid')[<%= i %>]).prepend('<div class="name"><%= j recommendation.first.name %></div>');
   $($('.hero-box.avoid')[<%= i %>]).prepend('<label class="hero_big <%= j recommendation.first.name.parameterize %>"></label>');
 <% end %>
