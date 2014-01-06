@@ -5,8 +5,8 @@ module Recommendations
 
   class << self
     #lower score is better
-    def pick_recommendations friendly_heroes, enemy_heroes, ideal_composition_vector
-      remaining_heroes = remaining_heroes(friendly_heroes, enemy_heroes)
+    def pick_recommendations friendly_heroes, enemy_heroes, banned_heroes, ideal_composition_vector
+      remaining_heroes = remaining_heroes(friendly_heroes, enemy_heroes, banned_heroes)
 
       scores = [].tap do |score_builder|
         remaining_heroes.each do |hero|
@@ -17,8 +17,8 @@ module Recommendations
       [scores.first(5), scores.last(5)]
     end
 
-    def remaining_heroes friendly_heroes, enemy_heroes
-      Hero.where.not(id: (friendly_heroes.map(&:id) + enemy_heroes.map(&:id)))
+    def remaining_heroes friendly_heroes, enemy_heroes, banned_heroes
+      Hero.where.not(id: (friendly_heroes + enemy_heroes + banned_heroes).map(&:id))
     end
 
     def calculate_score friendly_heroes, ideal_composition_vector

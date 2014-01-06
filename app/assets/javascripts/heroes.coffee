@@ -1,22 +1,46 @@
 $(document).ready ->
-  $(".icon-arrow-right").bind "click", (event) ->
-    event.preventDefault()
-    target = $($(this).parent().attr("href"))
-    $("html, body").stop().animate(scrollLeft: target.offset().left, scrollTop: target.offset().top, 1200)
-    $("#filter").val('')
-    $(".hero-box").each ->
-      $(this).css(opacity: 1)
+  $('.hero-box input').each ->
+    $(this).val("")
 
-  $(".icon-arrow-left").bind "click", (event) ->
-    event.preventDefault()
-    target = $($(this).parent().attr("href"))
-    $("html, body").stop().animate(scrollLeft: target.offset().left, scrollTop: target.offset().top, 1200)
+  $('.strategy-selector').bind "click", (event) ->
+    $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
 
-  $(".hero").bind "click", (event) ->
-    hero_label = $(this).attr('for')
-    selector = hero_label.replace('hero', 'enemy') if hero_label.indexOf("hero") != -1
-    target = $("label[for='" + selector + "']")
-    target.css(opacity: .1)
+  $('.hero-box.recommendation').bind "click", (event) ->
+    for box in $(".friendly.hero-box")
+      unless $(box).data("filled")
+        $(box).children(".name").text($(this).children(".name").text())
+        $(box).children("input").val($(this).data("hero-id"))
+        $(box).prepend('<label class="hero_big ' + $(this).children(".name").text().toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+        $(box).data("filled", true)
+        $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
+        break
+
+  $('.friendly.hero-box').bind "click", (event) ->
+    remove_hero(this)
+
+  $('.enemy.hero-box').bind "click", (event) ->
+    remove_hero(this)
+
+  $('.banned.hero-box').bind "click", (event) ->
+    remove_hero(this)
+
+  add_hero = (div) ->
+    for box in $(div)
+      unless $(box).data("filled")
+        $(box).children(".name").text($(this).children(".name").text())
+        $(box).children("input").val($(this).data("hero-id"))
+        $(box).prepend('<label class="hero_big ' + $(this).children(".name").text().toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+        $(box).data("filled", true)
+        $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
+        break
+
+  remove_hero = (div) ->
+    if $(div).data("filled")
+      $(div).children(".name").text("")
+      $(div).children("input").val("")
+      $(div).children("label").remove()
+      $(div).data("filled", false)
+      $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
 
   $(".submit").bind "click", (event) ->
     $("#light_box").show()
