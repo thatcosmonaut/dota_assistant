@@ -22,7 +22,7 @@ class PicksController < ApplicationController
     @composition = COMPOSITION[params[:composition]]
 
     respond_to do |format|
-      format.js
+      format.json
     end
   end
 

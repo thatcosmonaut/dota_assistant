@@ -14,7 +14,7 @@ module Recommendations
         end
       end.sort_by { |a, b| b }
 
-      [scores.first(5), scores.last(5)]
+      [scores.first(5).map(&:first), scores.last(5).map(&:first)]
     end
 
     def remaining_heroes friendly_heroes, enemy_heroes, banned_heroes

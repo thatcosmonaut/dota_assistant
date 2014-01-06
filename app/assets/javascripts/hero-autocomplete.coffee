@@ -5,6 +5,7 @@ class @HeroAutoComplete
 
   addAutoComplete: (div, box_prefix) ->
     $(div).autocomplete({
+      minLength: 2,
       source: (request, response) ->
         $.ajax({
           url: '/remaining_heroes',
@@ -28,7 +29,23 @@ class @HeroAutoComplete
             break
 
         $(this).val('')
-        $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
+        $.ajax({
+          url: '/pick_assistant',
+          data: $('#hero-form').serialize(),
+          dataType: 'json',
+          type: 'POST',
+          success: (data) ->
+            for recommendation, i in data.recommendations
+              $($('.recommendation.hero-box').get(i)).empty()
+              $($('.recommendation.hero-box').get(i)).prepend('<div class="name">' + recommendation.name + '</div>')
+              $($('.recommendation.hero-box').get(i)).prepend('<label class="hero_big ' + recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+              $($('.recommendation.hero-box').get(i)).data("hero-id", recommendation.id)
+
+            for worst, i in data.worst
+              $($('.hero-box.avoid').get(i)).empty()
+              $($('.hero-box.avoid').get(i)).prepend('<div class="name">' + worst.name + '</div>')
+              $($('.hero-box.avoid').get(i)).prepend('<label class="hero_big ' + worst.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+        })
         false),
       focus: (event, ui) ->
         false
