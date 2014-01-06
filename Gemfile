@@ -15,6 +15,7 @@ gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'coffee-rails'
+gem 'rabl'
 
 group :assets do
   gem 'uglifier'

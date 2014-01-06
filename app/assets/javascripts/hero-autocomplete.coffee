@@ -3,9 +3,21 @@ class @HeroAutoComplete
   constructor: (@container, remaining_heroes, box_prefix) ->
     @addAutoComplete(@container, remaining_heroes, box_prefix)
 
-  addAutoComplete: (div, data, box_prefix) ->
+  addAutoComplete: (div, box_prefix) ->
     $(div).autocomplete({
-      source: data,
+      source: (request, response) ->
+        $.ajax({
+          url: '/remaining_heroes',
+          data: $('#hero-form').serialize(),
+          dataType: 'json',
+          type: 'POST',
+          success: (data) ->
+            matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i")
+            response($.grep(data, (value) ->
+              matcher.test(value.label)
+            ))
+        })
+      ,
       select: ((event, ui) ->
         for box in $("." + box_prefix + ".hero-box")
           unless $(box).data("filled")

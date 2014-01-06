@@ -32,4 +32,11 @@ class PicksController < ApplicationController
       format.js {}
     end
   end
+
+  def remaining_heroes
+    @remaining = Hero.where.not(id: params[:friendlies] + params[:enemies] + params[:bans])
+    respond_to do |format|
+      format.json
+    end
+  end
 end

@@ -112,7 +112,7 @@
 
 :javascript
   $(document).ready(function() {
-    new HeroAutoComplete($("#friendly-autocomplete"), #{@hero_autocomplete_array.to_json}, "friendly");
-    new HeroAutoComplete($("#enemy-autocomplete"), #{@hero_autocomplete_array.to_json}, "enemy");
-    new HeroAutoComplete($("#ban-autocomplete"), #{@hero_autocomplete_array.to_json}, "banned");
+    new HeroAutoComplete($("#friendly-autocomplete"), "friendly");
+    new HeroAutoComplete($("#enemy-autocomplete"), "enemy");
+    new HeroAutoComplete($("#ban-autocomplete"), "banned");
   })
