@@ -9,12 +9,6 @@ class PicksController < ApplicationController
 
   def hero_picker
     @heroes = Hero.all
-
-    @hero_autocomplete_array = [].tap do |list|
-      Hero.scoped.each do |hero|
-        list << { label: hero.name, value: hero.id }
-      end
-    end
   end
 
   def recommendation
@@ -22,14 +16,13 @@ class PicksController < ApplicationController
     @enemies = Hero.where(id: params[:enemies])
     @bans = Hero.where(id: params[:bans])
 
-    result = Recommendations.pick_recommendations @friendlies, @enemies, @bans, params[:composition].upcase
-    @recommendation = result.first
-    @worst = result.last
+    @recommendation, @worst = Recommendations.pick_recommendations @friendlies, @enemies, @bans, params[:composition].upcase
+    @ban_recommendations = (Recommendations.pick_recommendations @enemies, @friendlies, @bans, 'IDEAL_BALANCED_VECTOR').first
 
     @composition = COMPOSITION[params[:composition]]
 
     respond_to do |format|
-      format.js {}
+      format.js
     end
   end
 

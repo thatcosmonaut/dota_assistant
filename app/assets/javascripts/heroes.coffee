@@ -16,11 +16,30 @@ $(document).ready ->
         break
 
   $('.friendly.hero-box').bind "click", (event) ->
-    if $(this).data("filled")
-      $(this).children(".name").text("")
-      $(this).children("input").val("")
-      $(this).children("label").remove()
-      $(this).data("filled", false)
+    remove_hero(this)
+
+  $('.enemy.hero-box').bind "click", (event) ->
+    remove_hero(this)
+
+  $('.banned.hero-box').bind "click", (event) ->
+    remove_hero(this)
+
+  add_hero = (div) ->
+    for box in $(div)
+      unless $(box).data("filled")
+        $(box).children(".name").text($(this).children(".name").text())
+        $(box).children("input").val($(this).data("hero-id"))
+        $(box).prepend('<label class="hero_big ' + $(this).children(".name").text().toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+        $(box).data("filled", true)
+        $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
+        break
+
+  remove_hero = (div) ->
+    if $(div).data("filled")
+      $(div).children(".name").text("")
+      $(div).children("input").val("")
+      $(div).children("label").remove()
+      $(div).data("filled", false)
       $("#hero-form").ajaxSubmit({url: '/pick_assistant', type: 'POST'})
 
   $(".submit").bind "click", (event) ->

@@ -10,3 +10,9 @@
   $($('.hero-box.avoid')[<%= i %>]).prepend('<div class="name"><%= j recommendation.first.name %></div>');
   $($('.hero-box.avoid')[<%= i %>]).prepend('<label class="hero_big <%= j recommendation.first.name.parameterize %>"></label>');
 <% end %>
+
+<% @ban_recommendations.each_with_index do |recommendation, i| %>
+  $($('.hero-box.ban')[<%= i %>]).empty()
+  $($('.hero-box.ban')[<%= i %>]).prepend('<div class="name"><%= j recommendation.first.name %></div>');
+  $($('.hero-box.ban')[<%= i %>]).prepend('<label class="hero_big <%= j recommendation.first.name.parameterize %>"></label>');
+<% end %>
