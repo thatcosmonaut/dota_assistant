@@ -6,6 +6,7 @@ class @HeroAutoComplete
   addAutoComplete: (div, box_prefix) ->
     $(div).autocomplete({
       minLength: 2,
+      autoFocus: true,
       source: (request, response) ->
         $.ajax({
           url: '/remaining_heroes',
