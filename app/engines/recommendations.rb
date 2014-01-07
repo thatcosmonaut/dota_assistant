@@ -42,8 +42,8 @@ module Recommendations
     #lower score is better
     def pick_recommendations friendly_heroes, enemy_heroes, banned_heroes, ideal_composition_vector
       remaining_heroes = remaining_heroes(friendly_heroes, enemy_heroes, banned_heroes)
-      scores = hero_scores friendly_heroes, remaining_heroes, ideal_composition_vector
-      [scores.first(5).map(&:first), scores.last(5).map(&:first)]
+      scores = (hero_scores friendly_heroes, remaining_heroes, ideal_composition_vector).map(&:first)
+      [scores.first(5), scores.last(5)]
     end
 
     def hero_scores friendly_heroes, remaining_heroes, ideal_composition_vector
