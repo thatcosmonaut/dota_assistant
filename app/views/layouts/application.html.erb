@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DotaAssistant</title>
+  <title>DOTA 2 Pick Wizard</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <link href="assets/favicon.ico" type="image/x-icon" rel="shortcut icon" />
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <header>
+    <img class="logo" src="assets/dota2-logo.png" />
+    <a href="#" class="btn donate">Donate</a>
+  </header>
+  <main>
+  <%= yield %>
+  </main>
 </body>
 </html>

@@ -1,0 +1,166 @@
+@import mixins
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900)
+@font-face
+  font-family: 'Marcellus'
+  font-style: normal
+  font-weight: 400
+  src: local('Marcellus'), local('Marcellus-Regular'), url(http://themes.googleusercontent.com/static/fonts/marcellus/v1/FJNab1jzp1t7ctjNl8ugHLO3LdcAZYWl9Si6vvxL-qU.woff) format('woff')
+
+dota-red = #450304
+
+body, html
+  height: 100%
+
+body
+  font-family: "Lato"
+  font-size: 12px
+  background-color: dota-red
+  color: #fff
+  margin: 0
+  padding: 0
+  background: #131313 /* Old browsers */
+  background: -moz-linear-gradient(top,  dota-red 0%, #121212 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,dota-red), color-stop(100%,#121212)) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  dota-red 0%,#121212 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  dota-red 0%,#121212 100%) /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  dota-red 0%,#121212 100%) /* IE10+ */
+  background: linear-gradient(to bottom,  dota-red 0%,#121212 100%) /* W3C */
+
+
+header
+  width: 1010px
+  height: 100px
+  margin: 0 auto
+  position: relative
+
+  a.donate
+    color: white
+    display: block
+    padding: 6px 14px
+    text-transform: uppercase
+    text-align: center
+    float: right
+    margin-top: 55px
+    font-size: 10px
+    letter-spacing: 1px
+
+.border
+  round-corners(8px, 8px, 8px, 8px)
+  padding: 20px
+  width: 980px
+  margin: 0 auto
+  background: #232428 /* Old browsers */
+  background: -moz-linear-gradient(top,  #232428 0%, #121212 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#232428), color-stop(100%,#121212)) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #232428 0%,#121212 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #232428 0%,#121212 100%) /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #232428 0%,#121212 100%) /* IE10+ */
+  background: linear-gradient(to bottom,  #232428 0%,#121212 100%) /* W3C */
+  box-shadow: 0 2px 5px 3px rgba(0,0,0,0.4)
+
+.appcontainer
+  width: 960px
+  margin: 0 auto
+  position: relative
+  background-color: dota-red
+  round-corners(5px, 5px, 5px, 5px)
+  padding: 5px
+  box-shadow: 0 0 5px 3px rgba(0,0,0,0.4)
+
+.col
+  float: left
+  width: 480px
+
+.box
+  display: block
+  position: relative
+  margin: 2px
+  border-width: 12px
+  background: url(/assets/bg.png) #24272c
+  box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.3)
+  -webkit-border-image: url(/assets/border.png) 12 12 12 12 repeat
+  -moz-border-image: url(/assets/border.png) 12 12 12 12 repeat
+  border-image: url(/assets/border.png) 12 12 12 12 repeat
+
+  h2
+    background: url(/assets/bg-box-header.png) repeat
+    font-family: Marcellus
+    text-transform: uppercase
+    font-size: 16px
+    color: #b7b8ba
+    margin: 0
+    padding: 0
+    height: 36px
+    line-height: 36px
+    border: 1px solid #2c3031
+    box-shadow: inset 0 0 2px 1px rgba(0,0,0,0.3)
+    text-align: center
+
+  h3
+    padding: 0 10px
+    text-align: left
+    margin: 0
+    height: 26px
+    line-height: 26px
+    border-bottom: 1px solid dota-red
+    font-size: 14px
+    font-weight: normal
+    color: #b7b8ba
+    box-shadow: 0 2px 5px 3px rgba(0,0,0,0.3)
+    background: #323637 /* Old browsers */
+    background: -moz-linear-gradient(top,  #323637 0%, #1d1c18 100%) /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#323637), color-stop(100%,#1d1c18)) /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #323637 0%,#1d1c18 100%) /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #323637 0%,#1d1c18 100%) /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #323637 0%,#1d1c18 100%) /* IE10+ */
+    background: linear-gradient(to bottom,  #323637 0%,#1d1c18 100%) /* W3C */
+
+
+  p
+    padding: 0 10px
+    text-align: left
+
+
+  &.your-team, &.enemy-team
+    height: 190px
+
+  &.recommendations, &.bans
+    height: 380px
+    margin-top: 4px
+
+.strategy-selector
+  position: absolute
+  top: 0
+  right: 0
+
+.notes
+  height: 64px
+
+.search
+  padding: 10px 10px 0 10px
+  position: relative
+  height: 40px
+
+  input
+    round-corners(3px, 3px, 3px, 3px)
+    position: absolute
+    outline: none
+
+  input.search
+    left: 10px
+    right: 10px
+    top: 10px
+    padding: 7px
+    background-color: black
+    color: #fff
+    border: 1px solid #333
+    height: auto
+
+  input.add
+    right: 11px
+    top: 12px
+    width: 30px
+    height: 29px
+    text-transform: uppercase
+    color: #fff
+    padding: 7px

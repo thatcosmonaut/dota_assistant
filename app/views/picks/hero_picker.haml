@@ -1,125 +1,113 @@
-#light_box
-  #calculating-modal
-    = fa_icon "spinner spin", class: "spinner"
-    Calculating...
-
-.picker
+.border
   = form_tag pick_assistant_path, method: :post, id: "hero-form", remote: true do |f|
-    .headline Dota 2 Pick Wizard
-    .new-line
+    .appcontainer.cf
+      .side-left.col.cf
+        .box.your-team
+          %h2 Your Team
+          .strategy-selector
+            = radio_button_tag "composition", 'ideal_balanced_vector', checked: true
+            = label_tag 'composition_ideal_balanced_vector', '2-1-2'
 
-    .your-team
-      .headline Your Team
+            = radio_button_tag 'composition', 'ideal_jungling_vector'
+            = label_tag 'composition_ideal_jungling_vector', 'Jungling'
 
-      = text_field_tag :text, "", class: 'text-input', id: 'friendly-autocomplete', placeholder: "Add friendly hero..."
+            = radio_button_tag 'composition', 'ideal_trilane_vector'
+            = label_tag 'composition_ideal_trilane_vector', 'Trilane'
+          .search
+            = text_field_tag :text, "", class: 'text-input', id: 'friendly-autocomplete', placeholder: "Add a character...", class: "search"
+            %input.add.btn{value:"+", type:"submit"}
+          .characters.cf
+            .character.friendly
+              .name
+              = hidden_field_tag "friendlies[]", ""
+            .character.friendly
+              .name
+              = hidden_field_tag "friendlies[]", ""
+            .character.friendly
+              .name
+              = hidden_field_tag "friendlies[]", ""
+            .character.friendly
+              .name
+              = hidden_field_tag "friendlies[]", ""
 
-      .strategy-selector
-        = radio_button_tag "composition", 'ideal_balanced_vector', checked: true
-        = label_tag 'composition_ideal_balanced_vector', '2-1-2'
 
-        = radio_button_tag 'composition', 'ideal_jungling_vector'
-        = label_tag 'composition_ideal_jungling_vector', 'Jungling'
+        .box.recommendations
+          %h2 Recommentations
+          %h3 Notes
+          .notes
+            %p Your team needs more Germans
+          %h3 We Recommend
+          .characters.cf
+            .character.recommendation
+            .character.recommendation
+            .character.recommendation
+          %h3 Avoid
+          .characters.cf
+            .character.avoid
+            .character.avoid
+            .character.avoid
+      .side-right.col.cf
+        .box.enemy-team
+          %h2 Enemy Team
+          .search
+            = text_field_tag :text, "", class: 'text-input', id: 'enemy-autocomplete', placeholder: "Add enemy hero...", class: "search"
+            %input.add.btn{value:"+", type:"submit"}
+          .characters.cf
+            .character.enemy
+              .name
+              = hidden_field_tag "enemies[]", ""
+            .character.enemy
+              .name
+              = hidden_field_tag "enemies[]", ""
+            .character.enemy
+              .name
+              = hidden_field_tag "enemies[]", ""
+            .character.enemy
+              .name
+              = hidden_field_tag "enemies[]", ""
 
-        = radio_button_tag 'composition', 'ideal_trilane_vector'
-        = label_tag 'composition_ideal_trilane_vector', 'Trilane'
+        .box.bans
+          %h2 Bans
+          .search
+            = text_field_tag :text, "", class: 'text-input', id: 'ban-autocomplete', placeholder: "Add banned hero...", class: "search"
+            %input.add.btn{value:"+", type:"submit"}
+          .characters.cf
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
+            .character.banned
+              .name
+                = hidden_field_tag "bans[]", ""
 
-      .new-line
-
-      .hero-box-container.friendly-container
-        .hero-box.friendly
-          .name
-          = hidden_field_tag "friendlies[]", ""
-        .hero-box.friendly
-          .name
-          = hidden_field_tag "friendlies[]", ""
-        .hero-box.friendly
-          .name
-          = hidden_field_tag "friendlies[]", ""
-        .hero-box.friendly
-          .name
-          = hidden_field_tag "friendlies[]", ""
-
-      .recommendations
-        .headline Recommendations
-
-        .new-line
-
-        .hero-box-container
-          .hero-box.recommendation
-          .hero-box.recommendation
-          .hero-box.recommendation
-          .hero-box.recommendation
-          .hero-box.recommendation
-
-        .recommended-role
-
-        .headline Avoid
-
-        .new-line
-
-        .hero-box-container
-          .hero-box.avoid
-          .hero-box.avoid
-          .hero-box.avoid
-          .hero-box.avoid
-          .hero-box.avoid
-
-    .enemy-team
-      .headline Enemy Team
-
-      = text_field_tag :text, "", class: 'text-input', id: 'enemy-autocomplete', placeholder: "Add enemy hero..."
-
-      .new-line
-
-      .hero-box-container
-        .hero-box.enemy
-          .name
-          = hidden_field_tag "enemies[]", ""
-        .hero-box.enemy
-          .name
-          = hidden_field_tag "enemies[]", ""
-        .hero-box.enemy
-          .name
-          = hidden_field_tag "enemies[]", ""
-        .hero-box.enemy
-          .name
-          = hidden_field_tag "enemies[]", ""
-        .hero-box.enemy
-          .name
-          = hidden_field_tag "enemies[]", ""
-
-    .bans
-      .headline Bans
-
-      = text_field_tag :text, "", class: 'text-input', id: 'ban-autocomplete', placeholder: "Add banned hero..."
-
-      .new-line
-
-      .hero-box-container
-        .hero-box.banned
-          .name
-          = hidden_field_tag "bans[]", ""
-        .hero-box.banned
-          .name
-          = hidden_field_tag "bans[]", ""
-        .hero-box.banned
-          .name
-          = hidden_field_tag "bans[]", ""
-        .hero-box.banned
-          .name
-          = hidden_field_tag "bans[]", ""
-        .hero-box.banned
-          .name
-          = hidden_field_tag "bans[]", ""
-
-      .ban-recommendations
-        .headline Ban Recommendations
-        .hero-box-container
-          .hero-box.ban
-          .hero-box.ban
-          .hero-box.ban
-          .hero-box.ban
-          .hero-box.ban
+          %h3 Recommended Bans
+          .characters.cf
+            .character.ban
+            .character.ban
+            .character.ban
 
 :javascript
   $(document).ready(function() {
