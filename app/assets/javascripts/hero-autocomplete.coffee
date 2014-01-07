@@ -46,7 +46,7 @@ class @HeroAutoComplete
 
             unless (typeof data.ban_recommendations == 'undefined')
               for ban_recommendation, i in data.ban_recommendations
-                $($('.character.ban').get(i)).children('.name').text(recommendation.name)
+                $($('.character.ban').get(i)).children('.name').text(ban_recommendation.name)
                 $($('.character.ban').get(i)).children('label').removeClass().addClass('hero_big').addClass(ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-'))
                 $($('.character.ban').get(i)).data("hero-id", ban_recommendation.id)
 

@@ -61,7 +61,7 @@ $(document).ready ->
       unless $(box).data("filled")
         $(box).children(".name").text($(this).children(".name").text())
         $(box).children("input").val($(this).data("hero-id"))
-        $(box).prepend('<label class="hero_big ' + $(this).children(".name").text().toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+        $(box).children('label').removeClass().addClass('hero_big').addClass($(this).children(".name").text().toLowerCase().replace(/['\s]/g, '-'))
         $(box).data("filled", true)
         break
 
