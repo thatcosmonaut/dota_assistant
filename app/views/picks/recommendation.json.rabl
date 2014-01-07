@@ -1,22 +1,16 @@
 object false
 
-node :recommendations do
-  @recommendation.map do |rec|
-    { id: rec.id, name: rec.name }
-  end
+child @recommendation => "recommendations" do
+  attributes :id, :name
 end
 
-node :worst do
-  @worst.map do |bad|
-    { id: bad.id, name: bad.name }
-  end
+child @worst => "worst" do
+  attributes :id, :name
 end
 
 if @ban_recommendations
-  node :ban_recommendations do
-    @ban_recommendations.map do |rec|
-      { id: rec.id, name: rec.name }
-    end
+  child @ban_recommendations => "ban_recommendations" do
+    attributes :id, :name
   end
 end
 
