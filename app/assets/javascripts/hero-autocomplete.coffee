@@ -53,7 +53,10 @@ class @HeroAutoComplete
                 $($('.character.ban').get(i)).prepend('<label class="hero_big ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
                 $($('.character.ban').get(i)).data("hero-id", ban_recommendation.id)
 
-            $('.notes p').text('Your team needs: ' + data.needed_role)
+            unless data.needed_role == null
+              $('.notes p').text('Your team needs: ' + data.needed_role)
+            else
+              $('.notes p').text('')
         })
         false),
       focus: (event, ui) ->

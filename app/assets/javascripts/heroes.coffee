@@ -54,7 +54,10 @@ $(document).ready ->
         $($('.character.ban').get(i)).prepend('<label class="addable hero_big ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
         $($('.character.ban').get(i)).data("hero-id", ban_recommendation.id)
 
-    $('.notes p').text('Your team needs: ' + data.needed_role)
+    unless data.needed_role == null
+      $('.notes p').text('Your team needs: ' + data.needed_role)
+    else
+      $('.notes p').text('')
 
   $('.character.ban').bind "click", (event) ->
     for box in $('.character.banned')
