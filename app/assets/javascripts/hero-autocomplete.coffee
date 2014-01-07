@@ -24,7 +24,7 @@ class @HeroAutoComplete
           unless $(box).data("filled")
             $(box).children(".name").text(ui.item.label)
             $(box).children("input").val(ui.item.value)
-            $(box).prepend('<label class="hero_big ' + ui.item.label.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+            $(box).children('label').removeClass().addClass('hero_big').addClass(ui.item.label.toLowerCase().replace(/['\s]/g, '-'))
             $(box).data("filled", true)
             break
 
@@ -36,21 +36,18 @@ class @HeroAutoComplete
           type: 'POST',
           success: (data) ->
             for recommendation, i in data.recommendations
-              $($('.recommendation.character').get(i)).empty()
-              $($('.recommendation.character').get(i)).prepend('<div class="name">' + recommendation.name + '</div>')
-              $($('.recommendation.character').get(i)).prepend('<label class="hero_big ' + recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+              $($('.recommendation.character').get(i)).children('.name').text(recommendation.name)
+              $($('.recommendation.character').get(i)).children('label').removeClass().addClass('hero_big').addClass(recommendation.name.toLowerCase().replace(/['\s]/g, '-'))
               $($('.recommendation.character').get(i)).data("hero-id", recommendation.id)
 
             for worst, i in data.worst
-              $($('.character.avoid').get(i)).empty()
-              $($('.character.avoid').get(i)).prepend('<div class="name">' + worst.name + '</div>')
-              $($('.character.avoid').get(i)).prepend('<label class="hero_big ' + worst.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+              $($('.character.avoid').get(i)).children('.name').text(worst.name)
+              $($('.character.avoid').get(i)).children('label').removeClass().addClass('hero_big').addClass(worst.name.toLowerCase().replace(/['\s]/g, '-'))
 
             unless (typeof data.ban_recommendations == 'undefined')
               for ban_recommendation, i in data.ban_recommendations
-                $($('.character.ban').get(i)).empty()
-                $($('.character.ban').get(i)).prepend('<div class="name">' + ban_recommendation.name + '</div>')
-                $($('.character.ban').get(i)).prepend('<label class="hero_big ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+                $($('.character.ban').get(i)).children('.name').text(recommendation.name)
+                $($('.character.ban').get(i)).children('label').removeClass().addClass('hero_big').addClass(ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-'))
                 $($('.character.ban').get(i)).data("hero-id", ban_recommendation.id)
 
             unless data.needed_role == null
