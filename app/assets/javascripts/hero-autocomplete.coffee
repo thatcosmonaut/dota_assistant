@@ -52,6 +52,8 @@ class @HeroAutoComplete
                 $($('.hero-box.ban').get(i)).prepend('<div class="name">' + ban_recommendation.name + '</div>')
                 $($('.hero-box.ban').get(i)).prepend('<label class="hero_big ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
                 $($('.hero-box.ban').get(i)).data("hero-id", ban_recommendation.id)
+
+            $('.recommended-role').text('Your team needs: ' + data.needed_role)
         })
         false),
       focus: (event, ui) ->

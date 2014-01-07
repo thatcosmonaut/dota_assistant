@@ -54,6 +54,8 @@ $(document).ready ->
         $($('.hero-box.ban').get(i)).prepend('<label class="hero_big ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
         $($('.hero-box.ban').get(i)).data("hero-id", ban_recommendation.id)
 
+    $('.recommended-role').text('Your team needs: ' + data.needed_role)
+
   $('.hero-box.ban').bind "click", (event) ->
     for box in $('.hero-box.banned')
       unless $(box).data("filled")

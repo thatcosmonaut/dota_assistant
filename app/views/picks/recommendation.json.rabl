@@ -19,3 +19,7 @@ if @ban_recommendations
     end
   end
 end
+
+node :needed_role do
+  @needed_role
+end

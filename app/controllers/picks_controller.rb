@@ -24,6 +24,8 @@ class PicksController < ApplicationController
 
     @composition = COMPOSITION[params[:composition]]
 
+    @needed_role = Recommendations.role_recommendations @friendlies, params[:composition].upcase
+
     respond_to do |format|
       format.json
     end
