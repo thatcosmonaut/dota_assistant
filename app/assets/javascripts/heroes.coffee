@@ -39,22 +39,22 @@ $(document).ready ->
     for recommendation, i in data.recommendations
       $($('.recommendation.character').get(i)).empty()
       $($('.recommendation.character').get(i)).prepend('<div class="name">' + recommendation.name + '</div>')
-      $($('.recommendation.character').get(i)).prepend('<label class="removeable ' + recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+      $($('.recommendation.character').get(i)).prepend('<label class="hero_big removeable ' + recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
       $($('.recommendation.character').get(i)).data("hero-id", recommendation.id)
 
     for worst, i in data.worst
       $($('.character.avoid').get(i)).empty()
       $($('.character.avoid').get(i)).prepend('<div class="name">' + worst.name + '</div>')
-      $($('.character.avoid').get(i)).prepend('<label class="' + worst.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+      $($('.character.avoid').get(i)).prepend('<label class="hero_big ' + worst.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
 
     unless (typeof data.ban_recommendations == 'undefined')
       for ban_recommendation, i in data.ban_recommendations
         $($('.character.ban').get(i)).empty()
         $($('.character.ban').get(i)).prepend('<div class="name">' + ban_recommendation.name + '</div>')
-        $($('.character.ban').get(i)).prepend('<label class="addable ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+        $($('.character.ban').get(i)).prepend('<label class="addable hero_big ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
         $($('.character.ban').get(i)).data("hero-id", ban_recommendation.id)
 
-    $('.recommended-role').text('Your team needs: ' + data.needed_role)
+    $('.notes p').text('Your team needs: ' + data.needed_role)
 
   $('.character.ban').bind "click", (event) ->
     for box in $('.character.banned')

@@ -32,7 +32,7 @@
 
 
         .box.recommendations
-          %h2 Recommentations
+          %h2 Recommendations
           %h3 Notes
           .notes
             %p Your team needs more Germans
@@ -41,8 +41,12 @@
             .character.recommendation
             .character.recommendation
             .character.recommendation
+            .character.recommendation
+            .character.recommendation
           %h3 Avoid
           .characters.cf
+            .character.avoid
+            .character.avoid
             .character.avoid
             .character.avoid
             .character.avoid
@@ -65,6 +69,9 @@
             .character.enemy
               .name
               = hidden_field_tag "enemies[]", ""
+            .character.enemy
+              .name
+              = hidden_field_tag "enemies[]", ""
 
         .box.bans
           %h2 Bans
@@ -74,37 +81,39 @@
           .characters.cf
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
             .character.banned
               .name
-                = hidden_field_tag "bans[]", ""
+              = hidden_field_tag "bans[]", ""
 
           %h3 Recommended Bans
           .characters.cf
+            .character.ban
+            .character.ban
             .character.ban
             .character.ban
             .character.ban

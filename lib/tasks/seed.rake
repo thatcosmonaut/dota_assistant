@@ -277,7 +277,6 @@ namespace :db do
                                             viable_offlane: 1)
 
       anti_mage.add_role(:carry, 3)
-      anti_mage.add_role(:escape, 2)
 
       drow_ranger = FactoryGirl.create(:hero, name: "Drow Ranger",
                                               team: :radiant,
@@ -332,7 +331,6 @@ namespace :db do
       mirana.add_role(:carry, 2)
       mirana.add_role(:nuker, 2)
       mirana.add_role(:disabler, 2)
-      mirana.add_role(:escape, 1)
 
       morphling = FactoryGirl.create(:hero, name: "Morphling",
                                             team: :radiant,
@@ -342,7 +340,6 @@ namespace :db do
                                             viable_offlane: 1)
 
       morphling.add_role(:carry, 3)
-      morphling.add_role(:escape, 2)
       morphling.add_role(:initiator, 1)
       morphling.add_role(:nuker, 1)
 
@@ -354,7 +351,6 @@ namespace :db do
                                                  viable_offlane: 1)
 
       phantom_lancer.add_role(:carry, 3)
-      phantom_lancer.add_role(:escape, 2)
       phantom_lancer.add_role(:pusher, 2)
 
       vengeful_spirit = FactoryGirl.create(:hero, name: "Vengeful Spirit",
@@ -376,7 +372,6 @@ namespace :db do
                                        viable_offlane: 0)
 
       riki.add_role(:carry, 3)
-      riki.add_role(:escape, 3)
 
       sniper = FactoryGirl.create(:hero, name: "Sniper",
                                          team: :radiant,
@@ -395,7 +390,6 @@ namespace :db do
                                                    viable_offlane: 0)
 
       templar_assassin.add_role(:carry, 2)
-      templar_assassin.add_role(:escape, 2)
       templar_assassin.add_role(:ganker, 2)
 
       luna = FactoryGirl.create(:hero, name: "Luna",
@@ -416,7 +410,6 @@ namespace :db do
                                                 viable_offlane: 1)
 
       bounty_hunter.add_role(:carry, 2)
-      bounty_hunter.add_role(:escape, 2)
       bounty_hunter.add_role(:nuker, 2)
 
       ursa = FactoryGirl.create(:hero, name: "Ursa",
@@ -463,7 +456,6 @@ namespace :db do
       naga_siren.add_role(:carry, 2)
       naga_siren.add_role(:disabler, 1)
       naga_siren.add_role(:pusher, 2)
-      naga_siren.add_role(:escape, 1)
 
       troll_warlord = FactoryGirl.create(:hero, name: "Troll Warlord",
                                                 team: :radiant,
@@ -525,7 +517,6 @@ namespace :db do
       puck.add_role(:initiator, 2)
       puck.add_role(:nuker, 1)
       puck.add_role(:disabler, 2)
-      puck.add_role(:escape, 2)
 
       storm_spirit = FactoryGirl.create(:hero, name: "Storm Spirit",
                                                team: :radiant,
@@ -544,7 +535,6 @@ namespace :db do
 
       storm_spirit.add_role(:carry, 2)
       storm_spirit.add_role(:initiator, 1)
-      storm_spirit.add_role(:escape, 3)
       storm_spirit.add_role(:disabler, 1)
 
       windranger = FactoryGirl.create(:hero, name: "Windranger",
@@ -565,7 +555,6 @@ namespace :db do
       windranger.add_role(:disabler, 2)
       windranger.add_role(:nuker, 1)
       windranger.add_role(:support, 2)
-      windranger.add_role(:escape, 2)
 
       zeus = FactoryGirl.create(:hero, name: "Zeus",
                                        team: :radiant,
@@ -622,7 +611,6 @@ namespace :db do
       natures_prophet.add_role(:jungler, 2)
       natures_prophet.add_role(:pusher, 3)
       natures_prophet.add_role(:carry, 1)
-      natures_prophet.add_role(:escape, 2)
 
       tinker = FactoryGirl.create(:hero, name: "Tinker",
                                          team: :radiant,
@@ -831,7 +819,6 @@ namespace :db do
       lifestealer.add_role(:carry, 3)
       lifestealer.add_role(:durable, 2)
       lifestealer.add_role(:jungler, 2)
-      lifestealer.add_role(:escape, 1)
 
       night_stalker = FactoryGirl.create(:hero, name: "Night Stalker",
                                                 team: :dire,
@@ -1011,7 +998,6 @@ namespace :db do
       faceless_void.add_role(:carry, 3)
       faceless_void.add_role(:initiator, 2)
       faceless_void.add_role(:disabler, 2)
-      faceless_void.add_role(:escape, 2)
 
       phantom_assassin = FactoryGirl.create(:hero, name: "Phantom Assassin",
                                                    team: :dire,
@@ -1021,7 +1007,6 @@ namespace :db do
                                                    viable_offlane: 1)
 
       phantom_assassin.add_role(:carry, 3)
-      phantom_assassin.add_role(:escape, 2)
 
       viper = FactoryGirl.create(:hero, name: "Viper",
                                         team: :dire,
@@ -1042,7 +1027,6 @@ namespace :db do
                                          viable_offlane: 2)
 
       clinkz.add_role(:carry, 3)
-      clinkz.add_role(:escape, 3)
 
       broodmother = FactoryGirl.create(:hero, name: "Broodmother",
                                               team: :dire,
@@ -1053,7 +1037,6 @@ namespace :db do
 
       broodmother.add_role(:pusher, 3)
       broodmother.add_role(:carry, 2)
-      broodmother.add_role(:escape, 1)
 
       weaver = FactoryGirl.create(:hero, name: "Weaver",
                                          team: :dire,
@@ -1063,7 +1046,6 @@ namespace :db do
                                          viable_offlane: 3)
 
       weaver.add_role(:carry, 3)
-      weaver.add_role(:escape, 3)
 
       spectre = FactoryGirl.create(:hero, name: "Spectre",
                                           team: :dire,
@@ -1103,7 +1085,6 @@ namespace :db do
                                         viable_mid: 2,
                                         viable_offlane: 0)
 
-      slark.add_role(:escape, 3)
       slark.add_role(:ganker, 2)
 
       medusa = FactoryGirl.create(:hero, name: "Medusa",
@@ -1236,7 +1217,6 @@ namespace :db do
                                                 viable_offlane: 0)
 
       queen_of_pain.add_role(:nuker, 2)
-      queen_of_pain.add_role(:escape, 2)
       queen_of_pain.add_role(:carry, 2)
 
       death_prophet = FactoryGirl.create(:hero, name: "Death Prophet",
@@ -1291,7 +1271,6 @@ namespace :db do
 
       dark_seer.add_role(:initiator, 3)
       dark_seer.add_role(:nuker, 1)
-      dark_seer.add_role(:escape, 1)
 
       batrider = FactoryGirl.create(:hero, name: "Batrider",
                                            team: :dire,
@@ -1303,7 +1282,6 @@ namespace :db do
       batrider.add_role(:initiator, 3)
       batrider.add_role(:disabler, 2)
       batrider.add_role(:nuker, 2)
-      batrider.add_role(:escape, 1)
 
       ancient_apparition = FactoryGirl.create(:hero, name: "Ancient Apparition",
                                                      team: :dire,
@@ -1325,7 +1303,6 @@ namespace :db do
       invoker.add_role(:carry, 2)
       invoker.add_role(:nuker, 2)
       invoker.add_role(:initiator, 2)
-      invoker.add_role(:escape, 2)
 
       outworld_devourer = FactoryGirl.create(:hero, name: "Outworld Devourer",
                                                     team: :dire,
@@ -2107,7 +2084,6 @@ namespace :db do
       FactoryGirl.create(:role, name: :jungler)
       FactoryGirl.create(:role, name: :pusher)
       FactoryGirl.create(:role, name: :durable)
-      FactoryGirl.create(:role, name: :escape)
       FactoryGirl.create(:role, name: :support)
     end
   end

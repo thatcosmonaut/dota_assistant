@@ -1,7 +1,7 @@
 module Recommendations
-  IDEAL_BALANCED_VECTOR = Vector.elements([3, 3, 3, 5, 3, 1, 2, 4, 0, 2, 3, 2, 3]) #does not include offlane
-  IDEAL_JUNGLING_VECTOR = Vector.elements([3, 3, 3, 3, 4, 3, 1, 1, 3, 3, 3, 2, 2, 2])
-  IDEAL_TRILANE_VECTOR = Vector.elements([3, 3, 3, 3, 5, 3, 1, 3, 3, 0, 3, 3, 1, 2])
+  IDEAL_BALANCED_VECTOR = Vector.elements([3, 3, 3, 5, 3, 2, 4, 0, 2, 3, 2, 3]) #does not include offlane
+  IDEAL_JUNGLING_VECTOR = Vector.elements([3, 3, 3, 3, 4, 3, 1, 3, 3, 3, 2, 2, 2])
+  IDEAL_TRILANE_VECTOR = Vector.elements([3, 3, 3, 3, 5, 3, 3, 3, 0, 3, 3, 1, 2])
 
   ROLE_INDEX_WITH_OFFLANE = [
     :mid,
@@ -9,7 +9,6 @@ module Recommendations
     :carry,
     :disabler,
     :durable,
-    :escape,
     :ganker,
     :initiator,
     :jungler,
@@ -24,7 +23,6 @@ module Recommendations
     :carry,
     :disabler,
     :durable,
-    :escape,
     :ganker,
     :initiator,
     :jungler,
@@ -33,6 +31,12 @@ module Recommendations
     :pusher,
     :support
   ]
+
+  VECTOR_TO_ROLE = {
+    "IDEAL_BALANCED_VECTOR" => "ROLE_INDEX",
+    "IDEAL_JUNGLING_VECTOR" => "ROLE_INDEX_WITH_OFFLANE",
+    "IDEAL_TRILANE_VECTOR" => "ROLE_INDEX_WITH_OFFLANE"
+  }
 
   class << self
     #lower score is better
@@ -50,11 +54,13 @@ module Recommendations
 
     def role_recommendations friendly_heroes, ideal_composition_vector
       differences = (const_get(ideal_composition_vector) - team_vector(friendly_heroes, ideal_composition_vector)).to_a
-      differences.shift
-      if ideal_composition_vector == 'IDEAL_BALANCED_VECTOR'
-        ROLE_INDEX[differences.index(differences.max)]
-      else
-        ROLE_INDEX_WITH_OFFLANE[differences.index(differences.max)]
+      differences.shift # don't need to consider attack value
+      [].tap do |roles_needed|
+        2.times do
+          max_index = differences.index(differences.max)
+          roles_needed << const_get(VECTOR_TO_ROLE[ideal_composition_vector])[ max_index ]
+          differences[max_index] = 0
+        end
       end
     end
 
