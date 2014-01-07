@@ -45,6 +45,13 @@ class @HeroAutoComplete
               $($('.hero-box.avoid').get(i)).empty()
               $($('.hero-box.avoid').get(i)).prepend('<div class="name">' + worst.name + '</div>')
               $($('.hero-box.avoid').get(i)).prepend('<label class="hero_big ' + worst.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+
+            unless (typeof data.ban_recommendations == 'undefined')
+              for ban_recommendation, i in data.ban_recommendations
+                $($('.hero-box.ban').get(i)).empty()
+                $($('.hero-box.ban').get(i)).prepend('<div class="name">' + ban_recommendation.name + '</div>')
+                $($('.hero-box.ban').get(i)).prepend('<label class="hero_big ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+                $($('.hero-box.ban').get(i)).data("hero-id", ban_recommendation.id)
         })
         false),
       focus: (event, ui) ->

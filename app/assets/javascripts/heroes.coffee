@@ -47,6 +47,24 @@ $(document).ready ->
       $($('.hero-box.avoid').get(i)).prepend('<div class="name">' + worst.name + '</div>')
       $($('.hero-box.avoid').get(i)).prepend('<label class="hero_big ' + worst.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
 
+    unless (typeof data.ban_recommendations == 'undefined')
+      for ban_recommendation, i in data.ban_recommendations
+        $($('.hero-box.ban').get(i)).empty()
+        $($('.hero-box.ban').get(i)).prepend('<div class="name">' + ban_recommendation.name + '</div>')
+        $($('.hero-box.ban').get(i)).prepend('<label class="hero_big ' + ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+        $($('.hero-box.ban').get(i)).data("hero-id", ban_recommendation.id)
+
+  $('.hero-box.ban').bind "click", (event) ->
+    for box in $('.hero-box.banned')
+      unless $(box).data("filled")
+        $(box).children(".name").text($(this).children(".name").text())
+        $(box).children("input").val($(this).data("hero-id"))
+        $(box).prepend('<label class="hero_big ' + $(this).children(".name").text().toLowerCase().replace(/['\s]/g, '-') + '"></label>')
+        $(box).data("filled", true)
+        break
+
+    submit_form()
+
   remove_hero = (div) ->
     if $(div).data("filled")
       $(div).children(".name").text("")

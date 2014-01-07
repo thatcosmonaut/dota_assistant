@@ -12,8 +12,10 @@ node :worst do
   end
 end
 
-node :ban_recommendations do
-  @ban_recommendations.map do |rec|
-    { id: rec.id, name: rec.name }
+if @ban_recommendations
+  node :ban_recommendations do
+    @ban_recommendations.map do |rec|
+      { id: rec.id, name: rec.name }
+    end
   end
 end

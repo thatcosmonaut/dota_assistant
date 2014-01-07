@@ -17,7 +17,10 @@ class PicksController < ApplicationController
     @bans = Hero.where(id: params[:bans])
 
     @recommendation, @worst = Recommendations.pick_recommendations @friendlies, @enemies, @bans, params[:composition].upcase
-    @ban_recommendations = (Recommendations.pick_recommendations @enemies, @friendlies, @bans, 'IDEAL_BALANCED_VECTOR').first
+
+    if (@friendlies + @enemies).length > 3
+      @ban_recommendations = (Recommendations.pick_recommendations @enemies, @friendlies, @bans, 'IDEAL_BALANCED_VECTOR').first
+    end
 
     @composition = COMPOSITION[params[:composition]]
 
