@@ -38,6 +38,11 @@ module Recommendations
     "IDEAL_TRILANE_VECTOR" => "ROLE_INDEX_WITH_OFFLANE"
   }
 
+  INFINITY_TYPE = {
+    "min" => Float::INFINITY,
+    "max" => -Float::INFINITY
+  }
+
   class << self
     #lower score is better
     def pick_recommendations friendly_heroes, enemy_heroes, banned_heroes, ideal_composition_vector
@@ -55,11 +60,11 @@ module Recommendations
     end
 
     def roles_filled friendly_heroes, ideal_composition_vector
-      role_analysis(:min, friendly_heroes, ideal_composition_vector)
+      role_analysis("min", friendly_heroes, ideal_composition_vector)
     end
 
     def roles_needed friendly_heroes, ideal_composition_vector
-      role_analysis(:max, friendly_heroes, ideal_composition_vector)
+      role_analysis("max", friendly_heroes, ideal_composition_vector)
     end
 
     def remaining_heroes friendly_heroes, enemy_heroes, banned_heroes
@@ -83,11 +88,7 @@ module Recommendations
         2.times do
           index = differences.index(differences.send(min_or_max))
           roles << const_get(VECTOR_TO_ROLE[ideal_composition_vector])[index]
-          if min_or_max == :min
-            differences[index] = Float::INFINITY
-          else
-            differences[index] = -Float::INFINITY
-          end
+          differences[index] = INFINITY_TYPE[min_or_max]
         end
       end
     end
