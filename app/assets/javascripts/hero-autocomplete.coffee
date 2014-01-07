@@ -52,9 +52,15 @@ class @HeroAutoComplete
                 $($('.character.ban').get(i)).data("hero-id", ban_recommendation.id)
 
             unless data.needed_role == null
-              $('.notes p').text('Your team needs: ' + data.needed_role)
+              $('.notes .needed p').text('Your team needs: ' + data.needed_role)
             else
-              $('.notes p').text('')
+              $('.notes .needed p').text('')
+
+            unless data.filled_roles == null
+              $('.notes .filled p').text('Your team has: ' + data.filled_roles)
+            else
+              $('.notes .filled p').text('')
+
         })
         false),
       focus: (event, ui) ->

@@ -54,16 +54,12 @@ module Recommendations
       end.sort_by { |a, b| b }
     end
 
-    def role_recommendations friendly_heroes, ideal_composition_vector
-      differences = (const_get(ideal_composition_vector) - team_vector(friendly_heroes, ideal_composition_vector)).to_a
-      differences.shift # don't need to consider attack value
-      [].tap do |roles_needed|
-        2.times do
-          max_index = differences.index(differences.max)
-          roles_needed << const_get(VECTOR_TO_ROLE[ideal_composition_vector])[ max_index ]
-          differences[max_index] = 0
-        end
-      end
+    def roles_filled friendly_heroes, ideal_composition_vector
+      role_analysis(:min, friendly_heroes, ideal_composition_vector)
+    end
+
+    def roles_needed friendly_heroes, ideal_composition_vector
+      role_analysis(:max, friendly_heroes, ideal_composition_vector)
     end
 
     def remaining_heroes friendly_heroes, enemy_heroes, banned_heroes
@@ -76,6 +72,24 @@ module Recommendations
 
     def calculate_score friendly_heroes, ideal_composition_vector
       (const_get(ideal_composition_vector) - team_vector(friendly_heroes, ideal_composition_vector)).map {|x| x * x }.inject(:+)
+    end
+
+    private
+
+    def role_analysis(min_or_max, friendly_heroes, ideal_composition_vector)
+      differences = (const_get(ideal_composition_vector) - team_vector(friendly_heroes, ideal_composition_vector)).to_a
+      differences.shift #don't need to consider attack value
+      [].tap do |roles|
+        2.times do
+          index = differences.index(differences.send(min_or_max))
+          roles << const_get(VECTOR_TO_ROLE[ideal_composition_vector])[index]
+          if min_or_max == :min
+            differences[index] = Float::INFINITY
+          else
+            differences[index] = -Float::INFINITY
+          end
+        end
+      end
     end
   end
 end

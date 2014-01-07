@@ -23,3 +23,7 @@ end
 node :needed_role do
   @needed_role
 end
+
+node :filled_roles do
+  @filled_roles
+end

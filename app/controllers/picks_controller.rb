@@ -24,7 +24,8 @@ class PicksController < ApplicationController
 
     @composition = COMPOSITION[params[:composition]]
 
-    @needed_role = Recommendations.role_recommendations @friendlies, params[:composition].upcase unless @friendlies.empty?
+    @needed_role = Recommendations.roles_needed @friendlies, params[:composition].upcase unless @friendlies.empty?
+    @filled_roles = Recommendations.roles_filled @friendlies, params[:composition].upcase unless @friendlies.empty?
 
     respond_to do |format|
       format.json
