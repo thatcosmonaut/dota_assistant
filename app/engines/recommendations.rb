@@ -42,14 +42,16 @@ module Recommendations
     #lower score is better
     def pick_recommendations friendly_heroes, enemy_heroes, banned_heroes, ideal_composition_vector
       remaining_heroes = remaining_heroes(friendly_heroes, enemy_heroes, banned_heroes)
+      scores = get_all_scores friendly_heroes, remaining_heroes, ideal_composition_vector
+      [scores.first(5).map(&:first), scores.last(5).map(&:first)]
+    end
 
-      scores = [].tap do |score_builder|
+    def get_all_scores friendly_heroes, remaining_heroes, ideal_composition_vector
+      [].tap do |score_builder|
         remaining_heroes.each do |hero|
           score_builder << [hero, calculate_score(friendly_heroes + [hero], ideal_composition_vector)]
         end
       end.sort_by { |a, b| b }
-
-      [scores.first(5).map(&:first), scores.last(5).map(&:first)]
     end
 
     def role_recommendations friendly_heroes, ideal_composition_vector
