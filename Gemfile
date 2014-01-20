@@ -30,6 +30,11 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'cucumber-rails'
+  gem 'selenium-webdriver'
+end
+
 group :production do
   gem 'rails_12factor'
 end

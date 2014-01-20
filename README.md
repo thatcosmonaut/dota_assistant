@@ -13,6 +13,12 @@ rake db:populate
 
 This will populate the database with the necessary information about heroes and team composition.
 
+To run tests, execute cucumber:
+
+```shell
+cucumber
+```
+
 ## How It Works
 
 The current version of the algorithm uses vector math to try and find the hero that will best fit into your current
