@@ -85,7 +85,7 @@ $ ->
 
   $('.character input').val("")
 
-  $('.strategy-selector').click (event) ->
+  $('.strategy-selector').change (event) ->
     submit_form()
 
   $('.character.recommendation').click (event) ->
