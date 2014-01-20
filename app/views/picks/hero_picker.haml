@@ -1,132 +1,168 @@
-#light_box
-  #calculating-modal
-    = fa_icon "spinner spin", class: "spinner"
-    Calculating...
+.border
+  = form_tag pick_assistant_path, method: :post, id: "hero-form", remote: true do |f|
+    .appcontainer.cf
+      .side-left.col.cf
+        .box.your-team
+          %h2 Your Team
+          .strategy-selector
+            %label= select_tag "composition", options_for_select([["Laning...", "ideal_balanced_vector"],["2-1-2", "ideal_balanced_vector"], ["Jungling", "ideal_jungling_vector"], ["Trilane", "ideal_trilane_vector"]])
+          .search
+            = text_field_tag :text, "", class: 'text-input', id: 'friendly-autocomplete', placeholder: "Add a character...", class: "search"
+          .characters.cf
+            .character.friendly
+              %label.hero_big
+              .name
+              = hidden_field_tag "friendlies[]", ""
+            .character.friendly
+              %label.hero_big
+              .name
+              = hidden_field_tag "friendlies[]", ""
+            .character.friendly
+              %label.hero_big
+              .name
+              = hidden_field_tag "friendlies[]", ""
+            .character.friendly
+              %label.hero_big
+              .name
+              = hidden_field_tag "friendlies[]", ""
+            .character.dead
+              %label.hero_big
 
+        .box.recommendations
+          %h2 Recommendations
+          %h3 Roles
+          .roles
+            .needed
+              .role.needed-role
+                Needed
+              .role.needed-role
+                Needed
+            .filled
+              .role.filled-role
+                Filled
+              .role.filled-role
+                Filled
+          %h3 We Recommend
+          .characters.cf.recommend-these
+            .character.recommendation
+              %label.hero_big
+              .name
+            .character.recommendation
+              %label.hero_big
+              .name
+            .character.recommendation
+              %label.hero_big
+              .name
+            .character.recommendation
+              %label.hero_big
+              .name
+            .character.recommendation
+              %label.hero_big
+              .name
+          %h3 Avoid
+          .characters.cf.avoid-these
+            .character.avoid
+              %label.hero_big
+              .name
+            .character.avoid
+              %label.hero_big
+              .name
+            .character.avoid
+              %label.hero_big
+              .name
+            .character.avoid
+              %label.hero_big
+              .name
+            .character.avoid
+              %label.hero_big
+              .name
+      .side-right.col.cf
+        .box.enemy-team
+          %h2 Enemy Team
+          .search
+            = text_field_tag :text, "", class: 'text-input', id: 'enemy-autocomplete', placeholder: "Add enemy hero...", class: "search"
+          .characters.cf
+            .character.enemy
+              %label.hero_big
+              .name
+              = hidden_field_tag "enemies[]", ""
+            .character.enemy
+              %label.hero_big
+              .name
+              = hidden_field_tag "enemies[]", ""
+            .character.enemy
+              %label.hero_big
+              .name
+              = hidden_field_tag "enemies[]", ""
+            .character.enemy
+              %label.hero_big
+              .name
+              = hidden_field_tag "enemies[]", ""
+            .character.enemy
+              %label.hero_big
+              .name
+              = hidden_field_tag "enemies[]", ""
 
-.picker
-  = form_tag pick_assistant_path, method: :post do |f|
-    #friendly-heroes.panel.friendly
-      .strategy-selector
-        = radio_button_tag "composition", 'ideal_balanced_vector', checked: true
-        = label_tag 'composition_ideal_balanced_vector', '2-1-2'
+        .box.bans
+          %h2 Bans
+          .search
+            = text_field_tag :text, "", class: 'text-input', id: 'ban-autocomplete', placeholder: "Add banned hero...", class: "search"
+          .characters.bans.cf
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
+            .character.banned
+              %label.hero_big
+              .name
+              = hidden_field_tag "bans[]", ""
 
-        = radio_button_tag 'composition', 'ideal_jungling_vector'
-        = label_tag 'composition_ideal_jungling_vector', 'Jungling'
-
-        = radio_button_tag 'composition', 'ideal_trilane_vector'
-        = label_tag 'composition_ideal_trilane_vector', 'Trilane'
-
-      = render 'shared/live_search'
-
-      .headline Dota 2 Pick Assistant
-      .friendly-header Select Friendly Heroes
-      .new-line
-
-      .hero-group
-        .hero_group_header Radiant Strength
-        - Hero.radiant.with_main_attribute(:strength).each do |hero|
-          .hero-box
-            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "hero-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Radiant Agility
-        - Hero.radiant.with_main_attribute(:agility).each do |hero|
-          .hero-box
-            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "hero-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Radiant Intelligence
-        - Hero.radiant.with_main_attribute(:intelligence).each do |hero|
-          .hero-box
-            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "hero-#{hero.id}", hero.name
-
-
-      .hero-group
-        .hero_group_header Dire Strength
-        - Hero.dire.with_main_attribute(:strength).each do |hero|
-          .hero-box
-            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "hero-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Dire Agility
-        - Hero.dire.with_main_attribute(:agility).each do |hero|
-          .hero-box
-            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "hero-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Dire Intelligence
-        - Hero.dire.with_main_attribute(:intelligence).each do |hero|
-          .hero-box
-            = check_box_tag "friendlies[]", hero.id, false, {id: "hero-#{hero.id}"}
-            = label_tag "hero-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "hero-#{hero.id}", hero.name
-
-      .right-arrow-wrapper= link_to(fa_icon("arrow-right 4x", class: "arrow"), "#enemy-heroes")
-
-
-    #enemy-heroes.panel.enemy
-      .hero_header Select Enemy Heroes
-      .new-line
-
-      .hero-group
-        .hero_group_header Radiant Strength
-        - Hero.radiant.with_main_attribute(:strength).each do |hero|
-          .hero-box
-            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "enemy-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Radiant Agility
-        - Hero.radiant.with_main_attribute(:agility).each do |hero|
-          .hero-box
-            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "enemy-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Radiant Intelligence
-        - Hero.radiant.with_main_attribute(:intelligence).each do |hero|
-          .hero-box
-            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "enemy-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Dire Strength
-        - Hero.dire.with_main_attribute(:strength).each do |hero|
-          .hero-box
-            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "enemy-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Dire Agility
-        - Hero.dire.with_main_attribute(:agility).each do |hero|
-          .hero-box
-            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "enemy-#{hero.id}", hero.name
-
-      .hero-group
-        .hero_group_header Dire Intelligence
-        - Hero.dire.with_main_attribute(:intelligence).each do |hero|
-          .hero-box
-            = check_box_tag "enemies[]", hero.id, false, {id: "enemy-#{hero.id}"}
-            = label_tag "enemy-#{hero.id}", '', class: ['hero', hero.name.parameterize, 'small']
-            = label_tag "enemy-#{hero.id}", hero.name
-
-      .left-arrow-wrapper= link_to(fa_icon("arrow-left 4x", class: "arrow"), "#friendly-heroes")
-
-      = submit_tag "Submit picks", class: "submit"
+          %h3 Recommended Bans
+          .characters.cf.ban-these
+            .character.ban
+              %label.hero_big
+              .name
+            .character.ban
+              %label.hero_big
+              .name
+            .character.ban
+              %label.hero_big
+              .name
+            .character.ban
+              %label.hero_big
+              .name
+            .character.ban
+              %label.hero_big
+              .name

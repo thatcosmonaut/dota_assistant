@@ -3,7 +3,6 @@ class Hero < ActiveRecord::Base
     :carry,
     :disabler,
     :durable,
-    :escape,
     :ganker,
     :initiator,
     :jungler,
