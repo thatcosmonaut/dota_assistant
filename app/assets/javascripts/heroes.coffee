@@ -57,14 +57,16 @@ class @Roles
   constructor: (@container) ->
 
   populate_needed: (data) ->
-    $(@container + ' .needed p').text('Your team needs: ' + data)
+    $(@container).find('.needed-role').eq(0).text(data[0])
+    $(@container).find('.needed-role').eq(1).text(data[1])
 
   populate_filled: (data) ->
-    $(@container + ' .filled p').text('Your team has: ' + data)
+    $(@container).find('.filled-role').eq(0).text(data[0])
+    $(@container).find('.filled-role').eq(1).text(data[1])
 
   empty: ->
-    $(@container + ' .needed p').text('')
-    $(@container + ' .filled p').text('')
+    $(@container).find('.filled-role').text('Filled')
+    $(@container).find('.needed-role').text('Needed')
 
 $ ->
   new HeroAutoComplete($("#friendly-autocomplete"), "friendly")
@@ -79,7 +81,7 @@ $ ->
   avoid_list = new AvoidList(".recommendations .characters.cf.avoid-these")
   ban_recommend_list = new RecommendationList(".characters.cf.ban-these")
 
-  roles = new Roles(".notes")
+  roles = new Roles(".roles")
 
   $('.character input').val("")
 

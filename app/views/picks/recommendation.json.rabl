@@ -14,10 +14,14 @@ if @ban_recommendations
   end
 end
 
-node :needed_roles do
-  @needed_roles
+if @needed_roles
+  node :needed_roles do
+    @needed_roles.map { |role_name| role_name.to_s.titlecase }
+  end
 end
 
-node :filled_roles do
-  @filled_roles
+if @filled_roles
+  node :filled_roles do
+    @filled_roles.map { |role_name| role_name.to_s.titlecase }
+  end
 end
