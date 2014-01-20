@@ -15,7 +15,6 @@
             = label_tag 'composition_ideal_trilane_vector', 'Trilane'
           .search
             = text_field_tag :text, "", class: 'text-input', id: 'friendly-autocomplete', placeholder: "Add a character...", class: "search"
-            %input.add.btn{value:"+", type:"submit"}
           .characters.cf
             .character.friendly
               %label.hero_big
@@ -34,6 +33,7 @@
               .name
               = hidden_field_tag "friendlies[]", ""
             .character.dead
+              %label.hero_big
 
 
         .box.recommendations
@@ -45,7 +45,7 @@
             .filled
               %p
           %h3 We Recommend
-          .characters.cf
+          .characters.cf.recommend-these
             .character.recommendation
               %label.hero_big
               .name
@@ -62,7 +62,7 @@
               %label.hero_big
               .name
           %h3 Avoid
-          .characters.cf
+          .characters.cf.avoid-these
             .character.avoid
               %label.hero_big
               .name
@@ -83,7 +83,6 @@
           %h2 Enemy Team
           .search
             = text_field_tag :text, "", class: 'text-input', id: 'enemy-autocomplete', placeholder: "Add enemy hero...", class: "search"
-            %input.add.btn{value:"+", type:"submit"}
           .characters.cf
             .character.enemy
               %label.hero_big
@@ -110,7 +109,6 @@
           %h2 Bans
           .search
             = text_field_tag :text, "", class: 'text-input', id: 'ban-autocomplete', placeholder: "Add banned hero...", class: "search"
-            %input.add.btn{value:"+", type:"submit"}
           .characters.bans.cf
             .character.banned
               %label.hero_big
@@ -154,7 +152,7 @@
               = hidden_field_tag "bans[]", ""
 
           %h3 Recommended Bans
-          .characters.cf
+          .characters.cf.ban-these
             .character.ban
               %label.hero_big
               .name
@@ -170,10 +168,3 @@
             .character.ban
               %label.hero_big
               .name
-
-:javascript
-  $(document).ready(function() {
-    new HeroAutoComplete($("#friendly-autocomplete"), "friendly");
-    new HeroAutoComplete($("#enemy-autocomplete"), "enemy");
-    new HeroAutoComplete($("#ban-autocomplete"), "banned");
-  })

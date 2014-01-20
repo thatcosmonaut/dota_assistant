@@ -1,31 +1,113 @@
-$(document).ready ->
-  $('.character input').each ->
-    $(this).val("")
+class @TeamList
 
-  $('.strategy-selector').bind "click", (event) ->
+  constructor: (@container) ->
+
+  #data is a hash containing id and name
+  addHero: (data) ->
+    filled = false
+    $(@container + " .character").each (pos, box) ->
+      unless filled
+        div = $(box)
+        unless div.data("filled")
+          div.find(".name").text(data.name)
+          div.find("input").val(data.id)
+          div.find('label').removeClass().addClass('hero_big').addClass(data.name.toLowerCase().replace(/['\s]/g, '-'))
+          div.data("filled", true)
+          filled = true
+
+  #perhaps should change div to something else?
+  removeHero: (div) ->
+    if $(div).data("filled")
+      $(div).find(".name").text("")
+      $(div).find("input").val("")
+      $(div).find("label").removeClass().addClass('hero_big')
+      $(div).data("filled", false)
+
+class @RecommendationList
+
+  #hero_div is selector for recommended hero box, hero list is list that heroes will be added to when clicked on
+  constructor: (@container) ->
+
+  heroClicked: (div) ->
+    parent = $(div)
+    @team_list.addHero({id: parent.data("hero-id"), name: parent.find(".name").text()})
+
+  #data is a list of hashes containing id and name
+  populate: (data) ->
+    for recommendation, i in data
+      div = $(@container + " .character").eq(i)
+      div.find('.name').text(recommendation.name)
+      div.find('label').removeClass().addClass('hero_big').addClass(recommendation.name.toLowerCase().replace(/['\s]/g, '-'))
+      div.data("hero-id", recommendation.id)
+
+class @AvoidList
+
+  #hero_div is selector for avoid hero box
+  constructor: (@container) ->
+
+  #data is a list of hashes containing id and name
+  populate: (data) ->
+    for worst, i in data
+      div = $(@container + " .character").eq(i)
+      div.find('.name').text(worst.name)
+      div.find('label').removeClass().addClass('hero_big').addClass(worst.name.toLowerCase().replace(/['\s]/g, '-'))
+
+class @Roles
+
+  constructor: (@container) ->
+
+  populate_needed: (data) ->
+    $(@container + ' .needed p').text('Your team needs: ' + data)
+
+  populate_filled: (data) ->
+    $(@container + ' .filled p').text('Your team has: ' + data)
+
+  empty: ->
+    $(@container).text('')
+
+$ ->
+  new HeroAutoComplete($("#friendly-autocomplete"), "friendly")
+  new HeroAutoComplete($("#enemy-autocomplete"), "enemy")
+  new HeroAutoComplete($("#ban-autocomplete"), "banned")
+
+  your_team_list = new TeamList(".your-team .characters.cf")
+  enemy_team_list = new TeamList(".enemy-team .characters.cf")
+  ban_list = new TeamList(".characters.bans.cf")
+
+  recommend_list = new RecommendationList(".recommendations .characters.cf.recommend-these")
+  avoid_list = new AvoidList(".recommendations .characters.cf.avoid-these")
+  ban_recommend_list = new RecommendationList(".characters.cf.ban-these")
+
+  roles = new Roles(".notes")
+
+  $('.character input').val("")
+
+  $('.strategy-selector').click (event) ->
     submit_form()
 
-  $('.character.recommendation').bind "click", (event) ->
-    for box in $(".friendly.character")
-      unless $(box).data("filled")
-        $(box).children(".name").text($(this).children(".name").text())
-        $(box).children("input").val($(this).data("hero-id"))
-        $(box).children('label').removeClass().addClass('hero_big').addClass($(this).children(".name").text().toLowerCase().replace(/['\s]/g, '-'))
-        $(box).data("filled", true)
-        break
-
+  $('.character.recommendation').click (event) ->
+    parent = $(this)
+    your_team_list.addHero({id: parent.data("hero-id"), name: parent.find(".name").text()})
     submit_form()
 
-  $('.friendly.character').bind "click", (event) ->
-    remove_hero(this)
+  $('.character.ban').click (event) ->
+    parent = $(this)
+    ban_list.addHero({id: parent.data("hero-id"), name: parent.find(".name").text()})
+    submit_form()
 
-  $('.enemy.character').bind "click", (event) ->
-    remove_hero(this)
+  $('.friendly.character').click (event) ->
+    your_team_list.removeHero(this)
+    submit_form()
 
-  $('.banned.character').bind "click", (event) ->
-    remove_hero(this)
+  $('.enemy.character').click (event) ->
+    enemy_team_list.removeHero(this)
+    submit_form()
 
-  submit_form = ->
+  $('.banned.character').click (event) ->
+    ban_list.removeHero(this)
+    submit_form()
+
+  window.submit_form = ->
     $.ajax({
       url: '/pick_assistant',
       data: $('#hero-form').serialize(),
@@ -36,47 +118,14 @@ $(document).ready ->
     })
 
   update_recommendations = (data) ->
-    for recommendation, i in data.recommendations
-      $($('.recommendation.character').get(i)).children('.name').text(recommendation.name)
-      $($('.recommendation.character').get(i)).children('label').removeClass().addClass('hero_big').addClass(recommendation.name.toLowerCase().replace(/['\s]/g, '-'))
-      $($('.recommendation.character').get(i)).data("hero-id", recommendation.id)
+    recommend_list.populate(data.recommendations)
+    avoid_list.populate(data.worst)
 
-    for worst, i in data.worst
-      $($('.character.avoid').get(i)).children('.name').text(worst.name)
-      $($('.character.avoid').get(i)).children('label').removeClass().addClass('hero_big').addClass(worst.name.toLowerCase().replace(/['\s]/g, '-'))
+    if data.ban_recommendations?
+      ban_recommend_list.populate(data.ban_recommendations)
 
-    unless (typeof data.ban_recommendations == 'undefined')
-      for ban_recommendation, i in data.ban_recommendations
-        $($('.character.ban').get(i)).children('.name').text(ban_recommendation.name)
-        $($('.character.ban').get(i)).children('label').removeClass().addClass('hero_big').addClass(ban_recommendation.name.toLowerCase().replace(/['\s]/g, '-'))
-        $($('.character.ban').get(i)).data("hero-id", ban_recommendation.id)
-
-    unless data.needed_role == null
-      $('.notes .needed p').text('Your team needs: ' + data.needed_role)
+    if data.needed_role? && data.filled_roles?
+      roles.populate_needed(data.needed_role)
+      roles.populate_filled(data.filled_roles)
     else
-      $('.notes .needed p').text('')
-
-    unless data.filled_roles == null
-      $('.notes .filled p').text('Your team has: ' + data.filled_roles)
-    else
-      $('.notes .filled p').text('')
-
-  $('.character.ban').bind "click", (event) ->
-    for box in $('.character.banned')
-      unless $(box).data("filled")
-        $(box).children(".name").text($(this).children(".name").text())
-        $(box).children("input").val($(this).data("hero-id"))
-        $(box).children('label').removeClass().addClass('hero_big').addClass($(this).children(".name").text().toLowerCase().replace(/['\s]/g, '-'))
-        $(box).data("filled", true)
-        break
-
-    submit_form()
-
-  remove_hero = (div) ->
-    if $(div).data("filled")
-      $(div).children(".name").text("")
-      $(div).children("input").val("")
-      $(div).children("label").removeClass().addClass('hero_big')
-      $(div).data("filled", false)
-
-      submit_form()
+      roles.empty()
