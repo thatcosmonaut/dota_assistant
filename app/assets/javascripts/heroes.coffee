@@ -63,7 +63,8 @@ class @Roles
     $(@container + ' .filled p').text('Your team has: ' + data)
 
   empty: ->
-    $(@container).text('')
+    $(@container + ' .needed p').text('')
+    $(@container + ' .filled p').text('')
 
 $ ->
   new HeroAutoComplete($("#friendly-autocomplete"), "friendly")
@@ -124,8 +125,8 @@ $ ->
     if data.ban_recommendations?
       ban_recommend_list.populate(data.ban_recommendations)
 
-    if data.needed_role? && data.filled_roles?
-      roles.populate_needed(data.needed_role)
+    if data.needed_roles? && data.filled_roles?
+      roles.populate_needed(data.needed_roles)
       roles.populate_filled(data.filled_roles)
     else
       roles.empty()

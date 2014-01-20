@@ -14,8 +14,8 @@ if @ban_recommendations
   end
 end
 
-node :needed_role do
-  @needed_role
+node :needed_roles do
+  @needed_roles
 end
 
 node :filled_roles do
