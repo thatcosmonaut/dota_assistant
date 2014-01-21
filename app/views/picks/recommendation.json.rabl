@@ -1,11 +1,15 @@
 object false
 
-child @recommendation => "recommendations" do
-  attributes :id, :name
+if @recommendation
+  child @recommendation => "recommendations" do
+    attributes :id, :name
+  end
 end
 
-child @worst => "worst" do
-  attributes :id, :name
+if @worst
+  child @worst => "worst" do
+    attributes :id, :name
+  end
 end
 
 if @ban_recommendations
