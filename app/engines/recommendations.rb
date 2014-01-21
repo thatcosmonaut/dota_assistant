@@ -1,9 +1,9 @@
 module Recommendations
   IDEAL_BALANCED_VECTOR = Vector.elements([3, 3, 3, 5, 3, 2, 4, 2, 3, 2, 3]) #does not include offlane or jungling
   IDEAL_JUNGLING_VECTOR = Vector.elements([3, 3, 3, 3, 4, 3, 1, 3, 3, 3, 2, 2, 2])
-  IDEAL_TRILANE_VECTOR = Vector.elements([3, 3, 3, 3, 5, 3, 3, 3, 0, 3, 3, 1, 2])
+  IDEAL_TRILANE_VECTOR = Vector.elements([3, 3, 3, 3, 5, 3, 3, 3, 3, 3, 1, 2]) #does not include jungling
 
-  ROLE_INDEX_WITH_OFFLANE = [
+  ROLE_INDEX_FOR_JUNGLING = [
     :mid,
     :offlane,
     :carry,
@@ -12,6 +12,20 @@ module Recommendations
     :ganker,
     :initiator,
     :jungler,
+    :lane_support,
+    :nuker,
+    :pusher,
+    :support
+  ]
+
+  ROLE_INDEX_FOR_TRILANE = [
+    :mid,
+    :offlane,
+    :carry,
+    :disabler,
+    :durable,
+    :ganker,
+    :initiator,
     :lane_support,
     :nuker,
     :pusher,
@@ -33,8 +47,8 @@ module Recommendations
 
   VECTOR_TO_ROLE = {
     "IDEAL_BALANCED_VECTOR" => "ROLE_INDEX",
-    "IDEAL_JUNGLING_VECTOR" => "ROLE_INDEX_WITH_OFFLANE",
-    "IDEAL_TRILANE_VECTOR" => "ROLE_INDEX_WITH_OFFLANE"
+    "IDEAL_JUNGLING_VECTOR" => "ROLE_INDEX_FOR_JUNGLING",
+    "IDEAL_TRILANE_VECTOR" => "ROLE_INDEX_FOR_TRILANE"
   }
 
   INFINITY_TYPE = {

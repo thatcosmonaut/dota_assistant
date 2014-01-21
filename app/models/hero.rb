@@ -46,7 +46,7 @@ class Hero < ActiveRecord::Base
   end
 
   def role_vector_for_ideal_balanced_vector
-    Vector.elements(role_elements[0..1] + role_elements[3..6] + role_elements[8..role_elements.length])
+    Vector.elements(role_elements[0..1] + role_elements[3..7] + role_elements[9..role_elements.length])
   end
 
   def role_vector_for_ideal_jungling_vector
@@ -54,7 +54,7 @@ class Hero < ActiveRecord::Base
   end
 
   def role_vector_for_ideal_trilane_vector
-    Vector.elements(role_elements)
+    Vector.elements(role_elements[0..7] + role_elements[9..role_elements.length])
   end
 
   def save_role_elements
