@@ -15,7 +15,7 @@ gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'coffee-rails'
 gem 'rabl'
-gem 'stylus_rails'
+gem 'stylus'
 
 group :assets do
   gem 'uglifier'

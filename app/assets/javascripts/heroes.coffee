@@ -34,6 +34,7 @@ class @RecommendationList
 
   #data is a list of hashes containing id and name
   populate: (data) ->
+    data = [{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""}] if !data?
     for recommendation, i in data
       div = $(@container + " .character").eq(i)
       div.find('.name').text(recommendation.name)
@@ -47,6 +48,7 @@ class @AvoidList
 
   #data is a list of hashes containing id and name
   populate: (data) ->
+    data = [{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""}] if !data?
     for worst, i in data
       div = $(@container + " .character").eq(i)
       div.find('.name').text(worst.name)
@@ -123,9 +125,7 @@ $ ->
   update_recommendations = (data) ->
     recommend_list.populate(data.recommendations)
     avoid_list.populate(data.worst)
-
-    if data.ban_recommendations?
-      ban_recommend_list.populate(data.ban_recommendations)
+    ban_recommend_list.populate(data.ban_recommendations)
 
     if data.needed_roles? && data.filled_roles?
       roles.populate_needed(data.needed_roles)
