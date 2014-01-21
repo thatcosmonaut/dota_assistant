@@ -10,7 +10,12 @@
 <body>
   <header>
     <img class="logo" src="assets/dota2-logo.png" />
-    <a href="#" class="btn donate">Donate</a>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="399TTVP4SC796">
+      <%= button_tag "Donate", class: "btn donate" %>
+    </form>
+
   </header>
   <main>
   <%= yield %>
