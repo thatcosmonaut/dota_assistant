@@ -1,5 +1,5 @@
 module Recommendations
-  IDEAL_BALANCED_VECTOR = Vector.elements([3, 3, 3, 5, 3, 2, 4, 0, 2, 3, 2, 3]) #does not include offlane
+  IDEAL_BALANCED_VECTOR = Vector.elements([3, 3, 3, 5, 3, 2, 4, 2, 3, 2, 3]) #does not include offlane or jungling
   IDEAL_JUNGLING_VECTOR = Vector.elements([3, 3, 3, 3, 4, 3, 1, 3, 3, 3, 2, 2, 2])
   IDEAL_TRILANE_VECTOR = Vector.elements([3, 3, 3, 3, 5, 3, 3, 3, 0, 3, 3, 1, 2])
 
@@ -25,7 +25,6 @@ module Recommendations
     :durable,
     :ganker,
     :initiator,
-    :jungler,
     :lane_support,
     :nuker,
     :pusher,
