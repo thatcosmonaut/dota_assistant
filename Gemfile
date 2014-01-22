@@ -15,6 +15,7 @@ gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'coffee-rails'
 gem 'rabl'
+gem 'rack-rewrite'
 gem 'stylus'
 gem 'stylus-source', '= 0.33.0'
 
