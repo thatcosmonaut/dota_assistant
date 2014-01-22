@@ -798,16 +798,16 @@ namespace :db do
       tidehunter.add_role(:disabler, 1)
       tidehunter.add_role(:support, 1)
 
-      skeleton_king = FactoryGirl.create(:hero, name: "Skeleton King",
+      wraith_king = FactoryGirl.create(:hero, name: "Wraith King",
                                                 team: :dire,
                                                 attack_type: :melee,
                                                 main_attribute: :strength,
                                                 viable_mid: 0,
                                                 viable_offlane: 0)
 
-      skeleton_king.add_role(:carry, 3)
-      skeleton_king.add_role(:durable, 3)
-      skeleton_king.add_role(:disabler, 1)
+      wraith_king.add_role(:carry, 3)
+      wraith_king.add_role(:durable, 3)
+      wraith_king.add_role(:disabler, 1)
 
       lifestealer = FactoryGirl.create(:hero, name: "Lifestealer",
                                               team: :dire,
@@ -1363,7 +1363,7 @@ namespace :db do
       anti_mage.add_weak_against(dark_seer)
       anti_mage.add_weak_against(faceless_void)
       anti_mage.add_weak_against(enigma)
-      anti_mage.add_strong_against(skeleton_king)
+      anti_mage.add_strong_against(wraith_king)
       anti_mage.add_strong_against(storm_spirit)
       anti_mage.add_strong_against(sven)
       anti_mage.add_strong_against(death_prophet)
@@ -1480,7 +1480,7 @@ namespace :db do
       dark_seer.add_weak_against(doom)
       dark_seer.add_weak_against(necrophos)
       dark_seer.add_strong_against(anti_mage)
-      dark_seer.add_strong_against(skeleton_king)
+      dark_seer.add_strong_against(wraith_king)
       dark_seer.add_strong_against(dragon_knight)
       dark_seer.add_strong_against(alchemist)
       dark_seer.add_strong_against(sven)
@@ -1521,7 +1521,7 @@ namespace :db do
       drow_ranger.add_weak_against(keeper_of_the_light)
       drow_ranger.add_weak_against(nyx_assassin)
       drow_ranger.add_weak_against(tidehunter)
-      drow_ranger.add_strong_against(skeleton_king)
+      drow_ranger.add_strong_against(wraith_king)
       drow_ranger.add_strong_against(treant_protector)
       drow_ranger.add_strong_against(tidehunter)
       drow_ranger.add_strong_against(silencer)
@@ -1585,7 +1585,7 @@ namespace :db do
       jakiro.add_strong_against(leshrac)
       jakiro.add_strong_against(lone_druid)
 
-      juggernaut.add_weak_against(skeleton_king)
+      juggernaut.add_weak_against(wraith_king)
       juggernaut.add_weak_against(dazzle)
       juggernaut.add_weak_against(luna)
       juggernaut.add_weak_against(shadow_shaman)
@@ -1641,14 +1641,14 @@ namespace :db do
       lion.add_weak_against(luna)
       lion.add_weak_against(death_prophet)
       lion.add_weak_against(undying)
-      lion.add_weak_against(skeleton_king)
+      lion.add_weak_against(wraith_king)
       lion.add_strong_against(mirana)
       lion.add_strong_against(brewmaster)
       lion.add_strong_against(phantom_assassin)
       lion.add_strong_against(morphling)
       lion.add_strong_against(queen_of_pain)
 
-      lone_druid.add_weak_against(skeleton_king)
+      lone_druid.add_weak_against(wraith_king)
       lone_druid.add_weak_against(tidehunter)
       lone_druid.add_weak_against(phantom_lancer)
       lone_druid.add_weak_against(jakiro)
@@ -1764,7 +1764,7 @@ namespace :db do
       phantom_lancer.add_weak_against(sven)
       phantom_lancer.add_weak_against(slardar)
       phantom_lancer.add_weak_against(centaur_warrunner)
-      phantom_lancer.add_strong_against(skeleton_king)
+      phantom_lancer.add_strong_against(wraith_king)
       phantom_lancer.add_strong_against(visage)
       phantom_lancer.add_strong_against(lone_druid)
 
@@ -1882,13 +1882,13 @@ namespace :db do
       silencer.add_strong_against(puck)
       silencer.add_strong_against(pugna)
 
-      skeleton_king.add_weak_against(anti_mage)
-      skeleton_king.add_weak_against(dark_seer)
-      skeleton_king.add_weak_against(phantom_lancer)
-      skeleton_king.add_weak_against(drow_ranger)
-      skeleton_king.add_strong_against(juggernaut)
-      skeleton_king.add_strong_against(lone_druid)
-      skeleton_king.add_strong_against(lion)
+      wraith_king.add_weak_against(anti_mage)
+      wraith_king.add_weak_against(dark_seer)
+      wraith_king.add_weak_against(phantom_lancer)
+      wraith_king.add_weak_against(drow_ranger)
+      wraith_king.add_strong_against(juggernaut)
+      wraith_king.add_strong_against(lone_druid)
+      wraith_king.add_strong_against(lion)
 
       slardar.add_weak_against(beastmaster)
       slardar.add_weak_against(brewmaster)
