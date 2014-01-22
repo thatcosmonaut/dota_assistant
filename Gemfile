@@ -18,7 +18,7 @@ gem 'rabl'
 
 group :assets do
   gem 'stylus'
-  gem 'stylus-source', '~> 0.33.0'
+  gem 'stylus-source', '= 0.33.0'
   gem 'uglifier'
 end
 
