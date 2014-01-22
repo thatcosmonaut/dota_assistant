@@ -24,7 +24,6 @@ namespace :db do
       earthshaker.add_role(:initiator, 2)
       earthshaker.add_role(:disabler, 1)
       earthshaker.add_role(:support, 2)
-      earthshaker.add_role(:lane_support, 1)
 
       sven = FactoryGirl.create(:hero, name: "Sven",
                                        attack_type: :melee,
