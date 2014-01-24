@@ -15,7 +15,7 @@ module DotaAssistant
       r301 %r{.*}, 'http://www.dotawizard.net$&', :if => Proc.new {|rack_env|
         rack_env['SERVER_NAME'] != 'www.dotawizard.net'
       }
-    end
+    end if Rails.env.production?
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

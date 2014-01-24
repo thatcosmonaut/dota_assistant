@@ -112,6 +112,13 @@ $ ->
     ban_list.removeHero(this)
     submit_form()
 
+  $('.about').click (event) ->
+    $('.modal-about').show()
+    return false
+
+  $('.close').click (event) ->
+    $('.modal-about').hide()
+
   window.submit_form = ->
     $.ajax({
       url: '/pick_assistant',
