@@ -1,4 +1,4 @@
-class @HeroAutoComplete
+class @HeroAutoComplete extends @Submittable
 
   constructor: (@container, remaining_heroes, box_prefix) ->
     @addAutoComplete(@container, remaining_heroes, box_prefix)
@@ -30,7 +30,7 @@ class @HeroAutoComplete
             break
 
         $(this).val('')
-        window.submit_form()
+        submit_form()
 
         false),
       focus: (event, ui) ->
