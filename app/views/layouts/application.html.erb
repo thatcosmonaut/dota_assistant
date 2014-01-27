@@ -43,22 +43,28 @@
       This is an app to help you build viable team compositions in Dota 2.
     </p>
     <p>
-      The algorithm uses vector math to try and find
-      the hero that will best fit into your current lineup to get the team as
-      close as possible to an ideal team composition. Right now the algorithm
-      allows you to choose between a 2-1-2, jungling, or trilane composition.
-    </p>
-    <p>
-      The attributes that the algorithm takes into account are: Attack type (melee or ranged),
-      the hero's viability in mid, jungle, and off-lanes, and the different roles that each hero is suited to.
-    </p>
-    <p>
-      Pick heroes for your team, the enemy team, or banned picks, and the system will update recommendations on-the-fly!
+      Pick heroes for your team, the enemy team, or banned picks, and choose a laning composition,
+      and the system will update recommendations on-the-fly!
     </p>
     <p>
       The algorithm will return the 5 best and worst heroes with regards to your team composition,
       as well as heroes that would fit into the enemy composition that you could ban. It also tells you which roles you
       have filled and which ones your team still lacks.
+    </p>
+    <p>
+      The algorithm uses vector math to try and find
+      the hero that will best fit into your current lineup to get the team as
+      close as possible to an ideal team composition.
+    </p>
+    <p>
+      Each hero is assigned a vector. For each hero that is still selectable, add that hero to the current team and
+      calculate the Team Vector by adding the hero vectors together. The distance of that Team Vector from the Ideal Composition Vector
+      gives that hero's score, the lower the better. This means that heroes that take the team closer to the Ideal Vector
+      receive better scores.
+    </p>
+    <p>
+      The attributes that the algorithm takes into account are: Attack type (melee or ranged),
+      the hero's viability in mid, jungle, and off-lanes, and the different roles that each hero is suited to.
     </p>
     <p>
       If you have questions or concerns, or you found a bug, or maybe you just want to thank me, send an email:
