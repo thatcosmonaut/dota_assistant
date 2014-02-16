@@ -8,9 +8,9 @@ class @TeamList
     $(@container + " .character").each (pos, box) ->
       unless filled
         div = $(box)
+        div.data 'id', data.id
         unless div.data("filled") || div.hasClass('dead')
           div.find(".name").text(data.name)
-          div.find("input").val(data.id)
           div.find('label').removeClass().addClass('hero_big').addClass(data.name.toLowerCase().replace(/['\s]/g, '-'))
           div.data("filled", true)
           filled = true
@@ -22,3 +22,8 @@ class @TeamList
       $(div).find("input").val("")
       $(div).find("label").removeClass().addClass('hero_big')
       $(div).data("filled", false)
+
+  # Returns the JSON data portion for this list to be sent to the server for updates.
+  getRequestData: ->
+    $.map $("#{@container} .character"), (pos, box) ->
+      $(box).data 'id'

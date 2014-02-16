@@ -13,8 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
-//= require submittable
-//= require hero-autocomplete
-//= require team-list
-//= require page
 //= require_tree .
