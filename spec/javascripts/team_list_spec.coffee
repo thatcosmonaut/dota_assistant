@@ -2,8 +2,21 @@
 #= require application
 #= require team_list
 
+
+chai.Assertion.addProperty 'empty_hero_box', ->
+  new chai.Assertion(@_obj.data('filled')).to.be.falsy
+  new chai.Assertion(@_obj.data('id')).to.be.falsy
+  new chai.Assertion(@_obj.find('.name').text()).to.equal ''
+
+chai.Assertion.addMethod 'populated_with_hero', ({name, id}) ->
+  new chai.Assertion(@_obj.data('filled')).to.be.truthy
+  new chai.Assertion(@_obj.data('id')).to.equal id
+  new chai.Assertion(@_obj.find('.name').text()).to.equal name
+
+
 describe 'TeamList', ->
   describe 'addHero', ->
+
     context 'empty team list', ->
 
       beforeEach ->
@@ -11,17 +24,18 @@ describe 'TeamList', ->
         team_list = new TeamList '.your-team'
         team_list.addHero(label: 'Axe', value: 57)
 
-      it 'adds the given hero to the first slot', ->
-        expect($('.your-team .characters:first label').hasClass('axe')).to.be.true
+      it 'fills first slot with the given character', ->
+        expect($('.your-team .first.character')).to.be.populated_with_hero name: 'Axe', id: 57
 
-      it 'does not add the hero to the second slot', ->
-        expect($('.your-team .characters .second.character label').hasClass('axe')).to.be.false
+      it 'does not fill second slot', ->
+        expect($('.your-team .second.character')).to.be.an.empty_hero_box
 
-      it 'does not add the hero to the third slot', ->
-        expect($('.your-team .characters .third.character label').hasClass('axe')).to.be.false
+      it 'does not fill third slot', ->
+        expect($('.your-team .third.character')).to.be.an.empty_hero_box
 
-      it 'does not add the hero to the fourth slot', ->
-        expect($('.your-team .characters .fourth.character label').hasClass('axe')).to.be.false
+      it 'does not fill fourth slot', ->
+        expect($('.your-team .fourth.character')).to.be.an.empty_hero_box
+
 
     context 'two slots already filled', ->
 
@@ -32,14 +46,14 @@ describe 'TeamList', ->
         team_list.addHero(label: 'Earthshaker', value: 1)
         team_list.addHero(label: 'Axe', value: 57)
 
-      it 'adds the given hero to the third slot', ->
-        expect($('.your-team .characters .third.character label').hasClass('axe')).to.be.true
-
       it 'does not touch the first slot', ->
-        expect($('.your-team .characters .first.character label').hasClass('sven')).to.be.true
+        expect($('.your-team .first.character')).to.be.populated_with_hero name: 'Sven', id: 2
 
       it 'does not touch the second slot', ->
-        expect($('.your-team .characters .second.character label').hasClass('earthshaker')).to.be.true
+        expect($('.your-team .second.character')).to.be.populated_with_hero name: 'Earthshaker', id: 1
+
+      it 'adds the given hero to the third slot', ->
+        expect($('.your-team .third.character')).to.be.populated_with_hero name: 'Axe', id: 57
 
       it 'does not touch the fourth slot', ->
-        expect($('.your-team .characters .fourth.character label').hasClass('axe')).to.be.false
+        expect($('.your-team .fourth.character')).to.be.an.empty_hero_box
