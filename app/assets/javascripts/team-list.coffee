@@ -2,16 +2,16 @@ class @TeamList
 
   constructor: (@container) ->
 
-  #data is a hash containing id and name
+  #data is a hash containing value and label
   addHero: (data) ->
     filled = false
     $(@container + " .character").each (pos, box) ->
       unless filled
         div = $(box)
-        div.data 'id', data.id
+        div.data 'id', data.value
         unless div.data("filled") || div.hasClass('dead')
-          div.find(".name").text(data.name)
-          div.find('label').removeClass().addClass('hero_big').addClass(data.name.toLowerCase().replace(/['\s]/g, '-'))
+          div.find(".name").text(data.label)
+          div.find('label').removeClass().addClass('hero_big').addClass(data.label.toLowerCase().replace(/['\s]/g, '-'))
           div.data("filled", true)
           filled = true
 

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
 
-ruby '2.1.0'
+ruby '2.1.1'
 
 #using postgres
 gem 'pg'
@@ -16,6 +16,7 @@ gem 'font-awesome-rails'
 gem 'coffee-rails'
 gem 'rabl'
 gem 'rack-rewrite'
+gem 'skim'
 gem 'stylus'
 gem 'stylus-source', '= 0.33.0'
 
@@ -27,6 +28,7 @@ group :test, :development do
   gem 'capybara'
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem 'konacha'
   gem 'pry', require: false
   gem 'json_spec'
   gem 'rspec-rails'
