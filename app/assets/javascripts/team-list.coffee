@@ -28,8 +28,9 @@ class @TeamList
       $(div).find("input").val("")
       $(div).find("label").removeClass().addClass('hero_big')
       $(div).data("filled", false)
+      $(div).removeData('id')
 
   # Returns the JSON data portion for this list to be sent to the server for updates.
   getRequestData: ->
-    $.map $("#{@container} .character"), (pos, box) ->
-      $(box).data 'id'
+    $.map $("#{@container} .character"), (elt, index) ->
+      $(elt).data 'id'
