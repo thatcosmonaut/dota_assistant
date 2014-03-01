@@ -1,6 +1,6 @@
+#= require spec_helper
 #= require jquery
 #= require application
-#= require team_list
 
 
 chai.Assertion.addProperty 'empty_hero_box', ->
@@ -20,7 +20,7 @@ describe 'TeamList', ->
     context 'empty team list', ->
 
       beforeEach ->
-        $('body').html JST['team_list']()
+        $('body').html JST['templates/team_list']()
         team_list = new TeamList '.your-team'
         team_list.addHero(label: 'Axe', value: 57)
 
@@ -40,7 +40,7 @@ describe 'TeamList', ->
     context 'two slots already filled', ->
 
       beforeEach ->
-        $('body').html JST['team_list']()
+        $('body').html JST['templates/team_list']()
         team_list = new TeamList '.your-team'
         team_list.addHero(label: 'Sven', value: 2)
         team_list.addHero(label: 'Earthshaker', value: 1)
@@ -63,7 +63,7 @@ describe 'TeamList', ->
     context 'list of three heroes', ->
 
       beforeEach ->
-        $('body').html JST['team_list']()
+        $('body').html JST['templates/team_list']()
         team_list = new TeamList '.your-team'
         team_list.addHero(label: 'Sven', value: 2)
         team_list.addHero(label: 'Earthshaker', value: 1)
@@ -85,7 +85,7 @@ describe 'TeamList', ->
     context 'empty list', ->
 
       beforeEach ->
-        $('body').html JST['team_list']()
+        $('body').html JST['templates/team_list']()
         team_list = new TeamList '.your-team'
         team_list.removeHero('.first.character')
 
@@ -106,7 +106,7 @@ describe 'TeamList', ->
     context 'list of three heroes', ->
 
       it 'returns a list containing the id of each hero', ->
-        $('body').html JST['team_list']()
+        $('body').html JST['templates/team_list']()
         team_list = new TeamList '.your-team'
         team_list.addHero(label: 'Sven', value: 2)
         team_list.addHero(label: 'Earthshaker', value: 1)
@@ -116,14 +116,14 @@ describe 'TeamList', ->
     context 'empty list', ->
 
       it 'returns an empty list', ->
-        $('body').html JST['team_list']()
+        $('body').html JST['templates/team_list']()
         team_list = new TeamList '.your-team'
         expect(team_list.getRequestData()).to.be.empty
 
     context 'hero is added to box and then replaced', ->
 
       beforeEach ->
-        $('body').html JST['team_list']()
+        $('body').html JST['templates/team_list']()
         @team_list = new TeamList '.your-team'
         @team_list.addHero(label: 'Sven', value: 2)
         @team_list.removeHero('.your-team .first.character')

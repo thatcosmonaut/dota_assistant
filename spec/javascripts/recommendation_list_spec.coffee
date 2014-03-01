@@ -1,6 +1,6 @@
+#= require spec_helper
 #= require jquery
 #= require application
-#= require recommendation_list
 
 
 chai.Assertion.addProperty 'empty_recommendation_box', ->
@@ -17,7 +17,7 @@ describe 'RecommendationList', ->
     context 'input is empty', ->
 
       beforeEach ->
-        $('body').html JST['recommendation_list']()
+        $('body').html JST['templates/recommendation_list']()
         recommendation_list = new RecommendationList '.recommend-these'
 
       it 'does not fill the first slot', ->
@@ -38,7 +38,7 @@ describe 'RecommendationList', ->
     context 'input contains heroes', ->
 
       beforeEach ->
-        $('body').html JST['recommendation_list']()
+        $('body').html JST['templates/recommendation_list']()
         recommendation_list = new RecommendationList '.recommend-these'
         recommendation_list.populate(
           [
