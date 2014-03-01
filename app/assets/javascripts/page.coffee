@@ -8,13 +8,13 @@ class @Page
     new HeroAutoComplete(enemy_container, @getRequestData)
     new HeroAutoComplete(ban_container, @getRequestData)
 
-    @your_team_list = new TeamList(".your-team .characters.cf")
-    @enemy_list = new TeamList(".enemy-team .characters.cf")
-    @ban_list = new TeamList(".characters.bans.cf")
+    @your_team_list = new TeamList(".your-team .characters")
+    @enemy_list = new TeamList(".enemy-team .characters")
+    @ban_list = new TeamList(".characters.bans")
 
-    @recommend_list = new RecommendationList(".recommendations .characters.cf.recommend-these")
-    @avoid_list = new AvoidList(".recommendations .characters.cf.avoid-these")
-    @ban_recommend_list = new RecommendationList(".characters.cf.ban-these")
+    @recommend_list = new RecommendationList(".recommendations .characters.recommend-these")
+    @avoid_list = new RecommendationList(".recommendations .characters.avoid-these")
+    @ban_recommend_list = new RecommendationList(".characters.ban-these")
 
     @roles = new Roles(".roles")
 
@@ -67,23 +67,24 @@ class @Page
     submit_form()
 
   getRequestData: =>
-    result = 
+    result =
       "friendlies[]": @your_team_list.getRequestData()
       "enemies[]": @enemy_list.getRequestData()
       "bans[]": @ban_list.getRequestData()
     console.log result
     result
 
-  submitForm: ->
+  submitForm: =>
     $.ajax
       url: '/pick_assistant',
-      data: page.getRequestData(),
+      data: @getRequestData(),
       dataType: 'json',
       type: 'POST',
       success: (data) =>
-        @update_recommendations(data)
+        @updateRecommendations(data)
 
   updateRecommendations: (data) ->
+    console.log data
     @recommend_list.populate(data.recommendations)
     @avoid_list.populate(data.worst)
     @ban_recommend_list.populate(data.ban_recommendations)
