@@ -5,9 +5,15 @@ class @RecommendationList
 
   #data is a list of hashes containing id and name
   populate: (data) ->
-    data = [{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""}] if !data?
+    data = [{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""}] unless data?
     for recommendation, i in data
       div = $(@container + " .character").eq(i)
       div.find('.name').text(recommendation.name)
       div.find('label').removeClass().addClass('hero_big').addClass(recommendation.name.toLowerCase().replace(/['\s]/g, '-'))
       div.data("hero-id", recommendation.id)
+
+  clear: ->
+    $("#{@container} .character").each (pos, box) ->
+      $(box).find('.name').text('')
+      $(box).find('label').removeClass().addClass('hero_big')
+      $(box).removeData('hero-id')

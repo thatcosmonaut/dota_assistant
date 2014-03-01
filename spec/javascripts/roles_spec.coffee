@@ -3,6 +3,9 @@
 #= require application
 
 
+chai.Assertion.addMethod 'have_text', (text) ->
+  new chai.Assertion(@_obj.text()).to.equal text
+
 describe 'Roles', ->
 
   beforeEach ->
@@ -15,10 +18,10 @@ describe 'Roles', ->
       @roles.populateNeeded ['ganker','jungler']
 
     it 'populates the first needed role box', ->
-      expect($('.needed-role.first').text()).to.equal 'ganker'
+      expect($ '.needed-role.first').to.have_text 'ganker'
 
     it 'populates the second needed role box', ->
-      expect($('.needed-role.second').text()).to.equal 'jungler'
+      expect($ '.needed-role.second').to.have_text 'jungler'
 
   describe 'populateFilled', ->
 
@@ -26,10 +29,10 @@ describe 'Roles', ->
       @roles.populateFilled ['support', 'carry']
 
     it 'populates the first filled role box', ->
-      expect($('.filled-role.first').text()).to.equal 'support'
+      expect($ '.filled-role.first').to.have_text 'support'
 
     it 'populates the second filled role box', ->
-      expect($('.filled-role.second').text()).to.equal 'carry'
+      expect($ '.filled-role.second').to.have_text 'carry'
 
   describe 'empty', ->
 
@@ -37,13 +40,13 @@ describe 'Roles', ->
       @roles.empty
 
     it 'empties the first needed role box', ->
-      expect($('.needed-role.first').text()).to.equal ''
+      expect($ '.needed-role.first').to.have_text ''
 
     it 'empties the second needed role box', ->
-      expect($('.needed-role.second').text()).to.equal ''
+      expect($ '.needed-role.second').to.have_text ''
 
     it 'empties the first filled role box', ->
-      expect($('.filled-role.first').text()).to.equal ''
+      expect($ '.filled-role.first').to.have_text ''
 
     it 'empties the second filled role box', ->
-      expect($('.filled-role.second').text()).to.equal ''
+      expect($ '.filled-role.second').to.have_text ''
