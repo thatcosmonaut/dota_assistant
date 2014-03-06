@@ -12,10 +12,16 @@ class @HeroBox
   heroId: ->
     @hero_data?.id ? null
 
+  heroName: ->
+    @hero_data?.name ? ''
+
   clear: ->
     @container.find('label').removeClass(@heroCssName())
     @container.find('.name').text('')
     @container.removeData('hero-id')
 
   heroCssName: ->
-    @hero_data.name.toLowerCase().replace(' ', '-').replace("'", '')
+    if @hero_data
+      @hero_data.name.toLowerCase().replace(' ', '-').replace("'", '')
+    else
+      ''

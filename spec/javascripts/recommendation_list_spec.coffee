@@ -11,71 +11,40 @@ describe 'RecommendationList', ->
 
     context 'input is empty', ->
 
-      it 'does not fill the first slot', ->
-        expect($('.recommend-these .first.character')).to.be.an.empty_recommendation_box
+      beforeEach ->
+        @recommendation_list.populate()
 
-      it 'does not fill the second slot', ->
-        expect($('.recommend-these .second.character')).to.be.an.empty_recommendation_box
-
-      it 'does not fill the third slot', ->
-        expect($('.recommend-these .third.character')).to.be.an.empty_recommendation_box
-
-      it 'does not fill the fourth slot', ->
-        expect($('.recommend-these .fourth.character')).to.be.an.empty_recommendation_box
-
-      it 'does not fill the fifth slot', ->
-        expect($('.recommend-these .fifth.character')).to.be.an.empty_recommendation_box
+      it 'does not fill any boxes', ->
+        for i in [0..4]
+          expect(@recommendation_list.boxes[i]).to.be.an.empty_hero_box
 
     context 'input contains heroes', ->
 
       beforeEach ->
-        @recommendation_list.populate [
-          {name: 'Sven', id: 2},
-          {name: 'Axe', id: 57},
-          {name: 'Earthshaker', id: 1},
-          {name: 'Tiny', id: 3},
-          {name: 'Kunkka', id: 4}
-        ]
+        @recommendation_list.populate [ sven, axe, earthshaker, tiny, kunkka ]
 
       it 'fills first slot', ->
-        expect($('.recommend-these .first.character')).to.be.a.recommendation_box_populated_with_hero name: 'Sven', id: 2
+        expect(@recommendation_list.boxes[0]).to.be.a.hero_box_populated_with_hero sven
 
       it 'fills second slot', ->
-        expect($('.recommend-these .second.character')).to.be.a.recommendation_box_populated_with_hero name: 'Axe', id: 57
+        expect(@recommendation_list.boxes[1]).to.be.a.hero_box_populated_with_hero axe
 
       it 'fills third slot', ->
-        expect($('.recommend-these .third.character')).to.be.a.recommendation_box_populated_with_hero name: 'Earthshaker', id: 1
+        expect(@recommendation_list.boxes[2]).to.be.a.hero_box_populated_with_hero earthshaker
 
       it 'fills fourth slot', ->
-        expect($('.recommend-these .fourth.character')).to.be.a.recommendation_box_populated_with_hero name: 'Tiny', id: 3
+        expect(@recommendation_list.boxes[3]).to.be.a.hero_box_populated_with_hero tiny
 
       it 'fills fifth slot', ->
-        expect($('.recommend-these .fifth.character')).to.be.a.recommendation_box_populated_with_hero name: 'Kunkka', id: 4
+        expect(@recommendation_list.boxes[4]).to.be.a.hero_box_populated_with_hero kunkka
 
   describe 'clear', ->
 
     beforeEach ->
-      @recommendation_list.populate [
-        {name: 'Sven', id: 2},
-        {name: 'Axe', id: 57},
-        {name: 'Earthshaker', id: 1},
-        {name: 'Tiny', id: 3},
-        {name: 'Kunkka', id: 4}
-      ]
+      @recommendation_list.populate [ sven, axe, earthshaker, tiny, kunkka ]
 
       @recommendation_list.clear()
 
-    it 'empties the first slot', ->
-      expect($ '.recommend-these .first.character').to.be.an.empty_recommendation_box
-
-    it 'empties the second slot', ->
-      expect($ '.recommend-these .second.character').to.be.an.empty_recommendation_box
-
-    it 'empties the third slot', ->
-      expect($ '.recommend-these .third.character').to.be.an.empty_recommendation_box
-
-    it 'empties the fourth slot', ->
-      expect($ '.recommend-these .fourth.character').to.be.an.empty_recommendation_box
-
-    it 'empties the fifth slot', ->
-      expect($ '.recommend-these .fifth.character').to.be.an.empty_recommendation_box
+    it 'empties all slots', ->
+      for i in [0..4]
+        expect(@recommendation_list.boxes[i]).to.be.an.empty_recommendation_box

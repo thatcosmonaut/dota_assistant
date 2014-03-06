@@ -2,18 +2,17 @@ class @RecommendationList
 
   #hero_div is selector for recommended hero box, hero list is list that heroes will be added to when clicked on
   constructor: (@container) ->
+    @boxes = []
+    for i in [0..4]
+      @boxes.push new HeroBox(@container.find('.character').eq(i))
 
-  #data is a list of hashes containing id and name
   populate: (data) ->
-    data = [{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""},{id: null, name: ""}] unless data?
-    for recommendation, i in data
-      div = $(@container + " .character").eq(i)
-      div.find('.name').text(recommendation.name)
-      div.find('label').removeClass().addClass('hero_big').addClass(recommendation.name.toLowerCase().replace(/['\s]/g, '-'))
-      div.data("hero-id", recommendation.id)
+    if data
+      for recommendation, i in data
+        @boxes[i].show(recommendation)
+    else
+      @clear()
 
   clear: ->
-    $("#{@container} .character").each (pos, box) ->
-      $(box).find('.name').text('')
-      $(box).find('label').removeClass().addClass('hero_big')
-      $(box).removeData('hero-id')
+    for i in [0..4]
+      @boxes[i].clear()

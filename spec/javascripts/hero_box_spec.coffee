@@ -25,7 +25,7 @@ describe 'HeroBox', ->
     it 'has the correct name', ->
       expect($('.character .name')).to.have_text 'Sven'
 
-  describe 'hero_id', ->
+  describe 'heroId', ->
 
     context 'there is a hero in the box', ->
 
@@ -39,6 +39,21 @@ describe 'HeroBox', ->
 
       it 'returns null', ->
         expect(@hero_box.heroId()).to.be.null
+
+  describe 'heroName', ->
+
+    context 'there is a hero in the box', ->
+
+      beforeEach ->
+        @hero_box.show name: 'Sven', id: 2
+
+      it 'returns the hero name', ->
+        expect(@hero_box.heroName()).to.equal 'Sven'
+
+    context 'there is not a hero in the box', ->
+
+      it 'returns empty string', ->
+        expect(@hero_box.heroName()).to.equal ''
 
   describe 'clear', ->
 
@@ -58,16 +73,23 @@ describe 'HeroBox', ->
     it 'removes the hero-id data attribute', ->
       expect($('.character').data('hero-id')).to.be.undefined
 
-  describe 'nameToCss', ->
+  describe 'heroCssName', ->
 
-    it 'lowercases the string', ->
-      @hero_box.show name: 'Sven', id: 1
-      expect(@hero_box.heroCssName()).to.equal 'sven'
+    context 'box contains a hero', ->
 
-    it 'replaces the spaces with dashes', ->
-      @hero_box.show name: 'Night Stalker', id: 1
-      expect(@hero_box.heroCssName()).to.equal 'night-stalker'
+      it 'lowercases the string', ->
+        @hero_box.show name: 'Sven', id: 1
+        expect(@hero_box.heroCssName()).to.equal 'sven'
 
-    it 'removes apostrophes', ->
-      @hero_box.show name: "Assbear's", id: 1
-      expect(@hero_box.heroCssName()).to.equal 'assbears'
+      it 'replaces the spaces with dashes', ->
+        @hero_box.show name: 'Night Stalker', id: 1
+        expect(@hero_box.heroCssName()).to.equal 'night-stalker'
+
+      it 'removes apostrophes', ->
+        @hero_box.show name: "Assbear's", id: 1
+        expect(@hero_box.heroCssName()).to.equal 'assbears'
+
+    context 'box is empty', ->
+
+      it 'returns the empty string', ->
+        expect(@hero_box.heroCssName()).to.equal ''
