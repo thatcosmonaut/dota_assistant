@@ -2,18 +2,6 @@
 #= require jquery
 #= require application
 
-
-chai.Assertion.addProperty 'empty_hero_box', ->
-  new chai.Assertion(@_obj.data('filled')).to.be.falsy
-  new chai.Assertion(@_obj.data('id')).to.be.falsy
-  new chai.Assertion(@_obj.find('.name').text()).to.equal ''
-
-chai.Assertion.addMethod 'populated_with_hero', ({name, id}) ->
-  new chai.Assertion(@_obj.data('filled')).to.be.truthy
-  new chai.Assertion(@_obj.data('id')).to.equal id
-  new chai.Assertion(@_obj.find('.name').text()).to.equal name
-
-
 describe 'TeamList', ->
 
   beforeEach ->
