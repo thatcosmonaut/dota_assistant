@@ -10,21 +10,21 @@ describe 'Page', ->
       beforeEach ->
         $('body').html JST['templates/page']()
         @page = new Page
-        your_team = new TeamList '.your-team .characters'
-        enemy_team = new TeamList '.enemy-team .characters'
-        ban_list = new TeamList '.characters.bans'
+        your_team = new TeamList $('.your-team .characters')
+        enemy_team = new TeamList $('.enemy-team .characters')
+        ban_list = new TeamList $('.characters.bans')
 
-        your_team.addHero label: 'Axe', value: 57
-        your_team.addHero label: 'Earthshaker', value: 1
-        your_team.addHero label: 'Sven', value: 2
+        @page.your_team_list.addHero name: 'Axe', id: 57
+        @page.your_team_list.addHero name: 'Earthshaker', id: 1
+        @page.your_team_list.addHero name: 'Sven', id: 2
 
-        enemy_team.addHero label: 'Lycanthrope', value: 67
-        enemy_team.addHero label: 'Dark Seer', value: 99
-        enemy_team.addHero label: 'Gyrocopter', value: 34
+        @page.enemy_list.addHero name: 'Lycanthrope', id: 67
+        @page.enemy_list.addHero name: 'Dark Seer', id: 99
+        @page.enemy_list.addHero name: 'Gyrocopter', id: 34
 
-        ban_list.addHero label: 'Centaur Warrunner', value: 14
-        ban_list.addHero label: 'Phantom Assassin', value: 77
-        ban_list.addHero label: 'Tusk', value: 17
+        @page.ban_list.addHero name: 'Centaur Warrunner', id: 14
+        @page.ban_list.addHero name: 'Phantom Assassin', id: 77
+        @page.ban_list.addHero name: 'Tusk', id: 17
 
       it 'returns hash with correct keys', ->
         expect(@page.getRequestData()).to.have.keys ['friendlies[]', 'enemies[]', 'bans[]']

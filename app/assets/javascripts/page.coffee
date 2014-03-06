@@ -8,9 +8,9 @@ class @Page
     new HeroAutoComplete(enemy_container, @getRequestData)
     new HeroAutoComplete(ban_container, @getRequestData)
 
-    @your_team_list = new TeamList(".your-team .characters")
-    @enemy_list = new TeamList(".enemy-team .characters")
-    @ban_list = new TeamList(".characters.bans")
+    @your_team_list = new TeamList $(".your-team .characters"), 4
+    @enemy_list = new TeamList $(".enemy-team .characters"), 5
+    @ban_list = new TeamList $(".characters.bans"), 10
 
     @recommend_list = new RecommendationList $(".recommendations .characters.recommend-these")
     @avoid_list = new RecommendationList $(".recommendations .characters.avoid-these")
@@ -71,7 +71,6 @@ class @Page
       "friendlies[]": @your_team_list.getRequestData()
       "enemies[]": @enemy_list.getRequestData()
       "bans[]": @ban_list.getRequestData()
-    console.log result
     result
 
   submitForm: =>

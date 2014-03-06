@@ -58,7 +58,7 @@ describe 'HeroBox', ->
   describe 'clear', ->
 
     beforeEach ->
-      @hero_box.show name: 'Sven', id: 2
+      @hero_box.show sven
       @hero_box.clear()
 
     it 'removes the label class', ->
@@ -72,6 +72,9 @@ describe 'HeroBox', ->
 
     it 'removes the hero-id data attribute', ->
       expect($('.character').data('hero-id')).to.be.undefined
+
+    it 'sets hero_data to null', ->
+      expect(@hero_box.hero_data).to.be.null
 
   describe 'heroCssName', ->
 
@@ -93,3 +96,18 @@ describe 'HeroBox', ->
 
       it 'returns the empty string', ->
         expect(@hero_box.heroCssName()).to.equal ''
+
+  describe 'isEmpty', ->
+
+    context 'box is empty', ->
+
+      it 'returns true', ->
+        expect(@hero_box.isEmpty()).to.be.true
+
+    context 'box contains a hero', ->
+
+      beforeEach ->
+        @hero_box.show sven
+
+      it 'returns false', ->
+        expect(@hero_box.isEmpty()).to.be.false

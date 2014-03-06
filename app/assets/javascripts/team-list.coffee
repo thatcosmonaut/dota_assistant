@@ -1,36 +1,27 @@
 class @TeamList
 
-  constructor: (@container) ->
+  constructor: (@container, max_size) ->
+    @boxes = []
+    for i in [0...max_size]
+      @boxes.push new HeroBox(@container.find('.character').eq(i))
 
-  #data is a hash containing value and label
-  addHero: (data) ->
-    filled = false
-    $("#{@container} .character").each (pos, box) ->
-      unless filled
-        div = $(box)
-        unless div.data("filled") || div.hasClass('dead')
-          div.data 'id', data.value
-          div.find(".name")
-             .text(data.label)
-          div.find('label')
-             .removeClass()
-             .addClass('hero_big')
-             .addClass(data.label
-                           .toLowerCase()
-                           .replace(/['\s]/g, '-'))
-          div.data("filled", true)
-          filled = true
+  addHero: (hero_data, pos = @findEmptyBoxPosition()) ->
+    unless pos == -1
+      @boxes[pos].show hero_data
 
-  #perhaps should change div to something else?
-  removeHero: (div) ->
-    if $(div).data("filled")
-      $(div).find(".name").text("")
-      $(div).find("input").val("")
-      $(div).find("label").removeClass().addClass('hero_big')
-      $(div).data("filled", false)
-      $(div).removeData('id')
+  findEmptyBoxPosition: ->
+    for box, i in @boxes
+      if box.isEmpty()
+        return i
+    return -1
+
+  removeHero: (index) ->
+    @boxes[index].clear()
+
+  findPositionOfBoxDiv: (div) ->
+    @container.find('.character').index(div)
 
   # Returns the JSON data portion for this list to be sent to the server for updates.
   getRequestData: ->
-    $.map $("#{@container} .character"), (elt, index) ->
-      $(elt).data 'id'
+    $.map @boxes, (box, index) ->
+      box.heroId()
