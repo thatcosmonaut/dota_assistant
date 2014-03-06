@@ -12,9 +12,9 @@ class @Page
     @enemy_list = new TeamList(".enemy-team .characters")
     @ban_list = new TeamList(".characters.bans")
 
-    @recommend_list = new RecommendationList(".recommendations .characters.recommend-these")
-    @avoid_list = new RecommendationList(".recommendations .characters.avoid-these")
-    @ban_recommend_list = new RecommendationList(".characters.ban-these")
+    @recommend_list = new RecommendationList $(".recommendations .characters.recommend-these")
+    @avoid_list = new RecommendationList $(".recommendations .characters.avoid-these")
+    @ban_recommend_list = new RecommendationList $(".characters.ban-these")
 
     @roles = new Roles(".roles")
 

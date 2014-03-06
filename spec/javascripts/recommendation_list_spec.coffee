@@ -16,7 +16,7 @@ describe 'RecommendationList', ->
 
     beforeEach ->
       $('body').html JST['templates/recommendation_list']()
-      @recommendation_list = new RecommendationList '.recommend-these'
+      @recommendation_list = new RecommendationList $('.recommend-these')
 
     context 'input is empty', ->
 

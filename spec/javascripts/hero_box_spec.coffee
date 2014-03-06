@@ -9,7 +9,7 @@ describe 'HeroBox', ->
 
   beforeEach ->
     $('body').html JST['templates/hero_box']()
-    @hero_box = new HeroBox '.character'
+    @hero_box = new HeroBox $('.character')
 
   describe 'show', ->
 
