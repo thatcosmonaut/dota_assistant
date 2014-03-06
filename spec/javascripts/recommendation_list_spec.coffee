@@ -2,15 +2,6 @@
 #= require jquery
 #= require application
 
-
-chai.Assertion.addProperty 'empty_recommendation_box', ->
-  new chai.Assertion(@_obj.data('hero-id')).to.be.falsy
-  new chai.Assertion(@_obj.find('.name').text()).to.equal ''
-
-chai.Assertion.addMethod 'recommendation_box_populated_with_hero', ({name, id}) ->
-  new chai.Assertion(@_obj.data('hero-id')).to.equal id
-  new chai.Assertion(@_obj.find('.name').text()).to.equal name
-
 describe 'RecommendationList', ->
   describe 'populate', ->
 
