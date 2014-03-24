@@ -23,7 +23,7 @@ class @HeroBox
 
   heroCssName: ->
     if @hero_data
-      @hero_data.name.toLowerCase().replace(' ', '-').replace("'", '')
+      @hero_data.name.toLowerCase().replace(/\ /g, '-').replace(/\'/g, '')
     else
       ''
 

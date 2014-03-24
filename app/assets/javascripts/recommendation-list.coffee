@@ -7,12 +7,14 @@ class @RecommendationList
       @boxes.push new HeroBox(@container.find('.character').eq(i))
 
   populate: (data) ->
+    @clear()
     if data
       for recommendation, i in data
         @boxes[i].show(recommendation)
-    else
-      @clear()
 
   clear: ->
     for i in [0..4]
       @boxes[i].clear()
+
+  removeHero: (index) ->
+    @boxes[index].clear()

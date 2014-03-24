@@ -48,3 +48,12 @@ describe 'RecommendationList', ->
     it 'empties all slots', ->
       for i in [0..4]
         expect(@recommendation_list.boxes[i]).to.be.an.empty_recommendation_box
+
+  describe 'removeHero', ->
+
+    beforeEach ->
+      @recommendation_list.populate [ sven, axe, earthshaker ]
+      @recommendation_list.removeHero 2
+
+    it 'empties the given slot', ->
+      expect(@recommendation_list.boxes[2]).to.be.an.empty_recommendation_box

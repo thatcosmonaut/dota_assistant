@@ -27,7 +27,7 @@ describe 'Page', ->
         @page.ban_list.addHero name: 'Tusk', id: 17
 
       it 'returns hash with correct keys', ->
-        expect(@page.getRequestData()).to.have.keys ['friendlies[]', 'enemies[]', 'bans[]']
+        expect(@page.getRequestData()).to.have.keys ['friendlies[]', 'enemies[]', 'bans[]', 'composition']
 
       it 'returns correct friendly ids', ->
         expect(@page.getRequestData()['friendlies[]']).to.have.members [57,1,2]

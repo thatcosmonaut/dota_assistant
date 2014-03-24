@@ -36,23 +36,25 @@ class @Page
       @submitForm()
 
     $('.character.recommendation').click (event) =>
-      elt = event.target
-      getAndSubmitHero(@your_team_list, $(elt))
+      box = @recommend_list.boxes[$(event.currentTarget).index()]
+      @your_team_list.addHero( { id: box.heroId(), name: box.heroName() } )
+      @submitForm()
 
     $('.character.ban').click (event) =>
-      elt = event.target
-      getAndSubmitHero(@ban_list, $(elt))
+      box = @ban_recommend_list.boxes[$(event.currentTarget).index()]
+      @ban_list.addHero( { id: box.heroId(), name: box.heroName() } )
+      @submitForm()
 
     $('.friendly.character').click (event) =>
-      @your_team_list.removeHero(this)
+      @your_team_list.removeHero($(event.currentTarget).index())
       @submitForm()
 
     $('.enemy.character').click (event) =>
-      @enemy_list.removeHero(this)
+      @enemy_list.removeHero($(event.currentTarget).index())
       @submitForm()
 
     $('.banned.character').click (event) =>
-      @ban_list.removeHero(this)
+      @ban_list.removeHero($(event.currentTarget).index())
       @submitForm()
 
     $('.about').click (event) ->
@@ -62,15 +64,12 @@ class @Page
     $('.close').click (event) ->
       $('.modal-about').hide()
 
-  getAndSubmitHero: (list, parent) ->
-    list.addHero({id: parent.data("hero-id"), name: parent.find(".name").text()})
-    submit_form()
-
   getRequestData: =>
     result =
       "friendlies[]": @your_team_list.getRequestData()
       "enemies[]": @enemy_list.getRequestData()
       "bans[]": @ban_list.getRequestData()
+      "composition": $('#composition').val()
     result
 
   submitForm: =>
@@ -83,14 +82,13 @@ class @Page
         @updateRecommendations(data)
 
   updateRecommendations: (data) ->
-    console.log data
     @recommend_list.populate(data.recommendations)
     @avoid_list.populate(data.worst)
     @ban_recommend_list.populate(data.ban_recommendations)
 
     if data.needed_roles? && data.filled_roles?
-      @roles.populate_needed(data.needed_roles)
-      @roles.populate_filled(data.filled_roles)
+      @roles.populateNeeded(data.needed_roles)
+      @roles.populateFilled(data.filled_roles)
     else
       @roles.empty()
 
