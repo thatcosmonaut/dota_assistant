@@ -33,6 +33,10 @@ class PicksController < ApplicationController
   end
 
   def remaining_heroes
+    params[:friendlies] ||= []
+    params[:enemies] ||= []
+    params[:bans] ||= []
+
     @remaining = Hero.where.not(id: params[:friendlies] + params[:enemies] + params[:bans])
     respond_to do |format|
       format.json

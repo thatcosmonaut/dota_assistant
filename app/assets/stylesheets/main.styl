@@ -42,6 +42,42 @@ body
   background: -ms-linear-gradient(top,  dota-red 0%,#121212 100%) /* IE10+ */
   background: linear-gradient(to bottom,  dota-red 0%,#121212 100%) /* W3C */
 
+  .modal-about
+    modal-height = 520px
+    modal-width = 550px
+
+    display: none
+    position: absolute
+    left: 50%
+    top: 50%
+    width: modal-width
+    height: modal-height
+    margin: (-(modal-height/2)) (-(modal-width/2))
+
+    background-color: black
+    border-width: 12px
+    -webkit-border-image: asset-url('border.png') 12 12 12 12 repeat
+    -moz-border-image: asset-url('border.png') 12 12 12 12 repeat
+    border-image: asset-url('border.png') 12 12 12 12 repeat
+
+    box-shadow: 0 2px 5px 3px rgba(0,0,0,0.4)
+
+    p
+      font-size: 14px
+      text-align: center
+      margin: 15px 5px 10px 5px
+
+      a
+        color: red
+
+    .close
+      float: right
+      margin-right: 5px
+
+      display: block
+      cursor: pointer
+      font-size: 18px
+      font-weight: bold
 
 header
   width: 1010px
@@ -50,16 +86,13 @@ header
   position: relative
 
   .donate
-    position: absolute
-    top: 0px
-    right: 0px
     cursor: pointer
     color: white
     display: block
     padding: 6px 14px
+    margin-right: 3px
     text-transform: uppercase
     text-align: center
-    float: right
     margin-top: 55px
     font-size: 10px
     letter-spacing: 1px

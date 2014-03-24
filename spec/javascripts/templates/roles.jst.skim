@@ -1,0 +1,11 @@
+.roles
+  .needed
+    .role.needed-role.first
+      Needed
+    .role.needed-role.second
+      Needed
+  .filled
+    .role.filled-role.first
+      Filled
+    .role.filled-role.second
+      Filled
