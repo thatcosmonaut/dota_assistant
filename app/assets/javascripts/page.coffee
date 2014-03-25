@@ -61,8 +61,15 @@ class @Page
       $('.modal-about').show()
       return false
 
-    $('.close').click (event) ->
+    $('.close-about').click (event) ->
       $('.modal-about').hide()
+
+    $('.updates').click (event) ->
+      $('.modal-updates').show()
+      return false
+
+    $('.close-updates').click (event) ->
+      $('.modal-updates').hide()
 
   getRequestData: =>
     result =
