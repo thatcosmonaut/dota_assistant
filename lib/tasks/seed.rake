@@ -245,7 +245,7 @@ namespace :db do
                                                viable_mid: 2,
                                                viable_offlane: 0)
 
-      earth_spirit.add_role(:initiator, 3)
+      earth_spirit.add_role(:initiator, 2)
       earth_spirit.add_role(:disabler, 2)
       earth_spirit.add_role(:durable, 1)
 
@@ -258,6 +258,18 @@ namespace :db do
 
       legion_commander.add_role(:carry, 3)
       legion_commander.add_role(:durable, 2)
+
+      phoenix = FactoryGirl.create(:hero, name: "Phoenix",
+                                          team: :radiant,
+                                          attack_type: :ranged,
+                                          main_attribute: :strength,
+                                          viable_mid: 0,
+                                          viable_offlane: 0)
+
+      phoenix.add_role(:initiator, 3)
+      phoenix.add_role(:disabler, 2)
+      phoenix.add_role(:nuker, 2)
+      phoenix.add_role(:support, 1)
 
       #radiant agility
       anti_mage = FactoryGirl.create(:hero, name: "Anti-Mage",
@@ -1096,6 +1108,17 @@ namespace :db do
       medusa.add_role(:carry, 3)
       medusa.add_role(:disabler, 1)
       medusa.add_role(:initiator, 2)
+
+      terrorblade = FactoryGirl.create(:hero, name: "Terrorblade",
+                                              team: :dire,
+                                              attack_type: :ranged,
+                                              main_attribute: :agility,
+                                              viable_mid: 0,
+                                              viable_offlane: 0)
+
+      terrorblade.add_role(:carry, 3)
+      terrorblade.add_role(:pusher, 2)
+      terrorblade.add_role(:jungler, 2)
 
       #dire intelligence
       bane = FactoryGirl.create(:hero, name: "Bane",
