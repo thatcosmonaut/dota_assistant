@@ -12,10 +12,9 @@ class Hero < ActiveRecord::Base
     :support
   ]
 
+  has_many :builds
   has_many :heroes_roles
   has_many :roles, through: :heroes_roles
-  has_many :key_items
-  has_many :abilities
   has_many :counters_as_weak, foreign_key: :weak_id, class_name: Counter
   has_many :counters_as_strong, foreign_key: :strong_id, class_name: Counter
 

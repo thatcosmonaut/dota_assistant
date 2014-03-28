@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140101022604) do
+ActiveRecord::Schema.define(version: 20140326210432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "builds", force: true do |t|
+    t.string  "name"
+    t.integer "carry"
+    t.integer "disabler"
+    t.integer "durable"
+    t.integer "ganker"
+    t.integer "initiator"
+    t.integer "jungler"
+    t.integer "lane_support"
+    t.integer "nuker"
+    t.integer "pusher"
+    t.integer "support"
+    t.integer "hero_id"
+  end
 
   create_table "counters", force: true do |t|
     t.integer "weak_id"
