@@ -20,10 +20,6 @@ gem 'skim'
 gem 'stylus'
 gem 'stylus-source', '= 0.33.0'
 
-group :assets do
-  gem 'uglifier'
-end
-
 group :test, :development do
   gem 'capybara'
   gem 'coveralls', require: false
@@ -40,5 +36,6 @@ group :test do
 end
 
 group :production do
+  gem 'uglifier'
   gem 'rails_12factor'
 end
