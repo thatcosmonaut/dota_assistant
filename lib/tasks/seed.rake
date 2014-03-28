@@ -1986,8 +1986,17 @@ namespace :db do
                                               viable_mid: 1,
                                               viable_offlane: 0)
 
-      bloodseeker.add_role(:carry, 3)
-      bloodseeker.add_role(:jungler, 2)
+      bloodseeker.builds.create(name: 'Ganker',
+                                carry: 1,
+                                disabler: 1,
+                                durable: 0,
+                                ganker: 3,
+                                initiator: 0,
+                                jungler: 0,
+                                lane_support: 0,
+                                nuker: 1,
+                                pusher: 0,
+                                support: 0)
 
       shadow_fiend = FactoryGirl.create(:hero, name: "Shadow Fiend",
                                                team: :dire,
@@ -2004,8 +2013,17 @@ namespace :db do
                                                viable_mid: 3,
                                                viable_offlane: 0)
 
-      shadow_fiend.add_role(:carry, 3)
-      shadow_fiend.add_role(:nuker, 3)
+      shadow_fiend.builds.create(name: 'Carry',
+                                 carry: 3,
+                                 disabler: 0,
+                                 durable: 0,
+                                 ganker: 0,
+                                 initiator: 0,
+                                 jungler: 0,
+                                 lane_support: 0,
+                                 nuker: 3,
+                                 pusher: 0,
+                                 support: 0)
 
       razor = FactoryGirl.create(:hero, name: "Razor",
                                         team: :dire,
@@ -2022,9 +2040,17 @@ namespace :db do
                                         viable_mid: 2,
                                         viable_offlane: 0)
 
-      razor.add_role(:carry, 2)
-      razor.add_role(:durable, 2)
-      razor.add_role(:nuker, 2)
+      razor.builds.create(name: 'Anti-Carry',
+                          carry: 3,
+                          disabler: 0,
+                          durable: 2,
+                          ganker: 0,
+                          initiator: 1,
+                          jungler: 0,
+                          lane_support: 0,
+                          nuker: 3,
+                          pusher: 0,
+                          support: 0)
 
       venomancer = FactoryGirl.create(:hero, name: "Venomancer",
                                              team: :dire,
@@ -2041,10 +2067,17 @@ namespace :db do
                                              viable_mid: 0,
                                              viable_offlane: 0)
 
-      venomancer.add_role(:support, 3)
-      venomancer.add_role(:nuker, 1)
-      venomancer.add_role(:initiator, 1)
-      venomancer.add_role(:pusher, 2)
+      venomancer.builds.create(name: 'Support',
+                               carry: 0,
+                               disabler: 0,
+                               durable: 0,
+                               ganker: 0,
+                               initiator: 3,
+                               jungler: 0,
+                               lane_support: 1,
+                               nuker: 1,
+                               pusher: 2,
+                               support: 3)
 
       faceless_void = FactoryGirl.create(:hero, name: "Faceless Void",
                                                 team: :dire,
@@ -2053,9 +2086,17 @@ namespace :db do
                                                 viable_mid: 0,
                                                 viable_offlane: 0)
 
-      faceless_void.add_role(:carry, 3)
-      faceless_void.add_role(:initiator, 2)
-      faceless_void.add_role(:disabler, 2)
+      faceless_void.builds.create(name: 'Carry',
+                                  carry: 3,
+                                  disabler: 3,
+                                  durable: 0,
+                                  ganker: 0,
+                                  initiator: 3,
+                                  jungler: 0,
+                                  lane_support: 0,
+                                  nuker: 0,
+                                  pusher: 0,
+                                  support: 0)
 
       phantom_assassin = FactoryGirl.create(:hero, name: "Phantom Assassin",
                                                    team: :dire,
@@ -2064,7 +2105,17 @@ namespace :db do
                                                    viable_mid: 1,
                                                    viable_offlane: 1)
 
-      phantom_assassin.add_role(:carry, 3)
+      phantom_assassin.builds.create(name: 'Carry',
+                                     carry: 3,
+                                     disabler: 0,
+                                     durable: 0,
+                                     ganker: 0,
+                                     initiator: 2,
+                                     jungler: 0,
+                                     lane_support: 0,
+                                     nuker: 0,
+                                     pusher: 0,
+                                     support: 0)
 
       viper = FactoryGirl.create(:hero, name: "Viper",
                                         team: :dire,
@@ -2073,9 +2124,17 @@ namespace :db do
                                         viable_mid: 3,
                                         viable_offlane: 0)
 
-      viper.add_role(:carry, 2)
-      viper.add_role(:durable, 2)
-      viper.add_role(:ganker, 2)
+      viper.builds.create(name: 'Ganker',
+                          carry: 1,
+                          disabler: 0,
+                          durable: 3,
+                          ganker: 3,
+                          initiator: 0,
+                          jungler: 0,
+                          lane_support: 0,
+                          nuker: 0,
+                          pusher: 0,
+                          support: 0)
 
       clinkz = FactoryGirl.create(:hero, name: "Clinkz",
                                          team: :dire,
@@ -2084,7 +2143,17 @@ namespace :db do
                                          viable_mid: 0,
                                          viable_offlane: 2)
 
-      clinkz.add_role(:carry, 3)
+      clinkz.builds.create(name: 'Carry',
+                           carry: 3,
+                           disabler: 0,
+                           durable: 0,
+                           ganker: 3,
+                           initiator: 0,
+                           jungler: 0,
+                           lane_support: 0,
+                           nuker: 0,
+                           pusher: 0,
+                           support: 0)
 
       broodmother = FactoryGirl.create(:hero, name: "Broodmother",
                                               team: :dire,
@@ -2093,8 +2162,17 @@ namespace :db do
                                               viable_mid: 1,
                                               viable_offlane: 2)
 
-      broodmother.add_role(:pusher, 3)
-      broodmother.add_role(:carry, 2)
+      broodmother.builds.create(name: 'Pusher',
+                                carry: 1,
+                                disabler: 0,
+                                durable: 0,
+                                ganker: 0,
+                                initiator: 0,
+                                jungler: 0,
+                                lane_support: 0,
+                                nuker: 0,
+                                pusher: 3,
+                                support: 0)
 
       weaver = FactoryGirl.create(:hero, name: "Weaver",
                                          team: :dire,
@@ -2103,7 +2181,17 @@ namespace :db do
                                          viable_mid: 1,
                                          viable_offlane: 3)
 
-      weaver.add_role(:carry, 3)
+      weaver.builds.create(name: 'Carry',
+                           carry: 3,
+                           disabler: 0,
+                           durable: 0,
+                           ganker: 0,
+                           initiator: 0,
+                           jungler: 0,
+                           lane_support: 0,
+                           nuker: 0,
+                           pusher: 0,
+                           support: 0)
 
       spectre = FactoryGirl.create(:hero, name: "Spectre",
                                           team: :dire,
@@ -2112,8 +2200,17 @@ namespace :db do
                                           viable_mid: 0,
                                           viable_offlane: 0)
 
-      spectre.add_role(:carry, 3)
-      spectre.add_role(:durable, 2)
+      spectre.builds.create(name: 'Carry',
+                            carry: 3,
+                            disabler: 0,
+                            durable: 2,
+                            ganker: 2,
+                            initiator: 1,
+                            jungler: 0,
+                            lane_support: 0,
+                            nuker: 0,
+                            pusher: 0,
+                            support: 0)
 
       meepo = FactoryGirl.create(:hero, name: "Meepo",
                                         team: :dire,
@@ -2122,9 +2219,17 @@ namespace :db do
                                         viable_mid: 0,
                                         viable_offlane: 0)
 
-      meepo.add_role(:carry, 3)
-      meepo.add_role(:disabler, 2)
-      meepo.add_role(:pusher, 2)
+      meepo.builds.create(name: 'Carry',
+                          carry: 3,
+                          disabler: 2,
+                          durable: 0,
+                          ganker: 0,
+                          initiator: 0,
+                          jungler: 0,
+                          lane_support: 0,
+                          nuker: 0,
+                          pusher: 2,
+                          support: 0)
 
       nyx_assassin = FactoryGirl.create(:hero, name: "Nyx Assassin",
                                                team: :dire,
@@ -2133,8 +2238,17 @@ namespace :db do
                                                viable_mid: 3,
                                                viable_offlane: 0)
 
-      nyx_assassin.add_role(:disabler, 3)
-      nyx_assassin.add_role(:nuker, 3)
+      nyx_assassin.builds.create(name: 'Ganker',
+                                 carry: 0,
+                                 disabler: 2,
+                                 durable: 1,
+                                 ganker: 3,
+                                 initiator: 0,
+                                 jungler: 0,
+                                 lane_support: 0,
+                                 nuker: 2,
+                                 pusher: 0,
+                                 support: 0)
 
       slark = FactoryGirl.create(:hero, name: "Slark",
                                         team: :dire,
@@ -2143,7 +2257,17 @@ namespace :db do
                                         viable_mid: 2,
                                         viable_offlane: 0)
 
-      slark.add_role(:ganker, 2)
+      slark.builds.create(name: 'Carry/Ganker',
+                          carry: 3,
+                          disabler: 0,
+                          durable: 0,
+                          ganker: 3,
+                          initiator: 0,
+                          jungler: 0,
+                          lane_support: 0,
+                          nuker: 0,
+                          pusher: 0,
+                          support: 0)
 
       medusa = FactoryGirl.create(:hero, name: "Medusa",
                                          team: :dire,
@@ -2152,9 +2276,17 @@ namespace :db do
                                          viable_mid: 3,
                                          viable_offlane: 1)
 
-      medusa.add_role(:carry, 3)
-      medusa.add_role(:disabler, 1)
-      medusa.add_role(:initiator, 2)
+      medusa.builds.create(name: 'Carry',
+                           carry: 3,
+                           disabler: 1,
+                           durable: 0,
+                           ganker: 0,
+                           initiator: 2,
+                           jungler: 0,
+                           lane_support: 0,
+                           nuker: 0,
+                           pusher: 2,
+                           support: 0)
 
       terrorblade = FactoryGirl.create(:hero, name: "Terrorblade",
                                               team: :dire,
@@ -2163,9 +2295,29 @@ namespace :db do
                                               viable_mid: 0,
                                               viable_offlane: 0)
 
-      terrorblade.add_role(:carry, 3)
-      terrorblade.add_role(:pusher, 2)
-      terrorblade.add_role(:jungler, 2)
+      terrorblade.builds.create(name: 'Carry',
+                                carry: 3,
+                                disabler: 0,
+                                durable: 0,
+                                ganker: 0,
+                                initiator: 2,
+                                jungler: 0,
+                                lane_support: 0,
+                                nuker: 0,
+                                pusher: 2,
+                                support: 0)
+
+      terrorblade.builds.create(name: 'Carry/Jungler',
+                                carry: 3,
+                                disabler: 0,
+                                durable: 0,
+                                ganker: 0,
+                                initiator: 0,
+                                jungler: 2,
+                                lane_supprot: 0,
+                                nuker: 0,
+                                pusher: 2,
+                                support: 0)
 
       #dire intelligence
       bane = FactoryGirl.create(:hero, name: "Bane",
