@@ -1,4 +1,4 @@
-class @HeroAutoComplete
+class @FriendlyHeroAutoComplete
 
   constructor: (@container, @data_getter) ->
     $(@container).autocomplete
@@ -9,12 +9,13 @@ class @HeroAutoComplete
       focus: @input_focused
 
   convert_ui_data: (hero) ->
-    name: hero.label
+    name: hero.label.match(/\((.*?)\)/, '')[1]
+    hero_name: hero.label.replace(/\ \(.*?\)/, '')
     id: hero.value
 
   load_data: (request, response) =>
     $.ajax
-      url: '/remaining_heroes'
+      url: '/remaining_builds'
       data: @data_getter()
       dataType: 'json'
       type: 'POST'

@@ -1330,7 +1330,7 @@ namespace :db do
                                 pusher: 0,
                                 support: 0)
 
-      enchanterss.builds.create(name: 'Pusher',
+      enchantress.builds.create(name: 'Pusher',
                                 carry: 0,
                                 disabler: 1,
                                 durable: 2,
@@ -1383,7 +1383,7 @@ namespace :db do
                                     lane_support: 0,
                                     nuker: 0,
                                     pusher: 0,
-                                    support; 0)
+                                    support: 0)
 
       tinker = FactoryGirl.create(:hero, name: "Tinker",
                                          team: :radiant,
@@ -2314,7 +2314,7 @@ namespace :db do
                                 ganker: 0,
                                 initiator: 0,
                                 jungler: 2,
-                                lane_supprot: 0,
+                                lane_support: 0,
                                 nuker: 0,
                                 pusher: 2,
                                 support: 0)
@@ -2335,9 +2335,29 @@ namespace :db do
                                        viable_mid: 2,
                                        viable_offlane: 0)
 
-      bane.add_role(:disabler, 3)
-      bane.add_role(:nuker, 2)
-      bane.add_role(:support, 1)
+      bane.builds.create(name: 'Ganker',
+                         carry: 0,
+                         disabler: 3,
+                         durable: 0,
+                         ganker: 3,
+                         initiator: 0,
+                         jungler: 0,
+                         lane_support: 0,
+                         nuker: 2,
+                         pusher: 0,
+                         support: 0)
+
+      bane.builds.create(name: 'Support',
+                         carry: 0,
+                         disabler: 3,
+                         durable: 0,
+                         ganker: 0,
+                         initiator: 1,
+                         jungler: 0,
+                         lane_support: 2,
+                         nuker: 2,
+                         pusher: 0,
+                         support: 2)
 
       lich = FactoryGirl.create(:hero, name: "Lich",
                                        team: :dire,
@@ -2354,9 +2374,17 @@ namespace :db do
                                        viable_mid: 0,
                                        viable_offlane: 0)
 
-      lich.add_role(:support, 2)
-      lich.add_role(:lane_support, 3)
-      lich.add_role(:nuker, 1)
+      lich.builds.create(name: 'Support',
+                         carry: 0,
+                         disabler: 0,
+                         durable: 0,
+                         ganker: 2,
+                         initiator: 0,
+                         jungler: 0,
+                         lane_support: 3,
+                         nuker: 0,
+                         pusher: 0,
+                         support: 2)
 
       lion = FactoryGirl.create(:hero, name: "Lion",
                                        team: :dire,
@@ -2373,10 +2401,17 @@ namespace :db do
                                        viable_mid: 1,
                                        viable_offlane: 0)
 
-      lion.add_role(:disabler, 3)
-      lion.add_role(:nuker, 3)
-      lion.add_role(:lane_support, 2)
-      lion.add_role(:support, 1)
+      lion.builds.create(name: 'Support',
+                         carry: 0,
+                         disabler: 3,
+                         durable: 0,
+                         ganker: 0,
+                         initiator: 0,
+                         jungler: 0,
+                         lane_support: 3,
+                         nuker: 3,
+                         pusher: 0,
+                         support: 2)
 
       witch_doctor = FactoryGirl.create(:hero, name: "Witch Doctor",
                                                team: :dire,
@@ -2393,8 +2428,29 @@ namespace :db do
                                                viable_mid: 1,
                                                viable_offlane: 0)
 
-      witch_doctor.add_role(:support, 3)
-      witch_doctor.add_role(:disabler, 2)
+      witch_doctor.builds.create(name: 'Ganker',
+                                 carry: 0,
+                                 disabler: 2,
+                                 durable: 0,
+                                 ganker: 3,
+                                 initiator: 0,
+                                 jungler: 0,
+                                 lane_support: 0,
+                                 nuker: 2,
+                                 pusher: 0,
+                                 support: 0)
+
+      witch_doctor.builds.create(name: 'Support',
+                                 carry: 0,
+                                 disabler: 2,
+                                 durable: 0,
+                                 ganker: 1,
+                                 initiator: 0,
+                                 jungler: 0,
+                                 lane_support: 2,
+                                 nuker: 1,
+                                 pusher: 0,
+                                 support: 3)
 
       enigma = FactoryGirl.create(:hero, name: "Enigma",
                                          team: :dire,
@@ -2403,10 +2459,29 @@ namespace :db do
                                          viable_mid: 0,
                                          viable_offlane: 0)
 
-      enigma.add_role(:disabler, 2)
-      enigma.add_role(:initiator, 2)
-      enigma.add_role(:jungler, 2)
-      enigma.add_role(:pusher, 2)
+      enigma.builds.create(name: 'Initiator',
+                           carry: 0,
+                           disabler: 2,
+                           durable: 0,
+                           ganker: 2,
+                           initiator: 3,
+                           jungler: 0,
+                           lane_support: 0,
+                           nuker: 0,
+                           pusher: 0,
+                           support: 0)
+
+      enigma.builds.create(name: 'Pusher',
+                           carry: 0,
+                           disabler: 1,
+                           durable: 0,
+                           ganker: 1,
+                           initiator: 3,
+                           jungler: 3,
+                           lane_support: 0,
+                           nuker: 0,
+                           pusher: 3,
+                           support: 0)
 
       necrophos = FactoryGirl.create(:hero, name: "Necrophos",
                                             team: :dire,
@@ -2415,9 +2490,17 @@ namespace :db do
                                             viable_mid: 2,
                                             viable_offlane: 0)
 
-      necrophos.add_role(:support, 2)
-      necrophos.add_role(:durable, 2)
-      necrophos.add_role(:carry, 2)
+      necrophos.builds.create(name: 'Semi-Carry',
+                              carry: 1,
+                              disabler: 0,
+                              durable: 0,
+                              ganker: 0,
+                              initiator: 0,
+                              jungler: 0,
+                              lane_support: 0,
+                              nuker: 3,
+                              pusher: 0,
+                              support: 3)
 
       warlock = FactoryGirl.create(:hero, name: "Warlock",
                                           team: :dire,
@@ -2426,9 +2509,17 @@ namespace :db do
                                           viable_mid: 0,
                                           viable_offlane: 0)
 
-      warlock.add_role(:initiator, 3)
-      warlock.add_role(:lane_support, 3)
-      warlock.add_role(:disabler, 1)
+      warlock.builds.create(name: 'Support',
+                            carry: 0,
+                            disabler: 1,
+                            durable: 0,
+                            ganker: 0,
+                            initiator: 2,
+                            jungler: 0,
+                            lane_support: 2,
+                            nuker: 3,
+                            pusher: 0,
+                            support: 2)
 
       queen_of_pain = FactoryGirl.create(:hero, name: "Queen of Pain",
                                                 team: :dire,
@@ -2437,8 +2528,17 @@ namespace :db do
                                                 viable_mid: 3,
                                                 viable_offlane: 0)
 
-      queen_of_pain.add_role(:nuker, 2)
-      queen_of_pain.add_role(:carry, 2)
+      queen_of_pain.builds.create(name: 'Ganker',
+                                  carry: 1,
+                                  disabler: 0,
+                                  durable: 0,
+                                  ganker: 3,
+                                  initiator: 0,
+                                  jungler: 0,
+                                  lane_support: 0,
+                                  nuker: 3,
+                                  pusher: 0,
+                                  support: 0)
 
       death_prophet = FactoryGirl.create(:hero, name: "Death Prophet",
                                                 team: :dire,
@@ -2447,9 +2547,29 @@ namespace :db do
                                                 viable_mid: 2,
                                                 viable_offlane: 0)
 
-      death_prophet.add_role(:pusher, 3)
-      death_prophet.add_role(:nuker, 2)
-      death_prophet.add_role(:durable, 2)
+      death_prophet.builds.create(name: 'Pusher',
+                                  carry: 0,
+                                  disabler: 1,
+                                  durable: 2,
+                                  ganker: 0,
+                                  initiator: 0,
+                                  jungler: 0,
+                                  lane_support: 0,
+                                  nuker: 0,
+                                  pusher: 3,
+                                  support: 0)
+
+      death_prophet.builds.create(name: 'Ganker',
+                                  carry: 0,
+                                  disabler: 1,
+                                  durable: 2,
+                                  ganker: 3,
+                                  initiator: 0,
+                                  jungler: 0,
+                                  lane_support: 0,
+                                  nuker: 2,
+                                  pusher: 1,
+                                  support: 0)
 
       pugna = FactoryGirl.create(:hero, name: "Pugna",
                                         team: :dire,
@@ -2458,9 +2578,17 @@ namespace :db do
                                         viable_mid: 1,
                                         viable_offlane: 1)
 
-      pugna.add_role(:nuker, 2)
-      pugna.add_role(:pusher, 2)
-      pugna.add_role(:support, 2)
+      pugna.builds.create(name: 'Pusher',
+                          carry: 0,
+                          disabler: 0,
+                          durable: 0,
+                          ganker: 0,
+                          initiator: 0,
+                          jungler: 0,
+                          lane_support: 0,
+                          nuker: 2,
+                          pusher: 3,
+                          support: 2)
 
       dazzle = FactoryGirl.create(:hero, name: "Dazzle",
                                          team: :dire,
@@ -2469,7 +2597,17 @@ namespace :db do
                                          viable_mid: 0,
                                          viable_offlane: 0)
 
-      dazzle.add_role(:lane_support, 3)
+      dazzle.builds.create(name: 'Support',
+                           carry: 0,
+                           disabler: 0,
+                           durable: 0,
+                           ganker: 0,
+                           initiator: 0,
+                           jungler: 0,
+                           lane_support: 3,
+                           nuker: 0,
+                           pusher: 0,
+                           support: 3)
 
       leshrac = FactoryGirl.create(:hero, name: "Leshrac",
                                           team: :dire,
@@ -2478,10 +2616,17 @@ namespace :db do
                                           viable_mid: 0,
                                           viable_offlane: 1)
 
-      leshrac.add_role(:nuker, 3)
-      leshrac.add_role(:pusher, 3)
-      leshrac.add_role(:disabler, 1)
-      leshrac.add_role(:support, 1)
+      leshrac.builds.create(name: 'Pusher',
+                            carry: 0,
+                            disabler: 1,
+                            durable: 0,
+                            ganker: 0,
+                            initiator: 0,
+                            jungler: 0,
+                            lane_support: 0,
+                            nuker: 3,
+                            pusher: 3,
+                            support: 1)
 
       dark_seer = FactoryGirl.create(:hero, name: "Dark Seer",
                                             team: :dire,
@@ -2490,8 +2635,17 @@ namespace :db do
                                             viable_mid: 1,
                                             viable_offlane: 3)
 
-      dark_seer.add_role(:initiator, 3)
-      dark_seer.add_role(:nuker, 1)
+      dark_seer.builds.create(name: 'Initiator',
+                              carry: 0,
+                              disabler: 0,
+                              durable: 1,
+                              ganker: 0,
+                              initiator: 3,
+                              jungler: 0,
+                              lane_support: 0,
+                              nuker: 1,
+                              pusher: 1,
+                              support: 1)
 
       batrider = FactoryGirl.create(:hero, name: "Batrider",
                                            team: :dire,
@@ -2500,9 +2654,17 @@ namespace :db do
                                            viable_mid: 3,
                                            viable_offlane: 2)
 
-      batrider.add_role(:initiator, 3)
-      batrider.add_role(:disabler, 2)
-      batrider.add_role(:nuker, 2)
+      batrider.builds.create(name: 'Initiator',
+                             carry: 0,
+                             disabler: 2,
+                             durable: 0,
+                             ganker: 0,
+                             initiator: 3,
+                             jungler: 0,
+                             lane_support: 0,
+                             nuker: 2,
+                             pusher: 0,
+                             support: 0)
 
       ancient_apparition = FactoryGirl.create(:hero, name: "Ancient Apparition",
                                                      team: :dire,
@@ -2511,8 +2673,17 @@ namespace :db do
                                                      viable_mid: 0,
                                                      viable_offlane: 0)
 
-      ancient_apparition.add_role(:support, 3)
-      ancient_apparition.add_role(:disabler, 2)
+      ancient_apparition.builds.create(name: 'Support',
+                                       carry: 0,
+                                       disabler: 2,
+                                       durable: 0,
+                                       ganker: 0,
+                                       initiator: 0,
+                                       jungler: 0,
+                                       lane_support: 1,
+                                       nuker: 0,
+                                       pusher: 0,
+                                       support: 3)
 
       invoker = FactoryGirl.create(:hero, name: "Invoker",
                                           team: :dire,
@@ -2521,9 +2692,41 @@ namespace :db do
                                           viable_mid: 3,
                                           viable_offlane: 1)
 
-      invoker.add_role(:carry, 2)
-      invoker.add_role(:nuker, 2)
-      invoker.add_role(:initiator, 2)
+      invoker.builds.create(name: 'Carry',
+                            carry: 3,
+                            disabler: 2,
+                            durable: 0,
+                            ganker: 0,
+                            initiator: 3,
+                            jungler: 0,
+                            lane_support: 0,
+                            nuker: 0,
+                            pusher: 0,
+                            support: 0)
+
+      invoker.builds.create(name: 'Ganker',
+                            carry: 1,
+                            disabler: 2,
+                            durable: 0,
+                            ganker: 3,
+                            initiator: 3,
+                            jungler: 0,
+                            lane_support: 0,
+                            nuker: 0,
+                            pusher: 0,
+                            support: 0)
+
+      invoker.builds.create(name: 'Pusher',
+                            carry: 0,
+                            disabler: 0,
+                            durable: 0,
+                            ganker: 0,
+                            initiator: 3,
+                            jungler: 0,
+                            lane_support: 0,
+                            nuker: 0,
+                            pusher: 3,
+                            support: 0)
 
       outworld_devourer = FactoryGirl.create(:hero, name: "Outworld Devourer",
                                                     team: :dire,
@@ -2540,7 +2743,17 @@ namespace :db do
                                                     viable_mid: 3,
                                                     viable_offlane: 0)
 
-      outworld_devourer.add_role(:carry, 3)
+      outworld_devourer.builds.create(name: 'Carry',
+                                      carry: 3,
+                                      disabler: 1,
+                                      durable: 0,
+                                      ganker: 0,
+                                      initiator: 0,
+                                      jungler: 0,
+                                      lane_support: 0,
+                                      nuker: 3,
+                                      pusher: 0,
+                                      support: 0)
 
       shadow_demon = FactoryGirl.create(:hero, name: "Shadow Demon",
                                                team: :dire,
@@ -2549,9 +2762,17 @@ namespace :db do
                                                viable_mid: 1,
                                                viable_offlane: 0)
 
-      shadow_demon.add_role(:support, 3)
-      shadow_demon.add_role(:disabler, 2)
-      shadow_demon.add_role(:nuker, 1)
+      shadow_demon.builds.create(name: 'Support',
+                                 carry: 0,
+                                 disabler: 2,
+                                 durable: 0,
+                                 ganker: 0,
+                                 initiator: 0,
+                                 jungler: 0,
+                                 lane_support: 1,
+                                 nuker: 1,
+                                 pusher: 0,
+                                 support: 3)
 
       visage = FactoryGirl.create(:hero, name: "Visage",
                                          team: :dire,
@@ -2560,9 +2781,29 @@ namespace :db do
                                          viable_mid: 1,
                                          viable_offlane: 1)
 
-      visage.add_role(:nuker, 3)
-      visage.add_role(:durable, 2)
-      visage.add_role(:disabler, 1)
+      visage.builds.create(name: 'Ganker',
+                           carry: 0,
+                           disabler: 1,
+                           durable: 3,
+                           ganker: 3,
+                           initiator: 0,
+                           jungler: 0,
+                           lane_support: 0,
+                           nuker: 0,
+                           pusher: 0,
+                           support: 1)
+
+      visage.builds.create(name: 'Nuker',
+                           carry: 0,
+                           disabler: 1,
+                           durable: 3,
+                           ganker: 0,
+                           initiator: 0,
+                           jungler: 0,
+                           lane_support: 0,
+                           nuker: 3,
+                           pusher: 0,
+                           support: 1)
 
       Hero.all.each {|hero| hero.save_role_elements }
     end

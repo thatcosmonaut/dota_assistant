@@ -6,8 +6,8 @@ chai.Assertion.addProperty 'empty_hero_box', ->
 chai.Assertion.addMethod 'hero_box_populated_with_hero', ({name, id}) ->
   new chai.Assertion(@_obj.isEmpty()).to.be.false
 
-@sven = name: 'Sven', id: 2
-@axe = name: 'Axe', id: 57
-@earthshaker = name: 'Earthshaker', id: 1
-@tiny = name: 'Tiny', id: 3
-@kunkka = name: 'Kunkka', id: 4
+@sven = hero_name: 'Sven', name: 'Carry', id: 2
+@axe = hero_name: 'Axe', name: 'Initiator', id: 57
+@earthshaker = hero_name: 'Earthshaker', name: 'Initiator', id: 1
+@tiny = hero_name: 'Tiny', name: 'Carry', id: 3
+@kunkka = hero_name: 'Kunkka', name: 'Initiator', id: 4

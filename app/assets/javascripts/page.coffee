@@ -4,11 +4,11 @@ class @Page
     enemy_container = $('#enemy-autocomplete')
     ban_container = $('#ban-autocomplete')
 
-    new HeroAutoComplete(friendly_container, @getRequestData)
+    new FriendlyHeroAutoComplete(friendly_container, @getRequestData)
     new HeroAutoComplete(enemy_container, @getRequestData)
     new HeroAutoComplete(ban_container, @getRequestData)
 
-    @your_team_list = new TeamList $(".your-team .characters"), 4
+    @your_team_list = new FriendlyTeamList $(".your-team .characters"), 4
     @enemy_list = new TeamList $(".enemy-team .characters"), 5
     @ban_list = new TeamList $(".characters.bans"), 10
 
@@ -37,7 +37,7 @@ class @Page
 
     $('.character.recommendation').click (event) =>
       box = @recommend_list.boxes[$(event.currentTarget).index()]
-      @your_team_list.addHero( { id: box.heroId(), name: box.heroName() } )
+      @your_team_list.addHero( { name: box.name(), id: box.heroId(), hero_name: box.heroName() } )
       @submitForm()
 
     $('.character.ban').click (event) =>

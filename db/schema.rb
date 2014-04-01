@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326210432) do
+ActiveRecord::Schema.define(version: 20140331233930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,6 @@ ActiveRecord::Schema.define(version: 20140326210432) do
     t.integer "hero_id"
   end
 
-  create_table "counters", force: true do |t|
-    t.integer "weak_id"
-    t.integer "strong_id"
-  end
-
   create_table "heroes", force: true do |t|
     t.integer "strength"
     t.integer "agility"
@@ -52,18 +47,6 @@ ActiveRecord::Schema.define(version: 20140326210432) do
     t.text    "role_elements"
     t.string  "team"
     t.integer "viable_offlane"
-  end
-
-  create_table "heroes_roles", force: true do |t|
-    t.integer "hero_id"
-    t.integer "role_id"
-    t.integer "value"
-  end
-
-  add_index "heroes_roles", ["hero_id", "role_id"], name: "index_heroes_roles_on_hero_id_and_role_id", using: :btree
-
-  create_table "roles", force: true do |t|
-    t.string "name"
   end
 
 end

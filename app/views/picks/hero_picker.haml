@@ -5,23 +5,27 @@
         .box.your-team
           %h2 Your Team
           .strategy-selector
-            %label= select_tag "composition", options_for_select([["Laning...", "ideal_balanced_vector"],["2-1-2", "ideal_balanced_vector"], ["Jungling", "ideal_jungling_vector"], ["Trilane", "ideal_trilane_vector"]])
+            %label= select_tag "composition", options_for_select([["Laning...", "balanced"],["2-1-2", "balanced"], ["Jungling", "jungling"], ["Trilane", "trilane"]])
           .search
             = text_field_tag :text, "", class: 'text-input', id: 'friendly-autocomplete', placeholder: "Add a character...", class: "search"
           .characters.cf
             .character.friendly
+              .build
               %label.hero_big
               .name
               = hidden_field_tag "friendlies[]", ""
             .character.friendly
+              .build
               %label.hero_big
               .name
               = hidden_field_tag "friendlies[]", ""
             .character.friendly
+              .build
               %label.hero_big
               .name
               = hidden_field_tag "friendlies[]", ""
             .character.friendly
+              .build
               %label.hero_big
               .name
               = hidden_field_tag "friendlies[]", ""
@@ -45,18 +49,23 @@
           %h3 We Recommend
           .characters.cf.recommend-these
             .character.recommendation
+              .build
               %label.hero_big
               .name
             .character.recommendation
+              .build
               %label.hero_big
               .name
             .character.recommendation
+              .build
               %label.hero_big
               .name
             .character.recommendation
+              .build
               %label.hero_big
               .name
             .character.recommendation
+              .build
               %label.hero_big
               .name
           %h3 Avoid

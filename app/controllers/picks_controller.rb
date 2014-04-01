@@ -12,15 +12,15 @@ class PicksController < ApplicationController
   end
 
   def recommendation
-    @friendlies = Hero.where(id: params[:friendlies])
+    @friendlies = Build.where(id: params[:friendlies])
     @enemies = Hero.where(id: params[:enemies])
     @bans = Hero.where(id: params[:bans])
 
     @recommendation, @worst = Recommendations.pick_recommendations @friendlies, @enemies, @bans, params[:composition].upcase if @friendlies.count > 0
 
-    if (@friendlies + @enemies).length > 3
-      @ban_recommendations = (Recommendations.pick_recommendations @enemies, @friendlies, @bans, 'IDEAL_BALANCED_VECTOR').first
-    end
+    # if (@friendlies + @enemies).length > 3
+    #   @ban_recommendations = (Recommendations.pick_recommendations @enemies, @friendlies, @bans, 'IDEAL_BALANCED_VECTOR').first
+    # end
 
     @composition = COMPOSITION[params[:composition]]
 
@@ -32,12 +32,25 @@ class PicksController < ApplicationController
     end
   end
 
+  def remaining_builds
+    params[:friendlies] ||= []
+    params[:enemies] ||= []
+    params[:bans] ||= []
+
+    @remaining = Build.where.not(hero_id: params[:friendlies] + params[:enemies] + params[:bans])
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def remaining_heroes
     params[:friendlies] ||= []
     params[:enemies] ||= []
     params[:bans] ||= []
 
-    @remaining = Hero.where.not(id: params[:friendlies] + params[:enemies] + params[:bans])
+    friendly_hero_ids = Build.where(id: params[:friendlies]).pluck(:hero_id)
+
+    @remaining = Hero.where.not(id: friendly_hero_ids + params[:enemies] + params[:bans])
     respond_to do |format|
       format.json
     end

@@ -14,7 +14,7 @@ describe 'HeroBox', ->
   describe 'show', ->
 
     beforeEach ->
-      @hero_box.show name: 'Sven', id: 2
+      @hero_box.show sven
 
     it 'has the correct label class', ->
       expect($('.character label').hasClass('sven')).to.be.true
@@ -30,7 +30,7 @@ describe 'HeroBox', ->
     context 'there is a hero in the box', ->
 
       beforeEach ->
-        @hero_box.show name: 'Sven', id: 2
+        @hero_box.show sven
 
       it 'returns the hero id', ->
         expect(@hero_box.heroId()).to.equal 2
@@ -45,7 +45,7 @@ describe 'HeroBox', ->
     context 'there is a hero in the box', ->
 
       beforeEach ->
-        @hero_box.show name: 'Sven', id: 2
+        @hero_box.show sven
 
       it 'returns the hero name', ->
         expect(@hero_box.heroName()).to.equal 'Sven'
@@ -74,22 +74,22 @@ describe 'HeroBox', ->
       expect($('.character').data('hero-id')).to.be.undefined
 
     it 'sets hero_data to null', ->
-      expect(@hero_box.hero_data).to.be.null
+      expect(@hero_box.build_data).to.be.null
 
   describe 'heroCssName', ->
 
     context 'box contains a hero', ->
 
       it 'lowercases the string', ->
-        @hero_box.show name: 'Sven', id: 1
+        @hero_box.show hero_name: 'Sven', name: 'Carry', id: 1
         expect(@hero_box.heroCssName()).to.equal 'sven'
 
       it 'replaces the spaces with dashes', ->
-        @hero_box.show name: 'Night Stalker', id: 1
+        @hero_box.show hero_name: 'Night Stalker', name: 'Ganker', id: 1
         expect(@hero_box.heroCssName()).to.equal 'night-stalker'
 
       it 'removes apostrophes', ->
-        @hero_box.show name: "Assbear's", id: 1
+        @hero_box.show hero_name: "Assbear's", name: 'Initiator' , id: 1
         expect(@hero_box.heroCssName()).to.equal 'assbears'
 
     context 'box is empty', ->
