@@ -18,9 +18,11 @@ class PicksController < ApplicationController
 
     @recommendation, @worst = Recommendations.pick_recommendations @friendlies, @enemies, @bans, params[:composition].upcase if @friendlies.count > 0
 
-    # if (@friendlies + @enemies).length > 3
-    #   @ban_recommendations = (Recommendations.pick_recommendations @enemies, @friendlies, @bans, 'IDEAL_BALANCED_VECTOR').first
-    # end
+    if (@friendlies + @enemies).length > 3
+      default_build_ids = @enemies.map { |enemy| enemy.builds.first.id }
+      default_builds = Build.where(id: default_build_ids, hero_id: params[:enemies])
+      @ban_recommendations = (Recommendations.pick_recommendations default_builds, @friendlies, @bans, 'BALANCED').first
+    end
 
     @composition = COMPOSITION[params[:composition]]
 
@@ -37,7 +39,9 @@ class PicksController < ApplicationController
     params[:enemies] ||= []
     params[:bans] ||= []
 
-    @remaining = Build.where.not(hero_id: params[:friendlies] + params[:enemies] + params[:bans])
+    friendly_hero_ids = Build.where(id: params[:friendlies]).pluck(:hero_id)
+
+    @remaining = Build.where.not(hero_id: friendly_hero_ids + params[:enemies] + params[:bans])
     respond_to do |format|
       format.json
     end
