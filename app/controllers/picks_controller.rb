@@ -18,7 +18,7 @@ class PicksController < ApplicationController
 
     @recommendation, @worst = Recommendations.pick_recommendations @friendlies, @enemies, @bans, params[:composition].upcase if @friendlies.count > 0
 
-    if (@friendlies + @enemies).length > 3
+    if @enemies.count > 1
       default_build_ids = @enemies.map { |enemy| enemy.builds.first.id }
       default_builds = Build.where(id: default_build_ids, hero_id: params[:enemies])
       @ban_recommendations = (Recommendations.pick_recommendations default_builds, @friendlies, @bans, 'BALANCED').first

@@ -1,6 +1,6 @@
 namespace :db do
   desc 'Adds all hero related data to the database'
-  task 'populate' => ['seed:roles', 'seed:heroes']
+  task 'populate' => ['seed:heroes']
 
   namespace :seed do
     desc 'Adds heroes to the database'
@@ -756,7 +756,7 @@ namespace :db do
                            pusher: 0,
                            support: 0)
 
-      mirana.builds.create(name: 'Initiator/Support',
+      mirana.builds.create(name: 'Init/Sup',
                            carry: 0,
                            disabler: 2,
                            durable: 0,
@@ -1530,7 +1530,7 @@ namespace :db do
                                             viable_mid: 0,
                                             viable_offlane: 0)
 
-      disruptor.builds.create(name: 'Initiator/Support',
+      disruptor.builds.create(name: 'Init/Sup',
                               carry: 0,
                               disabler: 1,
                               durable: 0,
@@ -2257,7 +2257,7 @@ namespace :db do
                                         viable_mid: 2,
                                         viable_offlane: 0)
 
-      slark.builds.create(name: 'Carry/Ganker',
+      slark.builds.create(name: 'Carry/Gank',
                           carry: 3,
                           disabler: 0,
                           durable: 0,
@@ -2307,7 +2307,7 @@ namespace :db do
                                 pusher: 2,
                                 support: 0)
 
-      terrorblade.builds.create(name: 'Carry/Jungler',
+      terrorblade.builds.create(name: 'Carry/Jungle',
                                 carry: 3,
                                 disabler: 0,
                                 durable: 0,
@@ -2804,23 +2804,7 @@ namespace :db do
                            nuker: 3,
                            pusher: 0,
                            support: 1)
-
-      Hero.all.each {|hero| hero.save_role_elements }
     end
 
-
-    desc 'Adds roles to the database'
-    task 'roles' => 'environment' do
-      FactoryGirl.create(:role, name: :lane_support)
-      FactoryGirl.create(:role, name: :carry)
-      FactoryGirl.create(:role, name: :disabler)
-      FactoryGirl.create(:role, name: :ganker)
-      FactoryGirl.create(:role, name: :nuker)
-      FactoryGirl.create(:role, name: :initiator)
-      FactoryGirl.create(:role, name: :jungler)
-      FactoryGirl.create(:role, name: :pusher)
-      FactoryGirl.create(:role, name: :durable)
-      FactoryGirl.create(:role, name: :support)
-    end
   end
 end
