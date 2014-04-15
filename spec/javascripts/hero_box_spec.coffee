@@ -2,9 +2,6 @@
 #= require jquery
 #= require application
 
-chai.Assertion.addMethod 'have_text', (text) ->
-  new chai.Assertion(@_obj.text()).to.equal text
-
 describe 'HeroBox', ->
 
   beforeEach ->
@@ -74,22 +71,22 @@ describe 'HeroBox', ->
       expect($('.character').data('hero-id')).to.be.undefined
 
     it 'sets hero_data to null', ->
-      expect(@hero_box.build_data).to.be.null
+      expect(@hero_box.hero_data).to.be.null
 
   describe 'heroCssName', ->
 
     context 'box contains a hero', ->
 
       it 'lowercases the string', ->
-        @hero_box.show hero_name: 'Sven', name: 'Carry', id: 1
+        @hero_box.show name: 'Sven', id: 1
         expect(@hero_box.heroCssName()).to.equal 'sven'
 
       it 'replaces the spaces with dashes', ->
-        @hero_box.show hero_name: 'Night Stalker', name: 'Ganker', id: 1
+        @hero_box.show name: 'Night Stalker', id: 1
         expect(@hero_box.heroCssName()).to.equal 'night-stalker'
 
       it 'removes apostrophes', ->
-        @hero_box.show hero_name: "Assbear's", name: 'Initiator' , id: 1
+        @hero_box.show name: "Assbear's", id: 1
         expect(@hero_box.heroCssName()).to.equal 'assbears'
 
     context 'box is empty', ->

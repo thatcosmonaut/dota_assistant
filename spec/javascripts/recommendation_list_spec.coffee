@@ -21,7 +21,7 @@ describe 'RecommendationList', ->
     context 'input contains heroes', ->
 
       beforeEach ->
-        @recommendation_list.populate [ sven, axe, earthshaker, tiny, kunkka ]
+        @recommendation_list.populate [ carry_sven, initiator_axe, initiator_earthshaker, carry_tiny, initiator_kunkka ]
 
       it 'fills first slot', ->
         expect(@recommendation_list.boxes[0]).to.be.a.hero_box_populated_with_hero sven
@@ -41,7 +41,7 @@ describe 'RecommendationList', ->
   describe 'clear', ->
 
     beforeEach ->
-      @recommendation_list.populate [ sven, axe, earthshaker, tiny, kunkka ]
+      @recommendation_list.populate [ carry_sven, initiator_axe, initiator_earthshaker, carry_tiny, initiator_kunkka ]
 
       @recommendation_list.clear()
 
@@ -52,7 +52,7 @@ describe 'RecommendationList', ->
   describe 'removeHero', ->
 
     beforeEach ->
-      @recommendation_list.populate [ sven, axe, earthshaker ]
+      @recommendation_list.populate [ carry_sven, initiator_axe, initiator_earthshaker ]
       @recommendation_list.removeHero 2
 
     it 'empties the given slot', ->

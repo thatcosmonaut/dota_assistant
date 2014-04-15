@@ -14,17 +14,17 @@ describe 'Page', ->
         enemy_team = new TeamList $('.enemy-team .characters')
         ban_list = new TeamList $('.characters.bans')
 
-        @page.your_team_list.addHero axe
-        @page.your_team_list.addHero earthshaker
-        @page.your_team_list.addHero sven
+        @page.your_team_list.addHero initiator_axe
+        @page.your_team_list.addHero initiator_earthshaker
+        @page.your_team_list.addHero carry_sven
 
-        @page.enemy_list.addHero hero_name: 'Lycanthrope', id: 67
-        @page.enemy_list.addHero hero_name: 'Dark Seer', id: 99
-        @page.enemy_list.addHero hero_name: 'Gyrocopter', id: 34
+        @page.enemy_list.addHero name: 'Lycanthrope', id: 67
+        @page.enemy_list.addHero name: 'Dark Seer', id: 99
+        @page.enemy_list.addHero name: 'Gyrocopter', id: 34
 
-        @page.ban_list.addHero hero_name: 'Centaur Warrunner', id: 14
-        @page.ban_list.addHero hero_name: 'Phantom Assassin', id: 77
-        @page.ban_list.addHero hero_name: 'Tusk', id: 17
+        @page.ban_list.addHero name: 'Centaur Warrunner', id: 14
+        @page.ban_list.addHero name: 'Phantom Assassin', id: 77
+        @page.ban_list.addHero name: 'Tusk', id: 17
 
       it 'returns hash with correct keys', ->
         expect(@page.getRequestData()).to.have.keys ['friendlies[]', 'enemies[]', 'bans[]', 'composition']
