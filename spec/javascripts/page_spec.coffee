@@ -14,9 +14,9 @@ describe 'Page', ->
         enemy_team = new TeamList $('.enemy-team .characters')
         ban_list = new TeamList $('.characters.bans')
 
-        @page.your_team_list.addHero name: 'Axe', id: 57
-        @page.your_team_list.addHero name: 'Earthshaker', id: 1
-        @page.your_team_list.addHero name: 'Sven', id: 2
+        @page.your_team_list.addHero initiator_axe
+        @page.your_team_list.addHero initiator_earthshaker
+        @page.your_team_list.addHero carry_sven
 
         @page.enemy_list.addHero name: 'Lycanthrope', id: 67
         @page.enemy_list.addHero name: 'Dark Seer', id: 99

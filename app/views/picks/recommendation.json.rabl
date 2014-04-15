@@ -2,19 +2,19 @@ object false
 
 if @recommendation
   child @recommendation => "recommendations" do
-    attributes :id, :name
+    attributes :id, :name, :hero_name
   end
 end
 
 if @worst
   child @worst => "worst" do
-    attributes :id, :name
+    attributes :id, :name, :hero_name
   end
 end
 
 if @ban_recommendations
   child @ban_recommendations => "ban_recommendations" do
-    attributes :id, :name
+    attributes :id, :hero_name
   end
 end
 

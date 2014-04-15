@@ -2,9 +2,6 @@
 #= require jquery
 #= require application
 
-chai.Assertion.addMethod 'have_text', (text) ->
-  new chai.Assertion(@_obj.text()).to.equal text
-
 describe 'HeroBox', ->
 
   beforeEach ->
@@ -14,7 +11,7 @@ describe 'HeroBox', ->
   describe 'show', ->
 
     beforeEach ->
-      @hero_box.show name: 'Sven', id: 2
+      @hero_box.show sven
 
     it 'has the correct label class', ->
       expect($('.character label').hasClass('sven')).to.be.true
@@ -30,7 +27,7 @@ describe 'HeroBox', ->
     context 'there is a hero in the box', ->
 
       beforeEach ->
-        @hero_box.show name: 'Sven', id: 2
+        @hero_box.show sven
 
       it 'returns the hero id', ->
         expect(@hero_box.heroId()).to.equal 2
@@ -45,7 +42,7 @@ describe 'HeroBox', ->
     context 'there is a hero in the box', ->
 
       beforeEach ->
-        @hero_box.show name: 'Sven', id: 2
+        @hero_box.show sven
 
       it 'returns the hero name', ->
         expect(@hero_box.heroName()).to.equal 'Sven'

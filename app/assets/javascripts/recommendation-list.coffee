@@ -4,7 +4,7 @@ class @RecommendationList
   constructor: (@container) ->
     @boxes = []
     for i in [0..4]
-      @boxes.push new HeroBox(@container.find('.character').eq(i))
+      @boxes.push new BuildBox(@container.find('.character').eq(i))
 
   populate: (data) ->
     @clear()
