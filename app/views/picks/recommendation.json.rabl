@@ -14,7 +14,7 @@ end
 
 if @ban_recommendations
   child @ban_recommendations => "ban_recommendations" do
-    attributes :id, :hero_name
+    attributes :id, :name
   end
 end
 
