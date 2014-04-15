@@ -14,7 +14,7 @@ class @Page
 
     @recommend_list = new RecommendationList $(".recommendations .characters.recommend-these")
     @avoid_list = new RecommendationList $(".recommendations .characters.avoid-these")
-    @ban_recommend_list = new RecommendationList $(".characters.ban-these")
+    @ban_recommend_list = new BanRecommendationList $(".characters.ban-these")
 
     @roles = new Roles(".roles")
 

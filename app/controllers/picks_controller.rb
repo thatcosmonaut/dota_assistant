@@ -21,7 +21,8 @@ class PicksController < ApplicationController
     if @enemies.count > 1
       default_build_ids = @enemies.map { |enemy| enemy.builds.first.id }
       default_builds = Build.where(id: default_build_ids, hero_id: params[:enemies])
-      @ban_recommendations = (Recommendations.pick_recommendations default_builds, @friendlies, @bans, 'BALANCED').first
+      recommended_banned_builds = (Recommendations.pick_recommendations default_builds, @friendlies, @bans, 'BALANCED').first
+      @ban_recommendations = recommended_banned_builds.map { |build| build.hero }
     end
 
     @composition = COMPOSITION[params[:composition]]
